@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+
+{% block title %}Quản Lý Cảnh Báo - StockBot Pro{% endblock %}
+
+{% block content %}
+<div class="space-y-8">
+    <!-- Header -->
+    <div class="flex items-center justify-between">
+        <div>
+            <h1 class="text-2xl font-bold text-white">Cấu Hình Cảnh Báo</h1>
+            <p class="text-gray-400">Thiết lập các mức giá và điều kiện cảnh báo</p>
+        </div>
+        <button hx-post="/api/alerts/refresh-all" hx-swap="none"
+            class="inline-flex items-center px-4 py-2 bg-violet-600 hover:bg-violet-700 text-white rounded-lg transition-colors shadow-lg shadow-violet-900/20">
+            <i class="fas fa-sync-alt mr-2"></i> Refresh All Rules
+        </button>
+    </div>
+
+    <!-- Alerts Table -->
+    <div class="glass-panel rounded-2xl overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm text-left text-gray-400">
+                <thead class="text-xs text-gray-500 uppercase bg-gray-800/50">
+                    <tr>
+                        <th class="px-6 py-3">Mã CP</th>
+                        <th class="px-6 py-3">Giá Hiện Tại</th>
+                        <th class="px-6 py-3">Levels (Hỗ trợ/Kháng cự)</th>
+                        <th class="px-6 py-3">Major Levels</th>
+                        <th class="px-6 py-3">Volume Marks</th>
+                        <th class="px-6 py-3 text-right">Thao Tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for alert in alerts_list %}
+                    <tr class="border-b border-gray-800 hover:bg-gray-800/50 transition-colors">
+                        <td class="px-6 py-4 font-bold text-white text-lg">{{ alert.ticker }}</td>
+                        <td class="px-6 py-4" hx-get="/api/realtime-price/{{ alert.ticker }}" hx-trigger="load"
+                            hx-swap="innerHTML">
+                            <span class="animate-pulse bg-gray-700 h-4 w-16 rounded inline-block"></span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex flex-wrap gap-1">
+                                {% for level in alert.levels %}
+                                <span class="bg-gray-700 text-gray-300 px-2 py-0.5 rounded text-xs">{{ level }}</span>
+                                {% endfor %}
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex flex-wrap gap-1">
+                                {% for level in alert.major_levels %}
+                                <span class="bg-violet-500/20 text-violet-400 px-2 py-0.5 rounded text-xs font-bold">{{
+                                    level }}</span>
+                                {% endfor %}
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex flex-wrap gap-1">
+                                {% for vol in alert.vol_marks %}
+                                <span class="bg-amber-500/20 text-amber-400 px-2 py-0.5 rounded text-xs">{{
+                                    "{:,}".format(vol) }}</span>
+                                {% endfor %}
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 text-right space-x-2">
+                            <button onclick="editAlert('{{ alert.ticker }}')" class="text-blue-400 hover:text-blue-300"
+                                title="Chỉnh sửa">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button hx-post="/api/alerts/refresh/{{ alert.ticker }}" hx-swap="none"
+                                class="text-violet-400 hover:text-violet-300" title="Refresh Rule">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="6" class="px-6 py-8 text-center text-gray-500">
+                            Chưa có cấu hình cảnh báo nào
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Alert Modal -->
+<div id="editAlertModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog"
+    aria-modal="true">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" aria-hidden="true"
+            onclick="document.getElementById('editAlertModal').classList.add('hidden')"></div>
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+        <div
+            class="inline-block align-bottom bg-gray-800 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full border border-gray-700">
+            <form id="editAlertForm" onsubmit="submitEditAlert(event)">
+                <div class="bg-gray-800 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <h3 class="text-lg leading-6 font-medium text-white mb-4" id="modal-title">Chỉnh Sửa Cảnh Báo: <span
+                            id="edit-ticker" class="text-emerald-500"></span></h3>
+                    <input type="hidden" name="ticker" id="edit-ticker-input">
+
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1">Levels (Phân cách bằng dấu
+                                phẩy)</label>
+                            <input type="text" name="levels" id="edit-levels"
+                                class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                            <p class="text-xs text-gray-500 mt-1">Ví dụ: 20.5, 21.0, 22.5</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1">Major Levels</label>
+                            <input type="text" name="major_levels" id="edit-major-levels"
+                                class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1">Volume Marks</label>
+                            <input type="text" name="vol_marks" id="edit-vol-marks"
+                                class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1">Ghi Chú</label>
+                            <textarea name="note" id="edit-note" rows="3"
+                                class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-700/50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button type="submit"
+                        class="w-full inline-flex justify-center rounded-lg border border-transparent shadow-sm px-4 py-2 bg-emerald-600 text-base font-medium text-white hover:bg-emerald-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">
+                        Lưu Thay Đổi
+                    </button>
+                    <button type="button"
+                        class="mt-3 w-full inline-flex justify-center rounded-lg border border-gray-600 shadow-sm px-4 py-2 bg-gray-800 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                        onclick="document.getElementById('editAlertModal').classList.add('hidden')">
+                        Hủy
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function editAlert(ticker) {
+        // Fetch current alert data first
+        fetch(`/api/alerts/get/${ticker}`)
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    const rule = data.rule;
+                    document.getElementById('edit-ticker').innerText = ticker;
+                    document.getElementById('edit-ticker-input').value = ticker;
+                    document.getElementById('edit-levels').value = rule.levels.join(', ');
+                    document.getElementById('edit-major-levels').value = rule.major_levels.join(', ');
+                    document.getElementById('edit-vol-marks').value = rule.vol_marks.join(', ');
+                    document.getElementById('edit-note').value = rule.note;
+
+                    document.getElementById('editAlertModal').classList.remove('hidden');
+                } else {
+                    alert(data.message);
+                }
+            });
+    }
+
+    function submitEditAlert(e) {
+        e.preventDefault();
+        const form = e.target;
+
+        const data = {
+            ticker: form.ticker.value,
+            levels: form.levels.value.split(',').map(x => x.trim()).filter(x => x),
+            major_levels: form.major_levels.value.split(',').map(x => x.trim()).filter(x => x),
+            vol_marks: form.vol_marks.value.split(',').map(x => x.trim()).filter(x => x),
+            note: form.note.value
+        };
+
+        fetch('/api/alerts/update', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    location.reload();
+                } else {
+                    alert(data.message);
+                }
+            });
+    }
+</script>
+{% endblock %}

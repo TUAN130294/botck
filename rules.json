@@ -1,0 +1,57 @@
+{
+  "MBS": {
+    "levels": [
+      39.7,
+      41.9
+    ],
+    "major_levels": [
+      41.9
+    ],
+    "vol_marks": [
+      1000000,
+      2000000
+    ],
+    "note": "Auto-refreshed from swing/EMA/VWAP"
+  },
+  "SHB": {
+    "levels": [
+      17.8,
+      19.7
+    ],
+    "major_levels": [
+      19.7
+    ],
+    "vol_marks": [
+      2140080,
+      2675100
+    ],
+    "note": "Auto-refreshed from swing/EMA/VWAP"
+  },
+  "SSI": {
+    "levels": [
+      33.0,
+      34.9,
+      35.0,
+      35.1,
+      35.2,
+      36.5,
+      40.0,
+      44.3
+    ],
+    "major_levels": [
+      35.0,
+      35.1,
+      36.5,
+      44.3
+    ],
+    "vol_marks": [
+      2279520,
+      2849400,
+      15802920,
+      19753650,
+      69405240,
+      86756550
+    ],
+    "note": "Auto-refreshed from swing/EMA/VWAP"
+  }
+}

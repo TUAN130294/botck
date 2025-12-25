@@ -1,0 +1,17 @@
+{
+  "models": [
+    {
+      "title": "Key4U GPT-3.5",
+      "provider": "openai",
+      "model": "gpt-3.5-turbo",
+      "apiBase": "https://api.key4u.shop/v1",
+      "apiKey": "sk-qJpDB6Yfs0mhqlhiw0lJeRy5IGUsSkK9cIxfumzQGOuWb08F"
+    }
+  ],
+  "tabAutocompleteModel": {
+    "provider": "openai",
+    "model": "gpt-3.5-turbo",
+    "apiBase": "https://api.key4u.shop/v1",
+    "apiKey": "sk-qJpDB6Yfs0mhqlhiw0lJeRy5IGUsSkK9cIxfumzQGOuWb08F"
+  }
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập - StockBot Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gray: {
+                            850: '#1f2937',
+                            900: '#111827',
+                            950: '#030712',
+                        },
+                        emerald: {
+                            450: '#10b981',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glass-panel {
+            background: rgba(31, 41, 55, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-950 h-screen flex items-center justify-center relative overflow-hidden">
+
+    <!-- Background Effects -->
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+        <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-emerald-500/10 rounded-full blur-[100px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/10 rounded-full blur-[100px]"></div>
+    </div>
+
+    <div class="w-full max-w-md z-10 px-4">
+        <div class="text-center mb-8">
+            <div
+                class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-500 mb-4">
+                <i class="fas fa-robot text-3xl"></i>
+            </div>
+            <h1 class="text-3xl font-bold text-white tracking-tight">StockBot<span class="text-emerald-500">Pro</span>
+            </h1>
+            <p class="text-gray-400 mt-2">Đăng nhập để quản lý danh mục đầu tư</p>
+        </div>
+
+        <div class="glass-panel rounded-2xl p-8 shadow-2xl">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+            <div class="mb-6 p-4 rounded-lg flex items-center text-sm
+                                  {% if category == 'error' %}bg-rose-500/10 text-rose-400 border border-rose-500/20
+                                  {% elif category == 'success' %}bg-emerald-500/10 text-emerald-400 border border-emerald-500/20
+                                  {% else %}bg-blue-500/10 text-blue-400 border border-blue-500/20{% endif %}">
+                <i
+                    class="fas {% if category == 'error' %}fa-exclamation-circle{% elif category == 'success' %}fa-check-circle{% else %}fa-info-circle{% endif %} mr-2"></i>
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            <form method="POST" action="{{ url_for('login') }}" class="space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-400 mb-1.5">Tên đăng nhập</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-user text-gray-500"></i>
+                        </div>
+                        <input type="text" name="username" required
+                            class="w-full bg-gray-800 border border-gray-700 rounded-lg pl-10 pr-4 py-2.5 text-white placeholder-gray-500 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                            placeholder="Nhập tên đăng nhập">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-400 mb-1.5">Mật khẩu</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-lock text-gray-500"></i>
+                        </div>
+                        <input type="password" name="password" required
+                            class="w-full bg-gray-800 border border-gray-700 rounded-lg pl-10 pr-4 py-2.5 text-white placeholder-gray-500 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                            placeholder="Nhập mật khẩu">
+                    </div>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-lg transition-all transform hover:scale-[1.02] shadow-lg shadow-emerald-900/20">
+                    Đăng Nhập
+                </button>
+            </form>
+        </div>
+
+        <p class="text-center text-gray-600 text-xs mt-8">
+            &copy; 2025 StockBot Pro. All rights reserved.
+        </p>
+    </div>
+</body>
+
+</html>

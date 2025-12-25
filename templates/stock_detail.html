@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+
+{% block title %}{{ ticker }} - Chi Tiết Cổ Phiếu{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <!-- Header -->
+    <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+            <h1 class="text-3xl font-bold text-white">{{ ticker }}</h1>
+            <div id="price-header" hx-get="/api/realtime-price/{{ ticker }}" hx-trigger="load, every 30s"
+                hx-swap="innerHTML">
+                <span class="animate-pulse bg-gray-700 h-8 w-32 rounded inline-block"></span>
+            </div>
+        </div>
+        <div class="flex space-x-2">
+            <button onclick="analyzeStock('{{ ticker }}')"
+                class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
+                <i class="fas fa-magic mr-2"></i> Phân Tích AI
+            </button>
+            <a href="{{ url_for('manage_stocks') }}"
+                class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors">
+                <i class="fas fa-arrow-left mr-2"></i> Quay Lại
+            </a>
+        </div>
+    </div>
+
+    <!-- Chart Section -->
+    <div class="glass-panel rounded-2xl p-1 overflow-hidden h-[500px] relative">
+        <div id="tv-chart" class="w-full h-full"></div>
+        <div id="chart-loading" class="absolute inset-0 flex items-center justify-center bg-gray-900/50 z-10">
+            <i class="fas fa-circle-notch fa-spin text-emerald-500 text-4xl"></i>
+        </div>
+    </div>
+
+    <!-- Analysis Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Technical Indicators -->
+        <div class="glass-panel rounded-2xl p-6">
+            <h3 class="text-lg font-bold text-white mb-4">Chỉ Báo Kỹ Thuật</h3>
+            <div id="tech-indicators" hx-get="/api/ai-analyze-levels/{{ ticker }}" hx-trigger="load"
+                hx-target="#tech-content" hx-indicator="#tech-loading">
+                <div id="tech-loading" class="flex justify-center py-4">
+                    <i class="fas fa-circle-notch fa-spin text-emerald-500"></i>
+                </div>
+                <div id="tech-content">
+                    <!-- Content will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Insights -->
+        <div class="glass-panel rounded-2xl p-6 lg:col-span-2">
+            <h3 class="text-lg font-bold text-white mb-4">AI Nhận Định</h3>
+            <div id="ai-insights" class="prose prose-invert max-w-none text-gray-300">
+                <!-- AI content loaded via JS or HTMX -->
+                <p class="text-gray-500 italic">Nhấn "Phân Tích AI" để xem nhận định chi tiết.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const chartContainer = document.getElementById('tv-chart');
+        const chart = LightweightCharts.createChart(chartContainer, {
+            layout: {
+                background: { color: '#111827' },
+                textColor: '#9ca3af',
+            },
+            grid: {
+                vertLines: { color: '#1f2937' },
+                horzLines: { color: '#1f2937' },
+            },
+            width: chartContainer.clientWidth,
+            height: chartContainer.clientHeight,
+            timeScale: {
+                timeVisible: true,
+                secondsVisible: false,
+            },
+        });
+
+        const candlestickSeries = chart.addCandlestickSeries({
+            upColor: '#10b981',
+            downColor: '#f43f5e',
+            borderVisible: false,
+            wickUpColor: '#10b981',
+            wickDownColor: '#f43f5e',
+        });
+
+        const volumeSeries = chart.addHistogramSeries({
+            color: '#26a69a',
+            priceFormat: {
+                type: 'volume',
+            },
+            priceScaleId: '', // set as an overlay by setting a blank priceScaleId
+        });
+
+        volumeSeries.priceScale().applyOptions({
+            scaleMargins: {
+                top: 0.8, // highest point of the series will be 70% away from the top
+                bottom: 0,
+            },
+        });
+
+        // Fetch data
+        fetch('/api/history/{{ ticker }}')
+            .then(r => r.json())
+            .then(data => {
+                document.getElementById('chart-loading').style.display = 'none';
+                if (data.success) {
+                    candlestickSeries.setData(data.data);
+
+                    const volumeData = data.data.map(d => ({
+                        time: d.time,
+                        value: d.volume,
+                        color: d.close >= d.open ? 'rgba(16, 185, 129, 0.5)' : 'rgba(244, 63, 94, 0.5)'
+                    }));
+                    volumeSeries.setData(volumeData);
+
+                    chart.timeScale().fitContent();
+                } else {
+                    chartContainer.innerHTML = `<div class="flex items-center justify-center h-full text-rose-500">${data.message}</div>`;
+                }
+            })
+            .catch(e => {
+                document.getElementById('chart-loading').style.display = 'none';
+                chartContainer.innerHTML = `<div class="flex items-center justify-center h-full text-rose-500">Lỗi tải biểu đồ</div>`;
+            });
+
+        // Resize chart on window resize
+        window.addEventListener('resize', () => {
+            chart.applyOptions({ width: chartContainer.clientWidth });
+        });
+    });
+
+    function analyzeStock(ticker) {
+        const container = document.getElementById('ai-insights');
+        container.innerHTML = '<div class="flex justify-center py-8"><i class="fas fa-circle-notch fa-spin text-emerald-500 text-3xl"></i></div>';
+
+        fetch(`/api/ai-analyze-levels/${ticker}`)
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    container.innerHTML = `
+                    <div class="whitespace-pre-line">${data.analysis}</div>
+                    <div class="mt-4 pt-4 border-t border-gray-700">
+                        <h4 class="font-bold text-white mb-2">Các mốc quan trọng:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            ${data.suggested_levels.map(l => `<span class="bg-blue-500/20 text-blue-400 px-2 py-1 rounded text-xs">${l}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+
+                    // Also update technical indicators if needed
+                    const techContent = document.getElementById('tech-content');
+                    if (techContent) {
+                        techContent.innerHTML = `
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-gray-800 p-3 rounded-lg">
+                                <p class="text-xs text-gray-400">Giá</p>
+                                <p class="font-bold text-white">${data.price_info.price.toLocaleString()}</p>
+                            </div>
+                            <div class="bg-gray-800 p-3 rounded-lg">
+                                <p class="text-xs text-gray-400">Thay đổi</p>
+                                <p class="font-bold ${data.price_info.change >= 0 ? 'text-emerald-400' : 'text-rose-400'}">
+                                    ${data.price_info.change.toFixed(2)}%
+                                </p>
+                            </div>
+                        </div>
+                    `;
+                    }
+                } else {
+                    container.innerHTML = `<div class="text-rose-400">Lỗi: ${data.message}</div>`;
+                }
+            });
+    }
+</script>
+{% endblock %}

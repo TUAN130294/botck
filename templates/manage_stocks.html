@@ -1,0 +1,358 @@
+{% extends "base.html" %}
+
+{% block title %}Quản Lý Danh Mục - StockBot Pro{% endblock %}
+
+{% block content %}
+<div class="space-y-8">
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+            <h1 class="text-2xl font-bold text-white">Quản Lý Danh Mục</h1>
+            <p class="text-gray-400">Theo dõi và quản lý các mã cổ phiếu của bạn</p>
+        </div>
+        <button onclick="document.getElementById('addStockModal').classList.remove('hidden')"
+            class="inline-flex items-center px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition-colors shadow-lg shadow-emerald-900/20">
+            <i class="fas fa-plus mr-2"></i> Thêm Mã Mới
+        </button>
+    </div>
+
+    <!-- HOLD Section -->
+    <div id="hold" class="glass-panel rounded-2xl overflow-hidden">
+        <div class="px-6 py-4 border-b border-gray-800 flex items-center justify-between bg-emerald-900/20">
+            <h2 class="text-lg font-bold text-white flex items-center">
+                <i class="fas fa-briefcase text-emerald-500 mr-2"></i> HOLD (Đang nắm giữ)
+            </h2>
+            <span class="bg-emerald-500/20 text-emerald-400 text-xs font-bold px-2 py-1 rounded-full">{{
+                hold_list|length }} mã</span>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm text-left text-gray-400">
+                <thead class="text-xs text-gray-500 uppercase bg-gray-800/50">
+                    <tr>
+                        <th class="px-6 py-3">Mã CP</th>
+                        <th class="px-6 py-3">Giá Hiện Tại</th>
+                        <th class="px-6 py-3">Thay Đổi</th>
+                        <th class="px-6 py-3 text-right">Thao Tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ticker in hold_list %}
+                    <tr class="border-b border-gray-800 hover:bg-gray-800/50 transition-colors group"
+                        id="row-{{ ticker }}">
+                        <td class="px-6 py-4 font-bold text-white text-lg">{{ ticker }}</td>
+                        <td class="px-6 py-4" hx-get="/api/realtime-price/{{ ticker }}" hx-trigger="load"
+                            hx-swap="innerHTML">
+                            <span class="animate-pulse bg-gray-700 h-4 w-16 rounded inline-block"></span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <!-- Change will be loaded with price -->
+                        </td>
+                        <td class="px-6 py-4 text-right space-x-2">
+                            <button onclick="analyzeStock('{{ ticker }}')" class="text-blue-400 hover:text-blue-300"
+                                title="Phân tích AI">
+                                <i class="fas fa-magic"></i>
+                            </button>
+                            <button onclick="removeStock('{{ ticker }}', 'HOLD')"
+                                class="text-gray-500 hover:text-rose-500 transition-colors" title="Xóa">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="4" class="px-6 py-8 text-center text-gray-500">
+                            Chưa có mã nào trong danh mục HOLD
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- PENDING Section -->
+    <div id="pending" class="glass-panel rounded-2xl overflow-hidden">
+        <div class="px-6 py-4 border-b border-gray-800 flex items-center justify-between bg-amber-900/20">
+            <h2 class="text-lg font-bold text-white flex items-center">
+                <i class="fas fa-clock text-amber-500 mr-2"></i> PENDING (Chờ Mua/Bán)
+            </h2>
+            <span class="bg-amber-500/20 text-amber-400 text-xs font-bold px-2 py-1 rounded-full">{{ pending_list|length
+                }} mã</span>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm text-left text-gray-400">
+                <thead class="text-xs text-gray-500 uppercase bg-gray-800/50">
+                    <tr>
+                        <th class="px-6 py-3">Mã CP</th>
+                        <th class="px-6 py-3">Giá Hiện Tại</th>
+                        <th class="px-6 py-3 text-right">Thao Tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ticker in pending_list %}
+                    <tr class="border-b border-gray-800 hover:bg-gray-800/50 transition-colors" id="row-{{ ticker }}">
+                        <td class="px-6 py-4 font-bold text-white text-lg">{{ ticker }}</td>
+                        <td class="px-6 py-4" hx-get="/api/realtime-price/{{ ticker }}" hx-trigger="load"
+                            hx-swap="innerHTML">
+                            <span class="animate-pulse bg-gray-700 h-4 w-16 rounded inline-block"></span>
+                        </td>
+                        <td class="px-6 py-4 text-right space-x-2">
+                            <button onclick="analyzeStock('{{ ticker }}')" class="text-blue-400 hover:text-blue-300"
+                                title="Phân tích AI">
+                                <i class="fas fa-magic"></i>
+                            </button>
+                            <button onclick="removeStock('{{ ticker }}', 'PENDING')"
+                                class="text-gray-500 hover:text-rose-500 transition-colors">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="3" class="px-6 py-8 text-center text-gray-500">
+                            Chưa có mã nào trong danh mục PENDING
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- WATCH Section -->
+    <div id="watch" class="glass-panel rounded-2xl overflow-hidden">
+        <div class="px-6 py-4 border-b border-gray-800 flex items-center justify-between bg-blue-900/20">
+            <h2 class="text-lg font-bold text-white flex items-center">
+                <i class="fas fa-eye text-blue-500 mr-2"></i> WATCH (Theo Dõi)
+            </h2>
+            <span class="bg-blue-500/20 text-blue-400 text-xs font-bold px-2 py-1 rounded-full">{{ watch_list|length }}
+                mã</span>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm text-left text-gray-400">
+                <thead class="text-xs text-gray-500 uppercase bg-gray-800/50">
+                    <tr>
+                        <th class="px-6 py-3">Mã CP</th>
+                        <th class="px-6 py-3">Giá Hiện Tại</th>
+                        <th class="px-6 py-3">Levels Quan Sát</th>
+                        <th class="px-6 py-3">Ghi Chú</th>
+                        <th class="px-6 py-3 text-right">Thao Tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in watch_list %}
+                    <tr class="border-b border-gray-800 hover:bg-gray-800/50 transition-colors"
+                        id="row-{{ item.ticker }}">
+                        <td class="px-6 py-4 font-bold text-white text-lg">{{ item.ticker }}</td>
+                        <td class="px-6 py-4" hx-get="/api/realtime-price/{{ item.ticker }}" hx-trigger="load"
+                            hx-swap="innerHTML">
+                            <span class="animate-pulse bg-gray-700 h-4 w-16 rounded inline-block"></span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex flex-wrap gap-1">
+                                {% for level in item.levels %}
+                                <span class="bg-gray-700 text-gray-300 px-2 py-0.5 rounded text-xs">{{ level }}</span>
+                                {% endfor %}
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 max-w-xs truncate" title="{{ item.note }}">
+                            {{ item.note }}
+                        </td>
+                        <td class="px-6 py-4 text-right space-x-2">
+                            <button
+                                onclick="editWatch('{{ item.ticker }}', {{ item.levels|tojson }}, '{{ item.note }}')"
+                                class="text-gray-400 hover:text-white">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button onclick="analyzeStock('{{ item.ticker }}')"
+                                class="text-blue-400 hover:text-blue-300" title="Phân tích AI">
+                                <i class="fas fa-magic"></i>
+                            </button>
+                            <button onclick="removeStock('{{ item.ticker }}', 'WATCH')"
+                                class="text-gray-500 hover:text-rose-500 transition-colors">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="5" class="px-6 py-8 text-center text-gray-500">
+                            Chưa có mã nào trong danh mục WATCH
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Analysis Modal -->
+<div id="analysisModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog"
+    aria-modal="true">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" aria-hidden="true"
+            onclick="document.getElementById('analysisModal').classList.add('hidden')"></div>
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+        <div
+            class="inline-block align-bottom bg-gray-800 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full border border-gray-700">
+            <div class="bg-gray-800 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <div class="flex justify-between items-start">
+                    <h3 class="text-lg leading-6 font-medium text-white mb-4" id="analysis-title">Phân Tích AI</h3>
+                    <button onclick="document.getElementById('analysisModal').classList.add('hidden')"
+                        class="text-gray-400 hover:text-white">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="analysis-content" class="space-y-4 text-gray-300">
+                    <div class="flex justify-center py-8">
+                        <i class="fas fa-circle-notch fa-spin text-emerald-500 text-3xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Stock Modal (Reused) -->
+<!-- ... (Same as dashboard, can be included via partial or block if structured differently, but for now I'll assume it's in base or I need to add it here if not present) -->
+<!-- Since I didn't put it in base, I should add it here or make it a shared partial. For speed, I'll add it here again or rely on the one in dashboard if they share templates? No, they are separate pages. -->
+<!-- I will add the modal here too. -->
+<div id="addStockModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog"
+    aria-modal="true">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" aria-hidden="true"
+            onclick="document.getElementById('addStockModal').classList.add('hidden')"></div>
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+        <div
+            class="inline-block align-bottom bg-gray-800 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full border border-gray-700">
+            <form id="addStockForm" onsubmit="submitAddStock(event)">
+                <div class="bg-gray-800 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <h3 class="text-lg leading-6 font-medium text-white mb-4">Thêm Cổ Phiếu Mới</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1">Mã Cổ Phiếu</label>
+                            <input type="text" name="ticker" required
+                                class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent uppercase"
+                                placeholder="VD: HPG">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1">Nhóm</label>
+                            <select name="group"
+                                class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                                <option value="WATCH">WATCH (Theo dõi)</option>
+                                <option value="HOLD">HOLD (Nắm giữ)</option>
+                                <option value="PENDING">PENDING (Chờ)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-700/50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button type="submit"
+                        class="w-full inline-flex justify-center rounded-lg border border-transparent shadow-sm px-4 py-2 bg-emerald-600 text-base font-medium text-white hover:bg-emerald-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">
+                        Thêm Mới
+                    </button>
+                    <button type="button"
+                        class="mt-3 w-full inline-flex justify-center rounded-lg border border-gray-600 shadow-sm px-4 py-2 bg-gray-800 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                        onclick="document.getElementById('addStockModal').classList.add('hidden')">
+                        Hủy
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function removeStock(ticker, group) {
+        if (!confirm(`Bạn có chắc muốn xóa ${ticker} khỏi ${group}?`)) return;
+
+        fetch('/api/stocks/remove', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ticker, group })
+        })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById(`row-${ticker}`).remove();
+                } else {
+                    alert(data.message);
+                }
+            });
+    }
+
+    function submitAddStock(e) {
+        e.preventDefault();
+        const form = e.target;
+        const data = {
+            ticker: form.ticker.value,
+            group: form.group.value
+        };
+
+        fetch('/api/stocks/add', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    location.reload();
+                } else {
+                    alert(data.message);
+                }
+            });
+    }
+
+    function analyzeStock(ticker) {
+        const modal = document.getElementById('analysisModal');
+        const title = document.getElementById('analysis-title');
+        const content = document.getElementById('analysis-content');
+
+        modal.classList.remove('hidden');
+        title.innerText = `Phân Tích AI: ${ticker}`;
+        content.innerHTML = '<div class="flex justify-center py-8"><i class="fas fa-circle-notch fa-spin text-emerald-500 text-3xl"></i></div>';
+
+        fetch(`/api/ai-analyze-levels/${ticker}`)
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    content.innerHTML = `
+                    <div class="bg-gray-700/50 p-4 rounded-lg mb-4">
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <span class="text-gray-400">Giá:</span>
+                                <span class="font-bold text-white ml-2">${data.price_info.price.toLocaleString()}</span>
+                            </div>
+                            <div>
+                                <span class="text-gray-400">Thay đổi:</span>
+                                <span class="font-bold ${data.price_info.change >= 0 ? 'text-emerald-400' : 'text-rose-400'} ml-2">
+                                    ${data.price_info.change.toFixed(2)}%
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prose prose-invert max-w-none">
+                        <p class="whitespace-pre-line">${data.analysis}</p>
+                    </div>
+                    <div class="mt-4">
+                        <h4 class="font-bold text-white mb-2">Các mốc quan trọng:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            ${data.suggested_levels.map(l => `<span class="bg-blue-500/20 text-blue-400 px-2 py-1 rounded text-xs">${l}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+                } else {
+                    content.innerHTML = `<div class="text-rose-400">Lỗi: ${data.message}</div>`;
+                }
+            })
+            .catch(e => {
+                content.innerHTML = `<div class="text-rose-400">Lỗi kết nối: ${e}</div>`;
+            });
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% for index, data in market_data.items() %}
+<div class="flex items-center space-x-2 px-4 border-r border-gray-800">
+    <span
+        class="font-bold {{ 'text-emerald-400' if data.change > 0 else 'text-rose-400' if data.change < 0 else 'text-amber-400' }}">
+        {{ index }}
+    </span>
+    <span class="text-white">{{ "{:,.2f}".format(data.price) }}</span>
+    <span
+        class="text-xs {{ 'text-emerald-400' if data.change > 0 else 'text-rose-400' if data.change < 0 else 'text-amber-400' }}">
+        {{ "{:+.2f}".format(data.change) }} ({{ "{:+.2f}".format(data.pct_change) }}%)
+    </span>
+</div>
+{% endfor %}
+<div class="text-xs text-gray-500 px-4">
+    Cập nhật: {{ timestamp }}
+</div>

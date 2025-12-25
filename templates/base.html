@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Bot Chứng Khoán{% endblock %}</title>
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gray: {
+                            850: '#1f2937',
+                            900: '#111827',
+                            950: '#030712',
+                        },
+                        emerald: {
+                            450: '#10b981', // Tăng/Xanh
+                        },
+                        rose: {
+                            450: '#f43f5e', // Giảm/Đỏ
+                        },
+                        violet: {
+                            450: '#8b5cf6', // Trần/Tím
+                        },
+                        sky: {
+                            450: '#0ea5e9', // Sàn/Xanh lơ
+                        },
+                        amber: {
+                            450: '#f59e0b', // Tham chiếu/Vàng
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- HTMX -->
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+
+    <!-- Chart.js (Optional for simple charts) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- TradingView Lightweight Charts -->
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #4b5563;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b7280;
+        }
+
+        .glass-panel {
+            background: rgba(31, 41, 55, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body
+    class="bg-gray-950 text-gray-100 antialiased h-screen flex overflow-hidden selection:bg-emerald-500 selection:text-white">
+
+    <!-- Sidebar -->
+    <aside class="w-64 bg-gray-900 border-r border-gray-800 flex-shrink-0 flex flex-col transition-all duration-300"
+        id="sidebar">
+        <!-- Logo -->
+        <div class="h-16 flex items-center px-6 border-b border-gray-800">
+            <i class="fas fa-robot text-emerald-500 text-2xl mr-3"></i>
+            <span class="text-xl font-bold tracking-tight text-white">StockBot<span
+                    class="text-emerald-500">Pro</span></span>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="flex-1 overflow-y-auto py-4 px-3 space-y-1">
+            <a href="{{ url_for('dashboard') }}"
+                class="flex items-center px-3 py-2.5 rounded-lg transition-colors group
+                      {% if request.endpoint == 'dashboard' %}bg-emerald-500/10 text-emerald-400{% else %}text-gray-400 hover:bg-gray-800 hover:text-white{% endif %}">
+                <i class="fas fa-tachometer-alt w-6 text-center mr-2 group-hover:scale-110 transition-transform"></i>
+                <span class="font-medium">Dashboard</span>
+            </a>
+
+            <a href="{{ url_for('manage_stocks') }}"
+                class="flex items-center px-3 py-2.5 rounded-lg transition-colors group
+                      {% if request.endpoint == 'manage_stocks' %}bg-emerald-500/10 text-emerald-400{% else %}text-gray-400 hover:bg-gray-800 hover:text-white{% endif %}">
+                <i class="fas fa-layer-group w-6 text-center mr-2 group-hover:scale-110 transition-transform"></i>
+                <span class="font-medium">Danh Mục</span>
+            </a>
+
+            <a href="{{ url_for('manage_alerts') }}"
+                class="flex items-center px-3 py-2.5 rounded-lg transition-colors group
+                      {% if request.endpoint == 'manage_alerts' %}bg-emerald-500/10 text-emerald-400{% else %}text-gray-400 hover:bg-gray-800 hover:text-white{% endif %}">
+                <i class="fas fa-bell w-6 text-center mr-2 group-hover:scale-110 transition-transform"></i>
+                <span class="font-medium">Cảnh Báo</span>
+            </a>
+
+            <a href="{{ url_for('tools') }}"
+                class="flex items-center px-3 py-2.5 rounded-lg transition-colors group
+                      {% if request.endpoint == 'tools' %}bg-emerald-500/10 text-emerald-400{% else %}text-gray-400 hover:bg-gray-800 hover:text-white{% endif %}">
+                <i class="fas fa-tools w-6 text-center mr-2 group-hover:scale-110 transition-transform"></i>
+                <span class="font-medium">Công Cụ</span>
+                <div
+                    class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center text-emerald-500 font-bold">
+                    {{ session.username[0] | upper }}
+                    <header
+                        class="h-16 bg-gray-900/50 backdrop-blur border-b border-gray-800 flex items-center justify-between px-6 z-10">
+                        <button class="md:hidden text-gray-400 hover:text-white"
+                            onclick="document.getElementById('sidebar').classList.toggle('-translate-x-full')">
+                            <i class="fas fa-bars text-xl"></i>
+                        </button>
+
+                        <!-- Market Ticker (Placeholder for now) -->
+                        <div class="hidden md:flex items-center space-x-6 text-sm overflow-hidden" id="market-ticker"
+                            hx-get="/api/market-ticker" hx-trigger="load, every 30s">
+                            <!-- Content will be loaded via HTMX -->
+                            <div class="flex items-center space-x-2 text-gray-400 animate-pulse">
+                                <i class="fas fa-circle-notch fa-spin"></i>
+                                <span>Đang tải dữ liệu thị trường...</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="relative">
+                                <input type="text" placeholder="Tìm mã CP..."
+                                    class="bg-gray-800 text-gray-200 text-sm rounded-full pl-10 pr-4 py-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 border border-gray-700 w-48 transition-all focus:w-64">
+                                <i class="fas fa-search absolute left-3.5 top-2 text-gray-500"></i>
+                            </div>
+                            <button class="text-gray-400 hover:text-white relative">
+                                <i class="fas fa-bell"></i>
+                                <span
+                                    class="absolute top-0 right-0 block h-2 w-2 rounded-full bg-rose-500 ring-2 ring-gray-900"></span>
+                            </button>
+                        </div>
+                    </header>
+
+                    <!-- Content Scroll Area -->
+                    <div class="flex-1 overflow-y-auto p-6 scroll-smooth">
+                        <!-- Flash Messages -->
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                        <div class="mb-6 space-y-2">
+                            {% for category, message in messages %}
+                            <div class="p-4 rounded-lg border flex items-center shadow-lg animate-fade-in-down
+                                  {% if category == 'error' %}bg-rose-500/10 border-rose-500/20 text-rose-400
+                                  {% elif category == 'success' %}bg-emerald-500/10 border-emerald-500/20 text-emerald-400
+                                  {% else %}bg-blue-500/10 border-blue-500/20 text-blue-400{% endif %}">
+                                <i
+                                    class="fas {% if category == 'error' %}fa-exclamation-circle{% elif category == 'success' %}fa-check-circle{% else %}fa-info-circle{% endif %} mr-3 text-lg"></i>
+                                <span>{{ message }}</span>
+                                <button onclick="this.parentElement.remove()" class="ml-auto hover:text-white"><i
+                                        class="fas fa-times"></i></button>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% endwith %}
+
+                        {% block content %}{% endblock %}
+                    </div>
+                    </main>
+
+                    {% block scripts %}{% endblock %}
+</body>
+
+</html>

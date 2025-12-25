@@ -1,0 +1,47 @@
+{% for news in news_list %}
+<div
+    class="glass-panel rounded-xl overflow-hidden hover:bg-gray-800/50 transition-all duration-300 border-l-4 
+            {% if news.sentiment == 'Tích cực' %}border-emerald-500{% elif news.sentiment == 'Tiêu cực' %}border-rose-500{% else %}border-gray-500{% endif %}">
+    <div class="p-5">
+        <div class="flex justify-between items-start mb-3">
+            <span class="text-xs font-bold px-2 py-1 rounded 
+                       {% if news.type == 'Vĩ mô' %}bg-purple-500/20 text-purple-400
+                       {% elif news.type == 'Doanh nghiệp' %}bg-blue-500/20 text-blue-400
+                       {% else %}bg-gray-700 text-gray-400{% endif %}">
+                {{ news.type }}
+            </span>
+            <span class="text-xs text-gray-500">{{ news.source }}</span>
+        </div>
+
+        <a href="{{ news.link }}" target="_blank" class="block group">
+            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition-colors line-clamp-2">
+                {{ news.title }}
+            </h3>
+        </a>
+
+        <div class="flex items-center justify-between mt-4">
+            <div class="flex space-x-2">
+                {% for ticker in news.related_tickers %}
+                <a href="/stock/{{ ticker }}"
+                    class="text-xs bg-gray-700 hover:bg-gray-600 text-white px-2 py-1 rounded transition-colors">
+                    {{ ticker }}
+                </a>
+                {% endfor %}
+            </div>
+
+            <div class="flex items-center space-x-2">
+                {% if news.sentiment == 'Tích cực' %}
+                <span class="text-emerald-400 text-sm"><i class="fas fa-arrow-up"></i> Tích cực</span>
+                {% elif news.sentiment == 'Tiêu cực' %}
+                <span class="text-rose-400 text-sm"><i class="fas fa-arrow-down"></i> Tiêu cực</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="col-span-full text-center py-12 text-gray-500">
+    <i class="fas fa-newspaper text-4xl mb-4 opacity-50"></i>
+    <p>Chưa có tin tức nào mới.</p>
+</div>
+{% endfor %}

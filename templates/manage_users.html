@@ -1,0 +1,278 @@
+{% extends "base.html" %}
+
+{% block title %}Quản Lý Users - StockBot Pro{% endblock %}
+
+{% block content %}
+<div class="space-y-8">
+    <!-- Header -->
+    <div>
+        <h1 class="text-2xl font-bold text-white">Quản Lý Users</h1>
+        <p class="text-gray-400">Quản lý người dùng và cấu hình Telegram</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Web Users -->
+        <div class="glass-panel rounded-2xl overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-800 flex items-center justify-between bg-blue-900/20">
+                <h2 class="text-lg font-bold text-white flex items-center">
+                    <i class="fas fa-users text-blue-500 mr-2"></i> Web Users
+                </h2>
+                <button onclick="document.getElementById('createUserModal').classList.remove('hidden')"
+                    class="text-xs bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition-colors">
+                    <i class="fas fa-plus mr-1"></i> Thêm User
+                </button>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left text-gray-400">
+                    <thead class="text-xs text-gray-500 uppercase bg-gray-800/50">
+                        <tr>
+                            <th class="px-6 py-3">Username</th>
+                            <th class="px-6 py-3">Owner ID</th>
+                            <th class="px-6 py-3">Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for username, user in users.items() %}
+                        <tr class="border-b border-gray-800 hover:bg-gray-800/50 transition-colors">
+                            <td class="px-6 py-4 font-medium text-white">{{ username }}</td>
+                            <td class="px-6 py-4">{{ user.owner_id }}</td>
+                            <td class="px-6 py-4">
+                                {% if user.is_admin %}
+                                <span
+                                    class="bg-violet-500/20 text-violet-400 px-2 py-1 rounded text-xs font-bold">Admin</span>
+                                {% else %}
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs">User</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Telegram Users -->
+        <div class="glass-panel rounded-2xl overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-800 flex items-center justify-between bg-sky-900/20">
+                <h2 class="text-lg font-bold text-white flex items-center">
+                    <i class="fab fa-telegram text-sky-500 mr-2"></i> Telegram Users
+                </h2>
+                <button onclick="document.getElementById('addTelegramModal').classList.remove('hidden')"
+                    class="text-xs bg-sky-600 hover:bg-sky-700 text-white px-3 py-1 rounded transition-colors">
+                    <i class="fas fa-plus mr-1"></i> Thêm Chat ID
+                </button>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left text-gray-400">
+                    <thead class="text-xs text-gray-500 uppercase bg-gray-800/50">
+                        <tr>
+                            <th class="px-6 py-3">Chat ID</th>
+                            <th class="px-6 py-3 text-right">Thao Tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for chat_id in telegram_users %}
+                        <tr class="border-b border-gray-800 hover:bg-gray-800/50 transition-colors">
+                            <td class="px-6 py-4 font-mono text-white">{{ chat_id }}</td>
+                            <td class="px-6 py-4 text-right">
+                                <button onclick="removeTelegramUser('{{ chat_id }}')"
+                                    class="text-gray-500 hover:text-rose-500 transition-colors">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="2" class="px-6 py-8 text-center text-gray-500">
+                                Chưa có Telegram user nào
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Owners Stats -->
+    <div class="glass-panel rounded-2xl overflow-hidden">
+        <div class="px-6 py-4 border-b border-gray-800 bg-gray-800/50">
+            <h2 class="text-lg font-bold text-white">Thống Kê Owners</h2>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm text-left text-gray-400">
+                <thead class="text-xs text-gray-500 uppercase bg-gray-800/50">
+                    <tr>
+                        <th class="px-6 py-3">Owner ID</th>
+                        <th class="px-6 py-3 text-center">Hold</th>
+                        <th class="px-6 py-3 text-center">Pending</th>
+                        <th class="px-6 py-3 text-center">Watch</th>
+                        <th class="px-6 py-3 text-center">Tổng Mã</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for owner in owners_list %}
+                    <tr class="border-b border-gray-800 hover:bg-gray-800/50 transition-colors">
+                        <td class="px-6 py-4 font-medium text-white">{{ owner.owner_id }}</td>
+                        <td class="px-6 py-4 text-center text-emerald-400 font-bold">{{ owner.hold_count }}</td>
+                        <td class="px-6 py-4 text-center text-amber-400 font-bold">{{ owner.pending_count }}</td>
+                        <td class="px-6 py-4 text-center text-blue-400 font-bold">{{ owner.watch_count }}</td>
+                        <td class="px-6 py-4 text-center text-white font-bold">{{ owner.ticker_count }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Create User Modal -->
+<div id="createUserModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog"
+    aria-modal="true">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" aria-hidden="true"
+            onclick="document.getElementById('createUserModal').classList.add('hidden')"></div>
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+        <div
+            class="inline-block align-bottom bg-gray-800 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full border border-gray-700">
+            <form onsubmit="submitCreateUser(event)">
+                <div class="bg-gray-800 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <h3 class="text-lg leading-6 font-medium text-white mb-4">Tạo User Mới</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1">Username</label>
+                            <input type="text" name="username" required
+                                class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1">Password</label>
+                            <input type="password" name="password" required
+                                class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1">Owner ID (Optional)</label>
+                            <input type="text" name="owner_id"
+                                class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <p class="text-xs text-gray-500 mt-1">Nếu để trống sẽ dùng Username làm Owner ID</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-700/50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button type="submit"
+                        class="w-full inline-flex justify-center rounded-lg border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">
+                        Tạo User
+                    </button>
+                    <button type="button"
+                        class="mt-3 w-full inline-flex justify-center rounded-lg border border-gray-600 shadow-sm px-4 py-2 bg-gray-800 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                        onclick="document.getElementById('createUserModal').classList.add('hidden')">
+                        Hủy
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Add Telegram Modal -->
+<div id="addTelegramModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog"
+    aria-modal="true">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" aria-hidden="true"
+            onclick="document.getElementById('addTelegramModal').classList.add('hidden')"></div>
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+        <div
+            class="inline-block align-bottom bg-gray-800 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full border border-gray-700">
+            <form onsubmit="submitAddTelegram(event)">
+                <div class="bg-gray-800 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <h3 class="text-lg leading-6 font-medium text-white mb-4">Thêm Telegram Chat ID</h3>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">Chat ID</label>
+                        <input type="text" name="chat_id" required
+                            class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-sky-500 focus:border-transparent">
+                    </div>
+                </div>
+                <div class="bg-gray-700/50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button type="submit"
+                        class="w-full inline-flex justify-center rounded-lg border border-transparent shadow-sm px-4 py-2 bg-sky-600 text-base font-medium text-white hover:bg-sky-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">
+                        Thêm
+                    </button>
+                    <button type="button"
+                        class="mt-3 w-full inline-flex justify-center rounded-lg border border-gray-600 shadow-sm px-4 py-2 bg-gray-800 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                        onclick="document.getElementById('addTelegramModal').classList.add('hidden')">
+                        Hủy
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function submitCreateUser(e) {
+        e.preventDefault();
+        const form = e.target;
+        const data = {
+            username: form.username.value,
+            password: form.password.value,
+            owner_id: form.owner_id.value
+        };
+
+        fetch('/api/users/create', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    location.reload();
+                } else {
+                    alert(data.message);
+                }
+            });
+    }
+
+    function submitAddTelegram(e) {
+        e.preventDefault();
+        const form = e.target;
+        const data = {
+            chat_id: form.chat_id.value
+        };
+
+        fetch('/api/users/telegram/add', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    location.reload();
+                } else {
+                    alert(data.message);
+                }
+            });
+    }
+
+    function removeTelegramUser(chat_id) {
+        if (!confirm(`Xóa Chat ID ${chat_id}?`)) return;
+
+        fetch('/api/users/telegram/remove', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id })
+        })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    location.reload();
+                } else {
+                    alert(data.message);
+                }
+            });
+    }
+</script>
+{% endblock %}

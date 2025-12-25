@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - StockBot Pro{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <!-- Stat Card: HOLD -->
+    <div class="glass-panel rounded-2xl p-6 relative overflow-hidden group hover:border-emerald-500/30 transition-all">
+        <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+            <i class="fas fa-briefcase text-6xl text-emerald-500"></i>
+        </div>
+        <div class="relative z-10">
+            <p class="text-sm font-medium text-gray-400 uppercase tracking-wider">Danh Mục Hold</p>
+            <h3 class="text-3xl font-bold text-white mt-2">{{ hold_count }}</h3>
+            <div class="mt-4 flex items-center text-sm text-emerald-400">
+                <span class="flex items-center">
+                    <i class="fas fa-check-circle mr-1"></i> Đang nắm giữ
+                </span>
+            </div>
+        </div>
+        <a href="{{ url_for('manage_stocks') }}#hold" class="absolute inset-0 z-20"></a>
+    </div>
+
+    <!-- Stat Card: PENDING -->
+    <div class="glass-panel rounded-2xl p-6 relative overflow-hidden group hover:border-amber-500/30 transition-all">
+        <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+            <i class="fas fa-clock text-6xl text-amber-500"></i>
+        </div>
+        <div class="relative z-10">
+            <p class="text-sm font-medium text-gray-400 uppercase tracking-wider">Chờ Mua/Bán</p>
+            <h3 class="text-3xl font-bold text-white mt-2">{{ pending_count }}</h3>
+            <div class="mt-4 flex items-center text-sm text-amber-400">
+                <span class="flex items-center">
+                    <i class="fas fa-hourglass-half mr-1"></i> Đang chờ khớp
+                </span>
+            </div>
+        </div>
+        <a href="{{ url_for('manage_stocks') }}#pending" class="absolute inset-0 z-20"></a>
+    </div>
+
+    <!-- Stat Card: WATCH -->
+    <div class="glass-panel rounded-2xl p-6 relative overflow-hidden group hover:border-blue-500/30 transition-all">
+        <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+            <i class="fas fa-eye text-6xl text-blue-500"></i>
+        </div>
+        <div class="relative z-10">
+            <p class="text-sm font-medium text-gray-400 uppercase tracking-wider">Theo Dõi</p>
+            <h3 class="text-3xl font-bold text-white mt-2">{{ watch_count }}</h3>
+            <div class="mt-4 flex items-center text-sm text-blue-400">
+                <span class="flex items-center">
+                    <i class="fas fa-search mr-1"></i> Quan sát
+                </span>
+            </div>
+        </div>
+        <a href="{{ url_for('manage_stocks') }}#watch" class="absolute inset-0 z-20"></a>
+    </div>
+
+    <!-- Stat Card: TOTAL -->
+    <div class="glass-panel rounded-2xl p-6 relative overflow-hidden group hover:border-violet-500/30 transition-all">
+        <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+            <i class="fas fa-chart-pie text-6xl text-violet-500"></i>
+        </div>
+        <div class="relative z-10">
+            <p class="text-sm font-medium text-gray-400 uppercase tracking-wider">Tổng Mã</p>
+            <h3 class="text-3xl font-bold text-white mt-2">{{ total_tickers }}</h3>
+            <div class="mt-4 flex items-center text-sm text-violet-400">
+                <span class="flex items-center">
+                    <i class="fas fa-list mr-1"></i> Trong danh sách
+                </span>
+            </div>
+        </div>
+        <a href="{{ url_for('manage_stocks') }}" class="absolute inset-0 z-20"></a>
+    </div>
+</div>
+
+<!-- Charts Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+    <!-- Portfolio Allocation Chart -->
+    <div class="glass-panel rounded-2xl p-6 lg:col-span-1">
+        <h3 class="text-lg font-bold text-white mb-4 flex items-center">
+            <i class="fas fa-chart-pie text-emerald-500 mr-2"></i> Phân Bổ Danh Mục
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <button onclick="document.getElementById('addStockModal').classList.remove('hidden')"
+                    class="p-4 rounded-xl bg-gray-800 border border-gray-700 hover:bg-gray-700 hover:border-emerald-500/50 transition-all text-left group">
+                    <div class="flex items-center">
+                        <div
+                            class="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-500 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h4 class="font-bold text-white">Thêm Mã Mới</h4>
+                            <p class="text-xs text-gray-400">Thêm vào Hold/Watch</p>
+                        </div>
+                    </div>
+                </button>
+
+                <a href="{{ url_for('manage_alerts') }}"
+                    class="p-4 rounded-xl bg-gray-800 border border-gray-700 hover:bg-gray-700 hover:border-blue-500/50 transition-all text-left group">
+                    <div class="flex items-center">
+                        <div
+                            class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-500 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h4 class="font-bold text-white">Cấu Hình Cảnh Báo</h4>
+                            <p class="text-xs text-gray-400">Thiết lập mức giá</p>
+                        </div>
+                    </div>
+                </a>
+
+                <button hx-post="/api/alerts/refresh-all" hx-swap="none"
+                    class="p-4 rounded-xl bg-gray-800 border border-gray-700 hover:bg-gray-700 hover:border-violet-500/50 transition-all text-left group">
+                    <div class="flex items-center">
+                        <div
+                            class="w-10 h-10 rounded-full bg-violet-500/20 flex items-center justify-center text-violet-500 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h4 class="font-bold text-white">Refresh Rules</h4>
+                            <p class="text-xs text-gray-400">Cập nhật tự động</p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+    </div>
+
+    <!-- Add Stock Modal -->
+    <div id="addStockModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title"
+        role="dialog" aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" aria-hidden="true"
+                onclick="document.getElementById('addStockModal').classList.add('hidden')"></div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div
+                class="inline-block align-bottom bg-gray-800 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full border border-gray-700">
+                <form id="addStockForm" onsubmit="submitAddStock(event)">
+                    <div class="bg-gray-800 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                        <h3 class="text-lg leading-6 font-medium text-white mb-4" id="modal-title">Thêm Cổ Phiếu Mới
+                        </h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-1">Mã Cổ Phiếu</label>
+                                <input type="text" name="ticker" required
+                                    class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent uppercase"
+                                    placeholder="VD: HPG">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-1">Nhóm</label>
+                                <select name="group"
+                                    class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                                    <option value="WATCH">WATCH (Theo dõi)</option>
+                                    <option value="HOLD">HOLD (Nắm giữ)</option>
+                                    <option value="PENDING">PENDING (Chờ)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-700/50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                        <button type="submit"
+                            class="w-full inline-flex justify-center rounded-lg border border-transparent shadow-sm px-4 py-2 bg-emerald-600 text-base font-medium text-white hover:bg-emerald-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">
+                            Thêm Mới
+                        </button>
+                        <button type="button"
+                            class="mt-3 w-full inline-flex justify-center rounded-lg border border-gray-600 shadow-sm px-4 py-2 bg-gray-800 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                            onclick="document.getElementById('addStockModal').classList.add('hidden')">
+                            Hủy
+                        </button>
+                    </div>
+                </form>
+            </div>
+            group: form.group.value
+            };
+
+            fetch('/api/stocks/add', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+            })
+            .then(r => r.json())
+            .then(data => {
+            if (data.success) {
+            location.reload();
+            } else {
+            alert(data.message);
+            }
+            });
+            }
+            </script>
+            {% endblock %}

@@ -1,0 +1,219 @@
+{% extends "base.html" %}
+
+{% block title %}Công Cụ - Bot Chứng Khoán{% endblock %}
+
+{% block content %}
+<div class="tools-page">
+    <div class="page-header">
+        <h1><i class="fas fa-toolbox"></i> Công Cụ Giao Dịch</h1>
+        <p class="subtitle">Các công cụ hỗ trợ phân tích và giao dịch</p>
+    </div>
+
+    <!-- Position Sizing Calculator -->
+    <div class="tool-card" style="margin-bottom: 2rem;">
+        <h2><i class="fas fa-calculator"></i> Tính Khối Lượng Mua (Position Sizing)</h2>
+        <form id="positionSizingForm" style="max-width: 600px;">
+            <div class="form-group">
+                <label for="ps-ticker">Mã Cổ Phiếu</label>
+                <input type="text" id="ps-ticker" placeholder="VD: SSI, VNM" required>
+            </div>
+            <div class="form-group">
+                <label for="ps-capital">Vốn Đầu Tư (VND)</label>
+                <input type="number" id="ps-capital" placeholder="VD: 100000000" required>
+            </div>
+            <div class="form-group">
+                <label for="ps-risk">% Rủi Ro (Risk %)</label>
+                <input type="number" id="ps-risk" placeholder="VD: 2" step="0.1" value="2" required>
+            </div>
+            <div class="form-group">
+                <label for="ps-entry">Giá Mua (Entry Price)</label>
+                <input type="number" id="ps-entry" placeholder="VD: 40.5" step="0.1" required>
+            </div>
+            <div class="form-group">
+                <label for="ps-stoploss">Mốc Cắt Lỗ (Stop Loss)</label>
+                <input type="number" id="ps-stoploss" placeholder="VD: 38.0" step="0.1" required>
+            </div>
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-calculator"></i> Tính Toán
+            </button>
+        </form>
+        <div id="ps-result" style="display: none; margin-top: 2rem; padding: 1.5rem; background: #f0f9ff; border-radius: 0.5rem;">
+            <h3>Kết Quả:</h3>
+            <div id="ps-result-content"></div>
+        </div>
+    </div>
+
+    <!-- Trailing Stop Calculator -->
+    <div class="tool-card" style="margin-bottom: 2rem;">
+        <h2><i class="fas fa-chart-line"></i> Tính Trailing Stop</h2>
+        <form id="trailingStopForm" style="max-width: 600px;">
+            <div class="form-group">
+                <label for="ts-ticker">Mã Cổ Phiếu</label>
+                <input type="text" id="ts-ticker" placeholder="VD: SSI, VNM" required>
+            </div>
+            <div class="form-group">
+                <label for="ts-entry">Giá Mua</label>
+                <input type="number" id="ts-entry" placeholder="VD: 40.0" step="0.1" required>
+            </div>
+            <div class="form-group">
+                <label for="ts-percent">% Trailing Stop</label>
+                <input type="number" id="ts-percent" placeholder="VD: 5" step="0.1" value="5" required>
+            </div>
+            <button type="submit" class="btn btn-success">
+                <i class="fas fa-play"></i> Tính Toán & Lấy Giá Hiện Tại
+            </button>
+        </form>
+        <div id="ts-result" style="display: none; margin-top: 2rem; padding: 1.5rem; background: #f0fdf4; border-radius: 0.5rem;">
+            <h3>Kết Quả:</h3>
+            <div id="ts-result-content"></div>
+        </div>
+    </div>
+</div>
+
+<style>
+.tools-page {
+    padding: 2rem;
+}
+
+.tool-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.tool-card h2 {
+    margin-bottom: 1.5rem;
+    color: #1e40af;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Position Sizing Calculator
+document.getElementById('positionSizingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const ticker = document.getElementById('ps-ticker').value.trim().toUpperCase();
+    const capital = parseFloat(document.getElementById('ps-capital').value);
+    const riskPercent = parseFloat(document.getElementById('ps-risk').value);
+    const entryPrice = parseFloat(document.getElementById('ps-entry').value);
+    const stopLoss = parseFloat(document.getElementById('ps-stoploss').value);
+
+    // Validate
+    if (!ticker || !capital || !riskPercent || !entryPrice || !stopLoss) {
+        alert('Vui lòng điền đầy đủ thông tin');
+        return;
+    }
+
+    if (entryPrice <= stopLoss) {
+        alert('Giá mua phải lớn hơn mốc cắt lỗ');
+        return;
+    }
+
+    // Calculate
+    const riskAmount = capital * (riskPercent / 100);
+    const riskPerShare = entryPrice - stopLoss;
+    const quantity = Math.floor(riskAmount / riskPerShare);
+    const investAmount = quantity * entryPrice;
+    const actualRisk = quantity * riskPerShare;
+    const actualRiskPercent = (actualRisk / capital) * 100;
+
+    // Display result
+    const resultHtml = `
+        <p><strong>Mã:</strong> ${ticker}</p>
+        <p><strong>Vốn:</strong> ${capital.toLocaleString()} VND</p>
+        <p><strong>Rủi ro cho phép:</strong> ${riskPercent}% = ${riskAmount.toLocaleString()} VND</p>
+        <hr style="margin: 1rem 0;">
+        <p style="font-size: 1.2rem; color: #059669;"><strong>Số lượng nên mua:</strong> ${quantity.toLocaleString()} cổ phiếu</p>
+        <p><strong>Giá trị đầu tư:</strong> ${investAmount.toLocaleString()} VND</p>
+        <p><strong>Rủi ro thực tế:</strong> ${actualRisk.toLocaleString()} VND (${actualRiskPercent.toFixed(2)}%)</p>
+        <p><strong>Mốc cắt lỗ:</strong> ${stopLoss} VND</p>
+        <p><strong>Rủi ro mỗi cổ phiếu:</strong> ${riskPerShare.toFixed(2)} VND</p>
+    `;
+
+    document.getElementById('ps-result-content').innerHTML = resultHtml;
+    document.getElementById('ps-result').style.display = 'block';
+});
+
+// Trailing Stop Calculator
+document.getElementById('trailingStopForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const ticker = document.getElementById('ts-ticker').value.trim().toUpperCase();
+    const entryPrice = parseFloat(document.getElementById('ts-entry').value);
+    const trailPercent = parseFloat(document.getElementById('ts-percent').value);
+
+    if (!ticker || !entryPrice || !trailPercent) {
+        alert('Vui lòng điền đầy đủ thông tin');
+        return;
+    }
+
+    // Show loading
+    document.getElementById('ts-result').style.display = 'block';
+    document.getElementById('ts-result-content').innerHTML = '<p><i class="fas fa-spinner fa-spin"></i> Đang lấy giá hiện tại...</p>';
+
+    // Fetch current price
+    fetch(`/api/realtime-price/${ticker}`)
+        .then(res => res.json())
+        .then(data => {
+            if (data.success && data.price) {
+                const currentPrice = data.price;
+                const highestPrice = Math.max(currentPrice, entryPrice);
+                const trailingStop = highestPrice * (1 - trailPercent / 100);
+                const profitPercent = ((currentPrice - entryPrice) / entryPrice) * 100;
+                const distanceToStop = ((currentPrice - trailingStop) / currentPrice) * 100;
+
+                const resultHtml = `
+                    <p><strong>Mã:</strong> ${ticker}</p>
+                    <p><strong>Giá mua:</strong> ${entryPrice.toFixed(2)} VND</p>
+                    <p><strong>Giá hiện tại:</strong> ${currentPrice.toFixed(2)} VND</p>
+                    <p><strong>Lợi nhuận hiện tại:</strong> <span style="color: ${profitPercent >= 0 ? '#059669' : '#dc2626'};">${profitPercent >= 0 ? '+' : ''}${profitPercent.toFixed(2)}%</span></p>
+                    <hr style="margin: 1rem 0;">
+                    <p style="font-size: 1.2rem; color: #dc2626;"><strong>Trailing Stop:</strong> ${trailingStop.toFixed(2)} VND</p>
+                    <p><strong>Khoảng cách đến stop:</strong> ${distanceToStop.toFixed(2)}%</p>
+                    <p><strong>Giá cao nhất:</strong> ${highestPrice.toFixed(2)} VND</p>
+                    <p style="margin-top: 1rem; padding: 1rem; background: #fef3c7; border-radius: 0.375rem;">
+                        <strong>Lưu ý:</strong> Nếu giá tăng lên, trailing stop sẽ tự động được điều chỉnh lên theo.
+                        Chốt lời khi giá chạm ${trailingStop.toFixed(2)} VND.
+                    </p>
+                `;
+
+                document.getElementById('ts-result-content').innerHTML = resultHtml;
+            } else {
+                document.getElementById('ts-result-content').innerHTML = '<p style="color: red;">Lỗi: ' + (data.message || 'Không lấy được giá') + '</p>';
+            }
+        })
+        .catch(err => {
+            console.error('Error:', err);
+            document.getElementById('ts-result-content').innerHTML = '<p style="color: red;">Lỗi: ' + err.message + '</p>';
+        });
+});
+</script>
+{% endblock %}

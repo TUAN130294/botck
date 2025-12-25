@@ -1,0 +1,76 @@
+[16:39:02] Đang kết nối DB để lấy danh sách bảng (schema public)...
+[16:39:02]  -> Tìm thấy 5 bảng.
+[16:39:31] Đã chọn 1 file để xử lý.
+[16:39:32] 
+--- Xử lý 1/1: data-1756891542502.csv ---
+[16:39:32] 1) Bảng đích (auto map): 'data_1756891'
+[16:39:32] 2) Đọc dữ liệu -> 144 dòng (⏱ 0.01s)
+[16:39:32] 3) Làm sạch cột -> OK (⏱ 0.01s)
+[16:39:32] 4) Tạo bảng mới 'data_1756891' và insert...
+[16:39:32]  -> write_to_sql: table='data_1756891', if_exists='fail', con=Engine
+[16:39:32]  -> Successfully wrote to table 'data_1756891'
+[16:39:32]  -> Không phát hiện được Primary Key phù hợp (không có 'id' hoặc bộ 'date + id_store + product_code').
+[16:39:32]  [Lưu ý] Hãy đặt Primary Key thủ công để upsert lần sau.
+[16:39:32]  -> Đã tạo index: idx_data_1756891_id_store trên cột id_store.
+[16:39:32]  -> Đã tạo 'data_1756891' + chèn dữ liệu (⏱ 0.23s)
+[16:39:32] 
+-----------------------------------------
+[16:39:32] ✅ Hoàn tất! Thành công: 1 | Thất bại: 0 | Tổng thời gian: 0.26s
+[16:39:34] Đang kết nối DB để lấy danh sách bảng (schema public)...
+[16:39:34]  -> Tìm thấy 6 bảng.
+[16:40:37] 
+--- Xử lý 1/1: data-1756891542502.csv ---
+[16:40:37] 1) Bảng đích (auto map): 'data_1756891'
+[16:40:37] 2) Đọc dữ liệu -> 144 dòng (⏱ 0.00s)
+[16:40:37] 3) Làm sạch cột -> OK (⏱ 0.00s)
+[16:40:37] 4) Upsert vào bảng 'data_1756891'...
+[16:40:37]  -> Không phát hiện được Primary Key phù hợp (không có 'id' hoặc bộ 'date + id_store + product_code').
+[16:40:37]  [Lưu ý] Hãy đặt Primary Key thủ công để upsert lần sau.
+[16:40:37] ❌ Lỗi file 'data-1756891542502.csv': Bảng 'data_1756891' chưa có Primary Key. Hãy đặt PK thủ công trước khi upsert.
+[16:40:37] 
+-----------------------------------------
+[16:40:37] ✅ Hoàn tất! Thành công: 0 | Thất bại: 1 | Tổng thời gian: 0.01s
+[16:40:38] Đang kết nối DB để lấy danh sách bảng (schema public)...
+[16:40:38]  -> Tìm thấy 6 bảng.
+[16:41:20] 
+--- Xử lý 1/1: data-1756891542502.csv ---
+[16:41:20] 1) Bảng đích (auto map): 'data_1756891'
+[16:41:20] 2) Đọc dữ liệu -> 144 dòng (⏱ 0.00s)
+[16:41:20] 3) Làm sạch cột -> OK (⏱ 0.00s)
+[16:41:20] 4) Upsert vào bảng 'data_1756891'...
+[16:41:20]  -> Không phát hiện được Primary Key phù hợp (không có 'id' hoặc bộ 'date + id_store + product_code').
+[16:41:20]  [Lưu ý] Hãy đặt Primary Key thủ công để upsert lần sau.
+[16:41:20] ❌ Lỗi file 'data-1756891542502.csv': Bảng 'data_1756891' chưa có Primary Key. Hãy đặt PK thủ công trước khi upsert.
+[16:41:20] 
+-----------------------------------------
+[16:41:20] ✅ Hoàn tất! Thành công: 0 | Thất bại: 1 | Tổng thời gian: 0.01s
+[16:41:22] Đang kết nối DB để lấy danh sách bảng (schema public)...
+[16:41:22]  -> Tìm thấy 6 bảng.
+[16:42:07] 
+--- Xử lý 1/1: data-1756891542502.csv ---
+[16:42:07] 1) Bảng đích (auto map): 'data_1756891'
+[16:42:07] 2) Đọc dữ liệu -> 144 dòng (⏱ 0.00s)
+[16:42:07] 3) Làm sạch cột -> OK (⏱ 0.00s)
+[16:42:07] 4) Upsert vào bảng 'data_1756891'...
+[16:42:07]  -> Không phát hiện được Primary Key phù hợp (không có 'id' hoặc bộ 'date + id_store + product_code').
+[16:42:07]  [Lưu ý] Hãy đặt Primary Key thủ công để upsert lần sau.
+[16:42:07] ❌ Lỗi file 'data-1756891542502.csv': Bảng 'data_1756891' chưa có Primary Key. Hãy đặt PK thủ công trước khi upsert.
+[16:42:07] 
+-----------------------------------------
+[16:42:07] ✅ Hoàn tất! Thành công: 0 | Thất bại: 1 | Tổng thời gian: 0.01s
+[16:42:18] Đang kết nối DB để lấy danh sách bảng (schema public)...
+[16:42:18]  -> Tìm thấy 6 bảng.
+[16:42:48] 
+--- Xử lý 1/1: data-1756891542502.csv ---
+[16:42:48] 1) Bảng đích: 'am'
+[16:42:48] 2) Đọc dữ liệu -> 144 dòng (⏱ 0.00s)
+[16:42:48] 3) Làm sạch cột -> OK (⏱ 0.00s)
+[16:42:48] 4) Upsert vào bảng 'am'...
+[16:42:48]  -> write_to_sql: table='am_temp_upsert', if_exists='replace', con=Engine
+[16:42:48]  -> Successfully wrote to table 'am_temp_upsert'
+[16:42:48]  -> Upsert thành công (⏱ 0.06s)
+[16:42:48] 
+-----------------------------------------
+[16:42:48] ✅ Hoàn tất! Thành công: 1 | Thất bại: 0 | Tổng thời gian: 0.07s
+[16:42:49] Đang kết nối DB để lấy danh sách bảng (schema public)...
+[16:42:49]  -> Tìm thấy 6 bảng.
