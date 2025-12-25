@@ -1,0 +1,352 @@
+{% extends "base.html" %}
+
+{% block title %}Monte Carlo Simulation - Quantum Stock{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <!-- Header -->
+    <div class="flex items-center justify-between">
+        <div>
+            <h1 class="text-2xl font-bold">
+                <i class="fas fa-dice mr-2 text-accent-green"></i>Phòng Giả Lập Monte Carlo
+            </h1>
+            <p class="text-gray-400 mt-1">Chạy 10,000 mô phỏng để đánh giá rủi ro và lợi nhuận kỳ vọng</p>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-3 gap-6">
+        <!-- Input Panel -->
+        <div class="glass rounded-xl p-6">
+            <h3 class="text-lg font-semibold mb-4">
+                <i class="fas fa-cog mr-2 text-accent-cyan"></i>Tham Số Giả Lập
+            </h3>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm text-gray-400 mb-2">Mã cổ phiếu</label>
+                    <input type="text" id="mcSymbol" value="FPT" placeholder="VD: FPT"
+                           class="w-full bg-dark-700 border border-dark-500 rounded-lg px-4 py-2 focus:outline-none focus:border-accent-cyan">
+                </div>
+
+                <div>
+                    <label class="block text-sm text-gray-400 mb-2">Vốn đầu tư (VND)</label>
+                    <input type="number" id="mcCapital" value="10000000" step="1000000"
+                           class="w-full bg-dark-700 border border-dark-500 rounded-lg px-4 py-2 focus:outline-none focus:border-accent-cyan">
+                    <div class="flex justify-between mt-1 text-xs text-gray-500">
+                        <span>₫1M</span>
+                        <span>₫50M</span>
+                        <span>₫100M</span>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm text-gray-400 mb-2">Đòn bẩy (Margin)</label>
+                    <select id="mcLeverage" class="w-full bg-dark-700 border border-dark-500 rounded-lg px-4 py-2 focus:outline-none focus:border-accent-cyan">
+                        <option value="1">1x (Không margin)</option>
+                        <option value="1.5">1.5x</option>
+                        <option value="2">2x</option>
+                        <option value="3">3x</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm text-gray-400 mb-2">Thời gian dự báo (ngày)</label>
+                    <input type="number" id="mcDays" value="10" min="1" max="60"
+                           class="w-full bg-dark-700 border border-dark-500 rounded-lg px-4 py-2 focus:outline-none focus:border-accent-cyan">
+                </div>
+
+                <div>
+                    <label class="block text-sm text-gray-400 mb-2">Số mô phỏng</label>
+                    <select id="mcSimulations" class="w-full bg-dark-700 border border-dark-500 rounded-lg px-4 py-2 focus:outline-none focus:border-accent-cyan">
+                        <option value="1000">1,000 (Nhanh)</option>
+                        <option value="10000" selected>10,000 (Chuẩn)</option>
+                        <option value="50000">50,000 (Chi tiết)</option>
+                    </select>
+                </div>
+
+                <button onclick="runMonteCarlo()" class="w-full py-3 bg-accent-green text-dark-900 rounded-lg font-semibold hover:bg-accent-green/80 transition-colors">
+                    <i class="fas fa-play mr-2"></i>Chạy Giả Lập
+                </button>
+            </div>
+        </div>
+
+        <!-- Results Panel -->
+        <div class="col-span-2 space-y-6">
+            <!-- Signal Card -->
+            <div id="mcSignalCard" class="glass rounded-xl p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-2xl text-accent-green mr-3"></i>
+                        <div>
+                            <h3 class="text-lg font-semibold" id="mcSignalTitle">TÍN HIỆU TÍCH CỰC: NÊN MỞ VỊ THẾ</h3>
+                            <p class="text-sm text-gray-400" id="mcSignalDesc">Chờ kết quả mô phỏng...</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-sm text-gray-400">Điểm Rủi Ro</p>
+                        <p class="text-2xl font-bold" id="mcRiskScore">--/100</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Grid -->
+            <div class="grid grid-cols-2 gap-6">
+                <!-- Price Forecast -->
+                <div class="glass rounded-xl p-6">
+                    <h4 class="font-semibold mb-4">
+                        <i class="fas fa-chart-area mr-2 text-accent-blue"></i>Dự Phóng Giá & Độ Tin Cậy
+                    </h4>
+                    <canvas id="priceChart" height="200"></canvas>
+                    <div class="grid grid-cols-3 gap-2 mt-4 text-sm">
+                        <div class="text-center">
+                            <p class="text-gray-400">Dự báo AI</p>
+                            <p class="font-semibold text-accent-cyan" id="mcPriceMean">--</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-gray-400">Kịch bản Tốt</p>
+                            <p class="font-semibold text-accent-green" id="mcPriceHigh">--</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-gray-400">Kịch bản Xấu</p>
+                            <p class="font-semibold text-accent-red" id="mcPriceLow">--</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Return Distribution -->
+                <div class="glass rounded-xl p-6">
+                    <h4 class="font-semibold mb-4">
+                        <i class="fas fa-chart-bar mr-2 text-accent-purple"></i>Phân Phối Xác Suất Lãi/Lỗ
+                    </h4>
+                    <canvas id="distributionChart" height="200"></canvas>
+                    <div class="grid grid-cols-2 gap-2 mt-4 text-sm">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-400">Lỗ Nặng (>5%)</span>
+                            <span class="text-accent-red" id="mcLossHeavy">--%</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-400">Lỗ Nhẹ (0-5%)</span>
+                            <span class="text-orange-400" id="mcLossLight">--%</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-400">Lời Nhẹ (0-5%)</span>
+                            <span class="text-yellow-400" id="mcGainLight">--%</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-400">Lời Lớn (>5%)</span>
+                            <span class="text-accent-green" id="mcGainHeavy">--%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kelly & Risk Metrics -->
+            <div class="grid grid-cols-2 gap-6">
+                <div class="glass rounded-xl p-6">
+                    <h4 class="font-semibold mb-4">
+                        <i class="fas fa-calculator mr-2 text-accent-blue"></i>Công Thức Kelly (Tối ưu vốn)
+                    </h4>
+                    <div class="text-4xl font-bold text-accent-blue" id="mcKelly">34.0%</div>
+                    <p class="text-gray-400 mt-1">NAV Khuyên Dùng</p>
+                </div>
+                <div class="glass rounded-xl p-6">
+                    <h4 class="font-semibold mb-4">
+                        <i class="fas fa-chart-line mr-2 text-accent-green"></i>Giá Trị Kỳ Vọng (EV)
+                    </h4>
+                    <div class="text-4xl font-bold text-accent-green" id="mcExpectedReturn">+7.85%</div>
+                    <p class="text-gray-400 mt-1">Lợi Nhuận / Lệnh</p>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex space-x-4">
+                <button onclick="runMonteCarlo()" class="flex-1 py-3 bg-dark-600 border border-dark-500 rounded-lg font-semibold hover:bg-dark-500 transition-colors">
+                    <i class="fas fa-redo mr-2"></i>Chạy Lại Giả Lập
+                </button>
+                <button class="flex-1 py-3 bg-accent-cyan text-dark-900 rounded-lg font-semibold hover:bg-accent-cyan/80 transition-colors">
+                    <i class="fas fa-check mr-2"></i>Xác Nhận & Đặt Lệnh
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+let priceChart, distributionChart;
+
+async function runMonteCarlo() {
+    const symbol = document.getElementById('mcSymbol').value.toUpperCase();
+    const capital = parseInt(document.getElementById('mcCapital').value);
+    const leverage = parseFloat(document.getElementById('mcLeverage').value);
+    const days = parseInt(document.getElementById('mcDays').value);
+    const simulations = parseInt(document.getElementById('mcSimulations').value);
+
+    // Show loading
+    document.getElementById('mcSignalTitle').textContent = 'Đang chạy mô phỏng...';
+    document.getElementById('mcSignalDesc').textContent = `Phân tích ${simulations.toLocaleString()} kịch bản cho ${symbol}`;
+
+    try {
+        const response = await fetch('/api/monte-carlo/simulate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ symbol, days, leverage, simulations, capital })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            displayMonteCarloResults(data.result, capital);
+        } else {
+            alert('Lỗi: ' + data.error);
+        }
+    } catch (error) {
+        alert('Lỗi kết nối: ' + error.message);
+    }
+}
+
+function displayMonteCarloResults(result, capital) {
+    // Signal Card
+    const riskScore = result.risk_score;
+    let signalTitle, signalDesc, signalIcon, signalColor;
+
+    if (riskScore < 30) {
+        signalTitle = 'TÍN HIỆU TÍCH CỰC: NÊN MỞ VỊ THẾ';
+        signalDesc = 'Cổ phiếu có nền tảng cơ bản xuất sắc và biến động thấp.';
+        signalIcon = 'fa-check-circle';
+        signalColor = 'text-accent-green';
+    } else if (riskScore < 50) {
+        signalTitle = 'TÍN HIỆU TRUNG TÍNH: CÓ THỂ CÂN NHẮC';
+        signalDesc = 'Rủi ro trung bình, nên giảm size theo Kelly.';
+        signalIcon = 'fa-minus-circle';
+        signalColor = 'text-yellow-400';
+    } else {
+        signalTitle = 'CẢNH BÁO: RỦI RO CAO';
+        signalDesc = 'Không khuyến nghị mở vị thế trong điều kiện hiện tại.';
+        signalIcon = 'fa-exclamation-triangle';
+        signalColor = 'text-accent-red';
+    }
+
+    document.getElementById('mcSignalTitle').textContent = signalTitle;
+    document.getElementById('mcSignalDesc').textContent = signalDesc;
+    document.getElementById('mcRiskScore').textContent = `${riskScore}/100`;
+    document.getElementById('mcRiskScore').className = `text-2xl font-bold ${signalColor}`;
+
+    // Price forecasts
+    document.getElementById('mcPriceMean').textContent = result.mean_price?.toLocaleString('vi-VN', {maximumFractionDigits: 0}) || '--';
+    document.getElementById('mcPriceHigh').textContent = result.percentile_95?.toLocaleString('vi-VN', {maximumFractionDigits: 0}) || '--';
+    document.getElementById('mcPriceLow').textContent = result.percentile_5?.toLocaleString('vi-VN', {maximumFractionDigits: 0}) || '--';
+
+    // Probabilities
+    document.getElementById('mcLossHeavy').textContent = `${result.prob_loss_5pct?.toFixed(1) || 0}%`;
+    document.getElementById('mcLossLight').textContent = `${(100 - result.prob_profit - result.prob_loss_5pct)?.toFixed(1) || 0}%`;
+    document.getElementById('mcGainLight').textContent = `${(result.prob_profit - result.prob_gain_5pct)?.toFixed(1) || 0}%`;
+    document.getElementById('mcGainHeavy').textContent = `${result.prob_gain_5pct?.toFixed(1) || 0}%`;
+
+    // Kelly
+    document.getElementById('mcKelly').textContent = `${(result.kelly_fraction * 100)?.toFixed(1) || 0}%`;
+    document.getElementById('mcExpectedReturn').textContent = `${result.mean_return > 0 ? '+' : ''}${result.mean_return?.toFixed(2) || 0}%`;
+
+    // Update charts
+    updatePriceChart(result);
+    updateDistributionChart(result);
+}
+
+function updatePriceChart(result) {
+    const ctx = document.getElementById('priceChart').getContext('2d');
+
+    if (priceChart) priceChart.destroy();
+
+    const days = result.forecast_days || 10;
+    const labels = Array.from({length: days + 1}, (_, i) => `T+${i}`);
+
+    // Generate mock path data
+    const initialPrice = result.initial_price;
+    const meanLine = labels.map((_, i) => initialPrice * (1 + (result.mean_return / 100) * (i / days)));
+    const upperLine = labels.map((_, i) => initialPrice * (1 + ((result.percentile_95 - initialPrice) / initialPrice) * (i / days)));
+    const lowerLine = labels.map((_, i) => initialPrice * (1 + ((result.percentile_5 - initialPrice) / initialPrice) * (i / days)));
+
+    priceChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Dự báo AI',
+                    data: meanLine,
+                    borderColor: '#06b6d4',
+                    backgroundColor: 'transparent',
+                    borderWidth: 2,
+                    pointRadius: 0
+                },
+                {
+                    label: 'Kịch bản Tốt',
+                    data: upperLine,
+                    borderColor: '#00ff88',
+                    backgroundColor: 'rgba(0, 255, 136, 0.1)',
+                    borderWidth: 1,
+                    borderDash: [5, 5],
+                    pointRadius: 0,
+                    fill: '+1'
+                },
+                {
+                    label: 'Kịch bản Xấu',
+                    data: lowerLine,
+                    borderColor: '#ff4757',
+                    backgroundColor: 'transparent',
+                    borderWidth: 1,
+                    borderDash: [5, 5],
+                    pointRadius: 0
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#9ca3af' } },
+                y: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#9ca3af' } }
+            }
+        }
+    });
+}
+
+function updateDistributionChart(result) {
+    const ctx = document.getElementById('distributionChart').getContext('2d');
+
+    if (distributionChart) distributionChart.destroy();
+
+    // Create distribution data
+    const bins = result.return_bins || [];
+    const counts = result.return_counts || [];
+
+    const colors = bins.map(b => b < -5 ? '#ff4757' : b < 0 ? '#ff7f50' : b < 5 ? '#ffd93d' : '#00ff88');
+
+    distributionChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: bins.slice(0, 30).map(b => `${b.toFixed(0)}%`),
+            datasets: [{
+                data: counts.slice(0, 30),
+                backgroundColor: colors.slice(0, 30),
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { grid: { display: false }, ticks: { color: '#9ca3af', maxTicksLimit: 10 } },
+                y: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#9ca3af' } }
+            }
+        }
+    });
+}
+
+// Initialize with default
+document.addEventListener('DOMContentLoaded', () => {
+    runMonteCarlo();
+});
+</script>
+{% endblock %}
