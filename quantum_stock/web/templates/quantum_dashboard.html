@@ -1,0 +1,376 @@
+{% extends "base.html" %}
+
+{% block title %}Quantum Stock Dashboard{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <!-- Header Stats -->
+    <div class="grid grid-cols-4 gap-4">
+        <div class="glass rounded-xl p-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-400 text-sm">VN-Index</p>
+                    <p class="text-2xl font-bold text-accent-green">1,245.32</p>
+                    <p class="text-accent-green text-sm">+12.45 (+1.01%)</p>
+                </div>
+                <div class="w-12 h-12 rounded-full bg-accent-green/20 flex items-center justify-center">
+                    <i class="fas fa-chart-line text-accent-green text-xl"></i>
+                </div>
+            </div>
+        </div>
+        <div class="glass rounded-xl p-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-400 text-sm">Portfolio Value</p>
+                    <p class="text-2xl font-bold">₫125.5M</p>
+                    <p class="text-accent-green text-sm">+₫2.3M (+1.87%)</p>
+                </div>
+                <div class="w-12 h-12 rounded-full bg-accent-blue/20 flex items-center justify-center">
+                    <i class="fas fa-wallet text-accent-blue text-xl"></i>
+                </div>
+            </div>
+        </div>
+        <div class="glass rounded-xl p-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-400 text-sm">Win Rate</p>
+                    <p class="text-2xl font-bold">68.5%</p>
+                    <p class="text-gray-400 text-sm">Last 30 trades</p>
+                </div>
+                <div class="w-12 h-12 rounded-full bg-accent-purple/20 flex items-center justify-center">
+                    <i class="fas fa-trophy text-accent-purple text-xl"></i>
+                </div>
+            </div>
+        </div>
+        <div class="glass rounded-xl p-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-400 text-sm">AI Confidence</p>
+                    <p class="text-2xl font-bold text-accent-cyan">85%</p>
+                    <p class="text-gray-400 text-sm">Current signals</p>
+                </div>
+                <div class="w-12 h-12 rounded-full bg-accent-cyan/20 flex items-center justify-center">
+                    <i class="fas fa-brain text-accent-cyan text-xl"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="grid grid-cols-3 gap-6">
+        <!-- AI Agent Panel -->
+        <div class="col-span-2 glass rounded-xl p-6">
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-lg font-semibold">
+                    <i class="fas fa-robot mr-2 text-accent-cyan"></i>AI Agent Team Discussion
+                </h2>
+                <div class="flex items-center space-x-2">
+                    <span class="w-2 h-2 bg-accent-green rounded-full status-online"></span>
+                    <span class="text-sm text-gray-400">5 Agents Online</span>
+                </div>
+            </div>
+
+            <!-- Stock Input -->
+            <div class="flex space-x-4 mb-4">
+                <input type="text" id="stockSymbol" placeholder="Nhập mã cổ phiếu (VD: FPT, VNM, MWG)"
+                       class="flex-1 bg-dark-700 border border-dark-500 rounded-lg px-4 py-2 focus:outline-none focus:border-accent-cyan">
+                <button onclick="runAgentAnalysis()" class="px-6 py-2 bg-accent-cyan text-dark-900 rounded-lg font-semibold hover:bg-accent-cyan/80 transition-colors">
+                    <i class="fas fa-play mr-2"></i>Phân Tích
+                </button>
+            </div>
+
+            <!-- Chat Messages -->
+            <div id="chatMessages" class="h-96 overflow-y-auto space-y-4 p-4 bg-dark-800 rounded-lg">
+                <div class="text-center text-gray-500 py-8">
+                    <i class="fas fa-comments text-4xl mb-4"></i>
+                    <p>Nhập mã cổ phiếu và nhấn "Phân Tích" để bắt đầu thảo luận</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Analysis Panel -->
+        <div class="space-y-6">
+            <!-- Quantum Core Quick -->
+            <div class="glass rounded-xl p-6">
+                <h3 class="text-lg font-semibold mb-4">
+                    <i class="fas fa-atom mr-2 text-accent-purple"></i>Quantum Core AI
+                </h3>
+                <div id="quantumResult" class="space-y-3">
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400">Tín hiệu</span>
+                        <span class="px-3 py-1 bg-gray-600 rounded-full text-sm">--</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400">Confidence</span>
+                        <span class="text-white">--%</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400">Risk Score</span>
+                        <span class="text-white">--/100</span>
+                    </div>
+                    <div class="w-full bg-dark-600 rounded-full h-2 mt-2">
+                        <div class="bg-accent-cyan h-2 rounded-full" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monte Carlo Quick -->
+            <div class="glass rounded-xl p-6">
+                <h3 class="text-lg font-semibold mb-4">
+                    <i class="fas fa-dice mr-2 text-accent-green"></i>Monte Carlo Preview
+                </h3>
+                <div id="monteCarloQuick" class="space-y-3">
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400">Xác suất lời</span>
+                        <span class="text-accent-green">--%</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400">Expected Return</span>
+                        <span class="text-white">--%</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400">VaR 95%</span>
+                        <span class="text-accent-red">--%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kelly Criterion -->
+            <div class="glass rounded-xl p-6">
+                <h3 class="text-lg font-semibold mb-4">
+                    <i class="fas fa-calculator mr-2 text-accent-blue"></i>Kelly Criterion
+                </h3>
+                <div id="kellyQuick" class="space-y-3">
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400">Kelly Fraction</span>
+                        <span class="text-accent-blue">--%</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400">Recommended</span>
+                        <span class="text-white">-- cổ</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400">Max Risk</span>
+                        <span class="text-accent-red">₫--</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Tools -->
+    <div class="grid grid-cols-4 gap-4">
+        <a href="/backtest" class="glass rounded-xl p-6 hover:border-accent-cyan transition-colors cursor-pointer group">
+            <div class="flex items-center space-x-4">
+                <div class="w-14 h-14 rounded-xl bg-accent-blue/20 flex items-center justify-center group-hover:bg-accent-blue/30 transition-colors">
+                    <i class="fas fa-flask text-accent-blue text-2xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold">Backtesting</h3>
+                    <p class="text-sm text-gray-400">Kiểm tra chiến lược</p>
+                </div>
+            </div>
+        </a>
+        <a href="/monte-carlo" class="glass rounded-xl p-6 hover:border-accent-green transition-colors cursor-pointer group">
+            <div class="flex items-center space-x-4">
+                <div class="w-14 h-14 rounded-xl bg-accent-green/20 flex items-center justify-center group-hover:bg-accent-green/30 transition-colors">
+                    <i class="fas fa-dice text-accent-green text-2xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold">Monte Carlo</h3>
+                    <p class="text-sm text-gray-400">Mô phỏng rủi ro</p>
+                </div>
+            </div>
+        </a>
+        <a href="/quantum-core" class="glass rounded-xl p-6 hover:border-accent-purple transition-colors cursor-pointer group">
+            <div class="flex items-center space-x-4">
+                <div class="w-14 h-14 rounded-xl bg-accent-purple/20 flex items-center justify-center group-hover:bg-accent-purple/30 transition-colors">
+                    <i class="fas fa-brain text-accent-purple text-2xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold">Quantum AI</h3>
+                    <p class="text-sm text-gray-400">Phân tích toàn diện</p>
+                </div>
+            </div>
+        </a>
+        <a href="/agents" class="glass rounded-xl p-6 hover:border-accent-cyan transition-colors cursor-pointer group">
+            <div class="flex items-center space-x-4">
+                <div class="w-14 h-14 rounded-xl bg-accent-cyan/20 flex items-center justify-center group-hover:bg-accent-cyan/30 transition-colors">
+                    <i class="fas fa-users text-accent-cyan text-2xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-semibold">AI Advisors</h3>
+                    <p class="text-sm text-gray-400">Đội ngũ AI cố vấn</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+const agentEmojis = {
+    'Alex': '📊',
+    'Bull': '🐂',
+    'Bear': '🐻',
+    'Chief': '🎖',
+    'RiskDoctor': '🏥'
+};
+
+const agentColors = {
+    'Alex': 'text-accent-cyan',
+    'Bull': 'text-accent-green',
+    'Bear': 'text-accent-red',
+    'Chief': 'text-yellow-400',
+    'RiskDoctor': 'text-accent-purple'
+};
+
+async function runAgentAnalysis() {
+    const symbol = document.getElementById('stockSymbol').value.toUpperCase() || 'FPT';
+    const chatDiv = document.getElementById('chatMessages');
+
+    // Clear and show loading
+    chatDiv.innerHTML = `
+        <div class="text-center py-8">
+            <i class="fas fa-spinner fa-spin text-4xl text-accent-cyan mb-4"></i>
+            <p class="text-gray-400">Đang phân tích ${symbol}...</p>
+            <p class="text-sm text-gray-500 mt-2">AI Agents đang thảo luận</p>
+        </div>
+    `;
+
+    try {
+        const response = await fetch('/api/agents/analyze', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ symbol })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            displayAgentMessages(data.discussion, symbol);
+            updateQuickPanels(data.discussion);
+        } else {
+            chatDiv.innerHTML = `<div class="text-center text-accent-red py-8">
+                <i class="fas fa-exclamation-triangle text-4xl mb-4"></i>
+                <p>Lỗi: ${data.error}</p>
+            </div>`;
+        }
+    } catch (error) {
+        chatDiv.innerHTML = `<div class="text-center text-accent-red py-8">
+            <i class="fas fa-exclamation-triangle text-4xl mb-4"></i>
+            <p>Lỗi kết nối: ${error.message}</p>
+        </div>`;
+    }
+}
+
+function displayAgentMessages(discussion, symbol) {
+    const chatDiv = document.getElementById('chatMessages');
+    let html = `
+        <div class="text-center mb-4">
+            <span class="px-4 py-1 bg-dark-600 rounded-full text-sm text-gray-400">
+                Phân tích ${symbol} - ${new Date().toLocaleTimeString('vi-VN')}
+            </span>
+        </div>
+    `;
+
+    discussion.messages.forEach((msg, index) => {
+        const emoji = msg.agent_emoji || agentEmojis[msg.agent_name] || '🤖';
+        const colorClass = agentColors[msg.agent_name] || 'text-gray-300';
+        const statusClass = msg.message_type === 'WARNING' ? 'border-l-accent-red' :
+                           msg.message_type === 'SUCCESS' ? 'border-l-accent-green' : 'border-l-accent-blue';
+
+        html += `
+            <div class="chat-message glass rounded-lg p-4 border-l-4 ${statusClass}" style="animation-delay: ${index * 0.1}s">
+                <div class="flex items-start space-x-3">
+                    <span class="text-2xl">${emoji}</span>
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="font-semibold ${colorClass}">${msg.agent_name}</span>
+                            ${msg.confidence ? `<span class="text-xs px-2 py-1 bg-dark-600 rounded-full">Confidence ${msg.confidence.toFixed(0)}%</span>` : ''}
+                        </div>
+                        <p class="text-gray-300">${msg.content}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+
+    // Final verdict
+    if (discussion.final_verdict) {
+        const verdict = discussion.final_verdict;
+        const signalColor = verdict.signal_type.includes('BUY') ? 'text-accent-green' :
+                          verdict.signal_type.includes('SELL') ? 'text-accent-red' : 'text-yellow-400';
+
+        html += `
+            <div class="glass rounded-lg p-4 border-2 border-accent-cyan mt-4">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-lg font-bold">🎖 FINAL VERDICT</span>
+                    <span class="px-3 py-1 rounded-full text-sm font-semibold ${signalColor} bg-dark-600">
+                        ${verdict.signal_type}
+                    </span>
+                </div>
+                <div class="grid grid-cols-3 gap-4 text-sm">
+                    <div>
+                        <span class="text-gray-400">Confidence</span>
+                        <p class="font-semibold">${verdict.confidence?.toFixed(1) || '--'}%</p>
+                    </div>
+                    ${verdict.stop_loss ? `
+                    <div>
+                        <span class="text-gray-400">Stop Loss</span>
+                        <p class="font-semibold text-accent-red">${verdict.stop_loss.toFixed(2)}</p>
+                    </div>
+                    ` : ''}
+                    ${verdict.take_profit ? `
+                    <div>
+                        <span class="text-gray-400">Take Profit</span>
+                        <p class="font-semibold text-accent-green">${verdict.take_profit.toFixed(2)}</p>
+                    </div>
+                    ` : ''}
+                </div>
+                ${verdict.risk_reward_ratio ? `
+                <div class="mt-3 pt-3 border-t border-dark-500">
+                    <span class="text-gray-400">Risk:Reward</span>
+                    <span class="ml-2 font-semibold">1:${verdict.risk_reward_ratio.toFixed(1)}</span>
+                </div>
+                ` : ''}
+            </div>
+        `;
+    }
+
+    chatDiv.innerHTML = html;
+}
+
+function updateQuickPanels(discussion) {
+    if (discussion.final_verdict) {
+        const verdict = discussion.final_verdict;
+        const signalColor = verdict.signal_type.includes('BUY') ? 'bg-accent-green' :
+                          verdict.signal_type.includes('SELL') ? 'bg-accent-red' : 'bg-yellow-400';
+
+        document.getElementById('quantumResult').innerHTML = `
+            <div class="flex justify-between items-center">
+                <span class="text-gray-400">Tín hiệu</span>
+                <span class="px-3 py-1 ${signalColor} rounded-full text-sm text-dark-900 font-semibold">${verdict.signal_type}</span>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-gray-400">Confidence</span>
+                <span class="text-white font-semibold">${verdict.confidence?.toFixed(1) || '--'}%</span>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-gray-400">R:R Ratio</span>
+                <span class="text-white">1:${verdict.risk_reward_ratio?.toFixed(1) || '--'}</span>
+            </div>
+            <div class="w-full bg-dark-600 rounded-full h-2 mt-2">
+                <div class="bg-accent-cyan h-2 rounded-full transition-all duration-500" style="width: ${verdict.confidence || 0}%"></div>
+            </div>
+        `;
+    }
+}
+
+// Enter key to analyze
+document.getElementById('stockSymbol').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') runAgentAnalysis();
+});
+</script>
+{% endblock %}

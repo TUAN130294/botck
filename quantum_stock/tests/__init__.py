@@ -1,0 +1,3 @@
+"""
+Quantum Stock Platform Tests
+"""

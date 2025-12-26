@@ -1,0 +1,224 @@
+{% extends "base.html" %}
+
+{% block title %}Backtesting - Quantum Stock{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <div class="flex items-center justify-between">
+        <div>
+            <h1 class="text-2xl font-bold"><i class="fas fa-flask mr-2 text-accent-blue"></i>AI Quant Backtesting</h1>
+            <p class="text-gray-400 mt-1">Kiểm tra chiến lược với dữ liệu lịch sử</p>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-4 gap-6">
+        <!-- Config Panel -->
+        <div class="glass rounded-xl p-6 space-y-4">
+            <h3 class="font-semibold"><i class="fas fa-cog mr-2"></i>Cấu Hình</h3>
+
+            <div>
+                <label class="block text-sm text-gray-400 mb-1">Chiến Lược</label>
+                <select id="btStrategy" class="w-full bg-dark-700 border border-dark-500 rounded-lg px-3 py-2">
+                    <option value="MA_CROSSOVER">MA Crossover (Golden Cross)</option>
+                    <option value="RSI_REVERSAL">RSI Reversal</option>
+                    <option value="MACD">MACD Signal</option>
+                    <option value="BB_BREAKOUT">Bollinger Breakout</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="block text-sm text-gray-400 mb-1">Mã cổ phiếu</label>
+                <input type="text" id="btSymbol" value="FPT" class="w-full bg-dark-700 border border-dark-500 rounded-lg px-3 py-2">
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">Từ ngày</label>
+                    <input type="date" id="btStart" value="2023-01-01" class="w-full bg-dark-700 border border-dark-500 rounded-lg px-3 py-2 text-sm">
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">Đến ngày</label>
+                    <input type="date" id="btEnd" value="2023-12-31" class="w-full bg-dark-700 border border-dark-500 rounded-lg px-3 py-2 text-sm">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm text-gray-400 mb-1">Thông số (MA Nhanh/Chậm)</label>
+                <div class="grid grid-cols-2 gap-2">
+                    <input type="number" id="btFast" value="10" class="bg-dark-700 border border-dark-500 rounded-lg px-3 py-2">
+                    <input type="number" id="btSlow" value="50" class="bg-dark-700 border border-dark-500 rounded-lg px-3 py-2">
+                </div>
+            </div>
+
+            <button onclick="runBacktest()" class="w-full py-3 bg-accent-blue text-dark-900 rounded-lg font-semibold hover:bg-accent-blue/80">
+                <i class="fas fa-play mr-2"></i>Chạy Backtest
+            </button>
+
+            <div class="border-t border-dark-500 pt-4 mt-4">
+                <h4 class="text-sm font-semibold mb-2">Chỉ Số Chính</h4>
+                <div class="grid grid-cols-2 gap-2 text-sm">
+                    <div class="bg-dark-700 rounded p-2 text-center">
+                        <p class="text-gray-400">SHARPE</p>
+                        <p class="text-lg font-bold" id="btSharpe">--</p>
+                    </div>
+                    <div class="bg-dark-700 rounded p-2 text-center">
+                        <p class="text-gray-400">PROFIT FACTOR</p>
+                        <p class="text-lg font-bold" id="btPF">--</p>
+                    </div>
+                    <div class="bg-dark-700 rounded p-2 text-center">
+                        <p class="text-gray-400">MAX DD</p>
+                        <p class="text-lg font-bold text-accent-red" id="btDD">--</p>
+                    </div>
+                    <div class="bg-dark-700 rounded p-2 text-center">
+                        <p class="text-gray-400">SỐ LỆNH</p>
+                        <p class="text-lg font-bold" id="btTrades">--</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div class="col-span-3 space-y-6">
+            <!-- Quantum Core AI Panel -->
+            <div class="glass rounded-xl p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-semibold"><i class="fas fa-atom mr-2 text-accent-purple"></i>QUANTUM CORE AI</h3>
+                    <div class="flex space-x-2">
+                        <span class="px-3 py-1 bg-dark-600 rounded text-sm">Entry: <span id="btEntry">--</span></span>
+                        <span class="px-3 py-1 bg-accent-green/20 text-accent-green rounded text-sm">TP: <span id="btTP">--</span></span>
+                        <span class="px-3 py-1 bg-accent-red/20 text-accent-red rounded text-sm">SL: <span id="btSL">--</span></span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="text-sm text-gray-400 mb-2">LỖI PHÂN TÍCH</h4>
+                        <div id="btAnalysis" class="bg-dark-700 rounded-lg p-4 text-sm">
+                            <p class="text-gray-400">Chạy backtest để xem kết quả...</p>
+                        </div>
+
+                        <div class="mt-4 grid grid-cols-2 gap-4">
+                            <div class="bg-dark-700 rounded-lg p-3 text-center">
+                                <p class="text-xs text-gray-400">TÂM LÝ</p>
+                                <p class="text-lg font-bold text-accent-green" id="btSentiment">--</p>
+                            </div>
+                            <div class="bg-dark-700 rounded-lg p-3 text-center">
+                                <p class="text-xs text-gray-400">Độ tin cậy</p>
+                                <div class="w-full bg-dark-600 rounded-full h-2 mt-1">
+                                    <div id="btConfBar" class="bg-accent-cyan h-2 rounded-full" style="width: 0%"></div>
+                                </div>
+                                <p class="text-sm mt-1" id="btConf">0%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-sm text-gray-400 mb-2">DỰ PHÓNG GIÁ</h4>
+                        <canvas id="btPriceChart" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Equity Curve -->
+            <div class="glass rounded-xl p-6">
+                <h3 class="font-semibold mb-4"><i class="fas fa-chart-line mr-2"></i>Đường Equity</h3>
+                <canvas id="btEquityChart" height="150"></canvas>
+            </div>
+
+            <div class="flex space-x-4">
+                <button onclick="runBacktest()" class="flex-1 py-3 bg-dark-600 border border-dark-500 rounded-lg hover:bg-dark-500">
+                    <i class="fas fa-brain mr-2"></i>Phân Tích Với AI
+                </button>
+                <button class="flex-1 py-3 bg-accent-green text-dark-900 rounded-lg font-semibold hover:bg-accent-green/80">
+                    <i class="fas fa-rocket mr-2"></i>Mở Giả Lập Giao Dịch
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+let equityChart, priceChart;
+
+async function runBacktest() {
+    const symbol = document.getElementById('btSymbol').value.toUpperCase();
+    const strategy = document.getElementById('btStrategy').value;
+    const startDate = document.getElementById('btStart').value;
+    const endDate = document.getElementById('btEnd').value;
+    const fast = parseInt(document.getElementById('btFast').value);
+    const slow = parseInt(document.getElementById('btSlow').value);
+
+    try {
+        const response = await fetch('/api/backtest/run', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                symbol, strategy, start_date: startDate, end_date: endDate,
+                params: { fast_period: fast, slow_period: slow }
+            })
+        });
+
+        const data = await response.json();
+        if (data.success) {
+            displayBacktestResults(data.result, data.equity_curve);
+        }
+    } catch (error) {
+        alert('Error: ' + error.message);
+    }
+}
+
+function displayBacktestResults(result, equityCurve) {
+    // Metrics
+    document.getElementById('btSharpe').textContent = result.sharpe_ratio?.toFixed(2) || '--';
+    document.getElementById('btPF').textContent = result.profit_factor?.toFixed(2) || '--';
+    document.getElementById('btDD').textContent = `-${result.max_drawdown_pct?.toFixed(1)}%`;
+    document.getElementById('btTrades').textContent = result.total_trades || '--';
+
+    // Analysis
+    const sentiment = result.total_return_pct > 0 ? 'BULLISH' : 'BEARISH';
+    const sentimentColor = result.total_return_pct > 0 ? 'text-accent-green' : 'text-accent-red';
+    document.getElementById('btSentiment').textContent = sentiment;
+    document.getElementById('btSentiment').className = `text-lg font-bold ${sentimentColor}`;
+
+    const confidence = Math.min(100, Math.abs(result.sharpe_ratio || 0) * 30 + 50);
+    document.getElementById('btConf').textContent = `${confidence.toFixed(0)}%`;
+    document.getElementById('btConfBar').style.width = `${confidence}%`;
+
+    document.getElementById('btAnalysis').innerHTML = `
+        <p class="text-accent-cyan font-semibold">Kết quả Backtest: ${result.strategy_name}</p>
+        <p class="mt-2">Lợi nhuận: <span class="${result.total_return_pct > 0 ? 'text-accent-green' : 'text-accent-red'}">${result.total_return_pct?.toFixed(1)}%</span></p>
+        <p>MaxDD: <span class="text-accent-red">${result.max_drawdown_pct?.toFixed(1)}%</span></p>
+        <p class="mt-2 text-gray-400 text-xs">"Sharpe cao và Alpha dương xác nhận xu hướng tăng bền vững sau tín hiệu MA Crossover."</p>
+    `;
+
+    // Equity Chart
+    const ctx = document.getElementById('btEquityChart').getContext('2d');
+    if (equityChart) equityChart.destroy();
+
+    equityChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: equityCurve.map((_, i) => i),
+            datasets: [{
+                data: equityCurve,
+                borderColor: '#00ff88',
+                backgroundColor: 'rgba(0, 255, 136, 0.1)',
+                fill: true,
+                borderWidth: 2,
+                pointRadius: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { display: false },
+                y: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#9ca3af' } }
+            }
+        }
+    });
+}
+</script>
+{% endblock %}

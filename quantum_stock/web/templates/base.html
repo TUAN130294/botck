@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Quantum Stock Platform{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            900: '#0a0a0f',
+                            800: '#12121a',
+                            700: '#1a1a24',
+                            600: '#22222e',
+                            500: '#2a2a38'
+                        },
+                        accent: {
+                            green: '#00ff88',
+                            red: '#ff4757',
+                            blue: '#3b82f6',
+                            purple: '#8b5cf6',
+                            cyan: '#06b6d4'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0a0a0f 0%, #12121a 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        .glass {
+            background: rgba(26, 26, 36, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-green { box-shadow: 0 0 20px rgba(0, 255, 136, 0.3); }
+        .glow-red { box-shadow: 0 0 20px rgba(255, 71, 87, 0.3); }
+        .glow-blue { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+        .gradient-text {
+            background: linear-gradient(135deg, #00ff88, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .status-online { animation: pulse 2s infinite; }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .chat-message {
+            animation: slideIn 0.3s ease-out;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #1a1a24; }
+        ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 3px; }
+    </style>
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="dark text-gray-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="glass fixed top-0 left-0 right-0 z-50 px-6 py-3">
+        <div class="flex items-center justify-between max-w-7xl mx-auto">
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center">
+                    <i class="fas fa-atom text-accent-cyan text-2xl mr-2"></i>
+                    <span class="text-xl font-bold gradient-text">QUANTUM STOCK</span>
+                </div>
+                <span class="text-xs text-gray-500 px-2 py-1 bg-dark-600 rounded">v4.0</span>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="/" class="nav-link hover:text-accent-cyan transition-colors {% if request.path == '/' %}text-accent-cyan{% endif %}">
+                    <i class="fas fa-chart-line mr-2"></i>Dashboard
+                </a>
+                <a href="/agents" class="nav-link hover:text-accent-cyan transition-colors {% if request.path == '/agents' %}text-accent-cyan{% endif %}">
+                    <i class="fas fa-users mr-2"></i>AI Agents
+                </a>
+                <a href="/backtest" class="nav-link hover:text-accent-cyan transition-colors {% if request.path == '/backtest' %}text-accent-cyan{% endif %}">
+                    <i class="fas fa-flask mr-2"></i>Backtest
+                </a>
+                <a href="/monte-carlo" class="nav-link hover:text-accent-cyan transition-colors {% if request.path == '/monte-carlo' %}text-accent-cyan{% endif %}">
+                    <i class="fas fa-dice mr-2"></i>Monte Carlo
+                </a>
+                <a href="/quantum-core" class="nav-link hover:text-accent-cyan transition-colors {% if request.path == '/quantum-core' %}text-accent-cyan{% endif %}">
+                    <i class="fas fa-brain mr-2"></i>Quantum AI
+                </a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center text-sm">
+                    <span class="w-2 h-2 bg-accent-green rounded-full status-online mr-2"></span>
+                    <span class="text-gray-400">VN30:</span>
+                    <span class="text-accent-green ml-1">1,245.32</span>
+                    <span class="text-accent-green text-xs ml-1">+0.8%</span>
+                </div>
+                <button class="p-2 rounded-lg bg-dark-600 hover:bg-dark-500 transition-colors">
+                    <i class="fas fa-cog text-gray-400"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-8 px-6">
+        <div class="max-w-7xl mx-auto">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass mt-8 py-4 px-6 text-center text-gray-500 text-sm">
+        <p>Quantum Stock Platform v4.0 | Multi-Agent Agentic Architecture | <i class="fas fa-code"></i> Built with AI</p>
+    </footer>
+
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

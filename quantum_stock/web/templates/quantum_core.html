@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+
+{% block title %}Quantum Core AI - Full Analysis{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <div class="flex items-center justify-between">
+        <div>
+            <h1 class="text-2xl font-bold"><i class="fas fa-brain mr-2 text-accent-purple"></i>Quantum Core AI</h1>
+            <p class="text-gray-400 mt-1">Phân tích toàn diện kết hợp Backtest + Monte Carlo + Multi-Agent</p>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-3 gap-6">
+        <!-- Input Panel -->
+        <div class="glass rounded-xl p-6 space-y-4">
+            <h3 class="font-semibold"><i class="fas fa-atom mr-2"></i>Quantum Analysis</h3>
+
+            <div>
+                <label class="block text-sm text-gray-400 mb-1">Mã cổ phiếu</label>
+                <input type="text" id="qcSymbol" value="FPT" class="w-full bg-dark-700 border border-dark-500 rounded-lg px-4 py-2">
+            </div>
+
+            <div>
+                <label class="block text-sm text-gray-400 mb-1">Chiến lược</label>
+                <select id="qcStrategy" class="w-full bg-dark-700 border border-dark-500 rounded-lg px-4 py-2">
+                    <option value="MA_CROSSOVER">MA Crossover</option>
+                    <option value="RSI_REVERSAL">RSI Reversal</option>
+                    <option value="MACD">MACD</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="block text-sm text-gray-400 mb-1">Forecast (ngày)</label>
+                <input type="number" id="qcDays" value="10" min="1" max="30" class="w-full bg-dark-700 border border-dark-500 rounded-lg px-4 py-2">
+            </div>
+
+            <div>
+                <label class="block text-sm text-gray-400 mb-1">Đòn bẩy</label>
+                <select id="qcLeverage" class="w-full bg-dark-700 border border-dark-500 rounded-lg px-4 py-2">
+                    <option value="1">1x</option>
+                    <option value="1.5">1.5x</option>
+                    <option value="2">2x</option>
+                </select>
+            </div>
+
+            <button onclick="runQuantumAnalysis()" class="w-full py-3 bg-gradient-to-r from-accent-purple to-accent-cyan text-white rounded-lg font-semibold hover:opacity-90">
+                <i class="fas fa-rocket mr-2"></i>Full Quantum Analysis
+            </button>
+        </div>
+
+        <!-- Results -->
+        <div class="col-span-2 space-y-6">
+            <!-- Signal Card -->
+            <div id="qcSignalCard" class="glass rounded-xl p-6">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-16 h-16 rounded-full bg-gray-600 flex items-center justify-center">
+                            <i class="fas fa-question text-3xl text-gray-400" id="qcSignalIcon"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold" id="qcSignalText">Chờ phân tích...</h2>
+                            <p class="text-gray-400" id="qcSignalDesc">Nhấn "Full Quantum Analysis" để bắt đầu</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-sm text-gray-400">Confidence</p>
+                        <p class="text-3xl font-bold" id="qcConfidence">--%</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Metrics Grid -->
+            <div class="grid grid-cols-4 gap-4">
+                <div class="glass rounded-xl p-4 text-center">
+                    <p class="text-gray-400 text-sm">Technical Score</p>
+                    <p class="text-2xl font-bold text-accent-cyan" id="qcTechScore">--</p>
+                </div>
+                <div class="glass rounded-xl p-4 text-center">
+                    <p class="text-gray-400 text-sm">Risk Score</p>
+                    <p class="text-2xl font-bold" id="qcRiskScore">--/100</p>
+                </div>
+                <div class="glass rounded-xl p-4 text-center">
+                    <p class="text-gray-400 text-sm">R:R Ratio</p>
+                    <p class="text-2xl font-bold text-accent-green" id="qcRR">--</p>
+                </div>
+                <div class="glass rounded-xl p-4 text-center">
+                    <p class="text-gray-400 text-sm">Kelly %</p>
+                    <p class="text-2xl font-bold text-accent-blue" id="qcKelly">--</p>
+                </div>
+            </div>
+
+            <!-- Entry/Exit -->
+            <div class="glass rounded-xl p-6">
+                <h3 class="font-semibold mb-4"><i class="fas fa-crosshairs mr-2"></i>Entry & Exit Levels</h3>
+                <div class="grid grid-cols-3 gap-6">
+                    <div class="text-center p-4 bg-dark-700 rounded-lg">
+                        <p class="text-gray-400 text-sm">Entry Price</p>
+                        <p class="text-2xl font-bold" id="qcEntry">--</p>
+                    </div>
+                    <div class="text-center p-4 bg-accent-green/10 border border-accent-green/30 rounded-lg">
+                        <p class="text-accent-green text-sm">Take Profit</p>
+                        <p class="text-2xl font-bold text-accent-green" id="qcTP">--</p>
+                    </div>
+                    <div class="text-center p-4 bg-accent-red/10 border border-accent-red/30 rounded-lg">
+                        <p class="text-accent-red text-sm">Stop Loss</p>
+                        <p class="text-2xl font-bold text-accent-red" id="qcSL">--</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Summary -->
+            <div class="glass rounded-xl p-6">
+                <h3 class="font-semibold mb-4"><i class="fas fa-brain mr-2"></i>AI Summary</h3>
+                <div id="qcSummary" class="bg-dark-700 rounded-lg p-4 text-sm text-gray-300 whitespace-pre-line">
+                    Chờ phân tích để xem tổng hợp AI...
+                </div>
+            </div>
+
+            <!-- Recommendation -->
+            <div id="qcRecommendation" class="glass rounded-xl p-6">
+                <h3 class="font-semibold mb-4"><i class="fas fa-lightbulb mr-2"></i>Khuyến Nghị</h3>
+                <div class="bg-dark-700 rounded-lg p-4 text-gray-300 whitespace-pre-line">
+                    --
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+async function runQuantumAnalysis() {
+    const symbol = document.getElementById('qcSymbol').value.toUpperCase();
+    const strategy = document.getElementById('qcStrategy').value;
+    const days = parseInt(document.getElementById('qcDays').value);
+    const leverage = parseFloat(document.getElementById('qcLeverage').value);
+
+    document.getElementById('qcSignalText').textContent = 'Đang phân tích...';
+    document.getElementById('qcSignalDesc').textContent = `Quantum Core đang xử lý ${symbol}`;
+
+    try {
+        const response = await fetch('/api/quantum/full-analysis', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ symbol, strategy, forecast_days: days, leverage })
+        });
+
+        const data = await response.json();
+        if (data.success) {
+            displayQuantumResults(data.result);
+        }
+    } catch (error) {
+        alert('Error: ' + error.message);
+    }
+}
+
+function displayQuantumResults(result) {
+    // Signal
+    const signal = result.signal || 'HOLD';
+    const signalColors = {
+        'STRONG_BUY': { bg: 'bg-accent-green', text: 'NÊN MUA MẠNH', icon: 'fa-arrow-up' },
+        'BUY': { bg: 'bg-accent-green/70', text: 'NÊN MUA', icon: 'fa-arrow-up' },
+        'HOLD': { bg: 'bg-yellow-400', text: 'GIỮ', icon: 'fa-minus' },
+        'SELL': { bg: 'bg-accent-red/70', text: 'NÊN BÁN', icon: 'fa-arrow-down' },
+        'STRONG_SELL': { bg: 'bg-accent-red', text: 'NÊN BÁN MẠNH', icon: 'fa-arrow-down' }
+    };
+
+    const sc = signalColors[signal] || signalColors['HOLD'];
+    document.getElementById('qcSignalText').textContent = sc.text;
+    document.getElementById('qcSignalIcon').className = `fas ${sc.icon} text-3xl`;
+
+    // Metrics
+    document.getElementById('qcConfidence').textContent = `${result.confidence?.toFixed(0) || 0}%`;
+    document.getElementById('qcTechScore').textContent = result.technical_score?.toFixed(0) || '--';
+    document.getElementById('qcRiskScore').textContent = `${result.risk_score || '--'}/100`;
+    document.getElementById('qcRR').textContent = `1:${result.risk_reward_ratio?.toFixed(1) || '--'}`;
+
+    // Kelly
+    if (result.kelly?.kelly_fraction) {
+        document.getElementById('qcKelly').textContent = `${(result.kelly.kelly_fraction * 100).toFixed(1)}%`;
+    }
+
+    // Entry/Exit
+    document.getElementById('qcEntry').textContent = result.entry_price?.toLocaleString('vi-VN', {maximumFractionDigits: 2}) || '--';
+    document.getElementById('qcTP').textContent = result.take_profit?.toLocaleString('vi-VN', {maximumFractionDigits: 2}) || '--';
+    document.getElementById('qcSL').textContent = result.stop_loss?.toLocaleString('vi-VN', {maximumFractionDigits: 2}) || '--';
+
+    // Summary & Recommendation
+    document.getElementById('qcSummary').textContent = result.ai_summary || 'Không có dữ liệu';
+    document.querySelector('#qcRecommendation .bg-dark-700').textContent = result.recommendation || '--';
+}
+</script>
+{% endblock %}
