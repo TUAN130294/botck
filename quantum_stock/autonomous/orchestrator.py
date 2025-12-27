@@ -37,6 +37,9 @@ from quantum_stock.agents.base_agent import StockData
 from quantum_stock.core.execution_engine import ExecutionEngine
 from quantum_stock.core.broker_api import BrokerFactory
 
+# Import real-time market data
+from quantum_stock.data.realtime_market_data import RealtimeMarketData
+
 
 @dataclass
 class OpportunityContext:
@@ -125,6 +128,9 @@ class AutonomousOrchestrator:
         # Position exit scheduler
         self.exit_scheduler = PositionExitScheduler()
 
+        # Real-time market data provider
+        self.market_data = RealtimeMarketData()
+
         # Agent coordinator
         self.agent_coordinator = AgentCoordinator(portfolio_value=initial_balance)
 
@@ -203,6 +209,9 @@ class AutonomousOrchestrator:
         logger.info(f"Initial balance: {self.broker.cash_balance:,.0f} VND")
         logger.info("")
 
+        # Start market data provider first
+        await self.market_data.start()
+
         # Start all concurrent tasks
         try:
             await asyncio.gather(
@@ -226,6 +235,7 @@ class AutonomousOrchestrator:
         self.model_scanner.stop()
         self.news_scanner.stop()
         self.exit_scheduler.stop()
+        await self.market_data.stop()
 
         # Print final stats
         logger.info("Final Statistics:")
@@ -337,23 +347,24 @@ class AutonomousOrchestrator:
             # 3. Agent discussion
             logger.info(f"🤖 Starting agent discussion for {symbol}...")
 
-            # TEMPORARY: Use mock discussion to bypass blocking agents
-            discussion = await self._mock_agent_discussion(symbol, stock_data, agent_context)
-            self.stats['agent_discussions'] += 1
-
-            # TODO: Fix agent blocking issue and use real agents:
-            # try:
-            #     discussion = await asyncio.wait_for(
-            #         self.agent_coordinator.analyze_stock(stock_data, agent_context),
-            #         timeout=30.0
-            #     )
-            #     self.stats['agent_discussions'] += 1
-            # except asyncio.TimeoutError:
-            #     logger.error(f"Agent discussion timed out for {symbol}")
-            #     return
-            # except Exception as e:
-            #     logger.error(f"Agent discussion failed for {symbol}: {e}", exc_info=True)
-            #     return
+            # Use real agents with timeout fallback
+            try:
+                discussion = await asyncio.wait_for(
+                    self.agent_coordinator.analyze_stock(stock_data, agent_context),
+                    timeout=15.0  # 15 seconds should be enough for analysis
+                )
+                self.stats['agent_discussions'] += 1
+                logger.info(f"✅ Agent discussion completed for {symbol}")
+            except asyncio.TimeoutError:
+                logger.warning(f"⏱️ Agent discussion timed out for {symbol}, using fallback mock")
+                # Fallback to mock discussion if timeout
+                discussion = await self._mock_agent_discussion(symbol, stock_data, agent_context)
+                self.stats['agent_discussions'] += 1
+            except Exception as e:
+                logger.error(f"❌ Agent discussion failed for {symbol}: {e}, using fallback mock", exc_info=True)
+                # Fallback to mock on error
+                discussion = await self._mock_agent_discussion(symbol, stock_data, agent_context)
+                self.stats['agent_discussions'] += 1
 
             # 4. Log conversation
             await self._log_discussion(discussion)
@@ -583,12 +594,14 @@ class AutonomousOrchestrator:
         }
 
     async def _get_current_price(self, symbol: str) -> float:
-        """Get current price for symbol"""
-        # Use broker's market price (which includes realistic simulation prices)
+        """Get current price for symbol using real-time market data"""
         try:
-            market_data = await self.broker.get_market_price(symbol)
-            return market_data.get('last', 26.5)  # Default to ACB's typical price
-        except:
+            # Use real-time market data provider (FIREANT API or historical fallback)
+            price = await self.market_data.get_price(symbol)
+            logger.debug(f"Price for {symbol}: {price:.2f}k VND")
+            return price
+        except Exception as e:
+            logger.warning(f"Failed to get price for {symbol}: {e}, using fallback")
             # Fallback defaults for common stocks
             defaults = {
                 'ACB': 26.5, 'HDB': 32.8, 'VCB': 92.5, 'STB': 18.5,

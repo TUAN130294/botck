@@ -14,7 +14,6 @@ Path A: Model-based opportunity detection
 import asyncio
 import pandas as pd
 import numpy as np
-import torch
 from pathlib import Path
 from typing import Dict, List, Optional, Callable
 from datetime import datetime, timedelta
@@ -22,11 +21,27 @@ from dataclasses import dataclass
 import logging
 logger = logging.getLogger(__name__)
 
-# Import Stockformer
+# Optional torch import - gracefully handle if not available
+try:
+    import torch
+    HAS_TORCH = True
+except ImportError:
+    logger.warning("PyTorch not available - model predictions will be mocked")
+    HAS_TORCH = False
+    torch = None
+
+# Import Stockformer (optional)
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
-from quantum_stock.models.stockformer import StockformerPredictor
-from enhanced_features_simple import calculate_vn_market_features_simple, normalize_features_simple
+
+# Optional model imports
+try:
+    from quantum_stock.models.stockformer import StockformerModel
+    from enhanced_features_simple import calculate_vn_market_features_simple, normalize_features_simple
+    HAS_STOCKFORMER = True
+except ImportError:
+    logger.warning("Stockformer model not available - will use mock predictions")
+    HAS_STOCKFORMER = False
 
 
 @dataclass
@@ -107,8 +122,12 @@ class ModelPredictionScanner:
         self.passed_stocks = self._load_passed_stocks()
 
         # Device
-        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-        logger.info(f"Using device: {self.device}")
+        if HAS_TORCH and torch is not None:
+            self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+            logger.info(f"Using device: {self.device}")
+        else:
+            self.device = None
+            logger.info("Model scanner using mock predictions (PyTorch not available)")
 
     def _load_passed_stocks(self) -> List[str]:
         """Load 8 PASSED stocks from backtest"""
