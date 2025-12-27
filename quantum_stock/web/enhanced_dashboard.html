@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VN-Quant Pro Dashboard - AI Level 4</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            color: #e0e0e0;
+            padding: 20px;
+        }
+
+        .container { max-width: 2000px; margin: 0 auto; }
+
+        h1 {
+            text-align: center;
+            color: #00ff88;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            text-shadow: 0 0 20px #00ff88;
+        }
+
+        /* Top Stats Grid */
+        .top-stats {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #1e2749 0%, #2d3561 100%);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #3d4577;
+            text-align: center;
+        }
+
+        .stat-label {
+            color: #888;
+            font-size: 0.85em;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #00ff88;
+        }
+
+        .stat-value.negative { color: #ff5555; }
+        .stat-value.warning { color: #ffaa00; }
+
+        /* Main Grid Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .panel {
+            background: linear-gradient(135deg, #1e2749 0%, #2d3561 100%);
+            border-radius: 10px;
+            border: 1px solid #3d4577;
+            padding: 20px;
+        }
+
+        .panel-title {
+            font-size: 1.3em;
+            color: #00ff88;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #00ff88;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Agent Performance Grid */
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .agent-card {
+            background: rgba(0,255,136,0.05);
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 4px solid #00ff88;
+        }
+
+        .agent-card.poor { border-left-color: #ff5555; background: rgba(255,85,85,0.05); }
+        .agent-card.good { border-left-color: #00ff88; }
+        .agent-card.excellent { border-left-color: #00aaff; background: rgba(0,170,255,0.05); }
+
+        .agent-name {
+            font-weight: bold;
+            color: #00ff88;
+            margin-bottom: 8px;
+        }
+
+        .agent-metric {
+            font-size: 0.85em;
+            color: #aaa;
+            margin: 3px 0;
+        }
+
+        /* Emergency Controls */
+        .emergency-controls {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-emergency {
+            background: #ff5555;
+            color: white;
+        }
+
+        .btn-emergency:hover {
+            background: #ff3333;
+            box-shadow: 0 0 15px #ff5555;
+        }
+
+        .btn-pause {
+            background: #ffaa00;
+            color: black;
+        }
+
+        .btn-resume {
+            background: #00ff88;
+            color: black;
+        }
+
+        /* Circuit Breaker Indicator */
+        .circuit-breaker {
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .circuit-breaker.level-0 {
+            border-color: #00ff88;
+            background: rgba(0,255,136,0.1);
+            color: #00ff88;
+        }
+
+        .circuit-breaker.level-1 {
+            border-color: #ffaa00;
+            background: rgba(255,170,0,0.1);
+            color: #ffaa00;
+        }
+
+        .circuit-breaker.level-2 {
+            border-color: #ff5555;
+            background: rgba(255,85,85,0.1);
+            color: #ff5555;
+        }
+
+        .circuit-breaker.level-3 {
+            border-color: #ff0000;
+            background: rgba(255,0,0,0.2);
+            color: #ff0000;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Conversations */
+        #conversations {
+            height: 500px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: rgba(0,255,136,0.05);
+            border-left: 3px solid #00ff88;
+            border-radius: 5px;
+        }
+
+        /* Learning Stats */
+        .learning-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .learning-metric {
+            background: rgba(255,255,255,0.05);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Pattern Insights */
+        .pattern-card {
+            background: rgba(0,170,255,0.1);
+            border-left: 4px solid #00aaff;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 5px;
+        }
+
+        /* Pending Approvals */
+        .approval-card {
+            background: rgba(255,170,0,0.1);
+            border: 2px solid #ffaa00;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+
+        .approval-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .btn-approve {
+            background: #00ff88;
+            color: black;
+        }
+
+        .btn-reject {
+            background: #ff5555;
+            color: white;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1e2749; }
+        ::-webkit-scrollbar-thumb { background: #00ff88; border-radius: 4px; }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .status-running {
+            background: #00ff88;
+            color: #000;
+        }
+
+        .status-paused {
+            background: #ffaa00;
+            color: #000;
+        }
+
+        .status-stopped {
+            background: #ff5555;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 VN-QUANT PRO - AI LEVEL 4 AUTONOMOUS TRADING</h1>
+
+        <!-- Top Stats -->
+        <div class="top-stats">
+            <div class="stat-card">
+                <div class="stat-label">System Status</div>
+                <div class="stat-value">
+                    <span id="system-status" class="status-badge status-running">● RUNNING</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Portfolio Value</div>
+                <div class="stat-value" id="portfolio-value">100,000,000 VND</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Today P&L</div>
+                <div class="stat-value" id="today-pnl">+0 VND</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Total Return</div>
+                <div class="stat-value" id="total-return">+0%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Active Positions</div>
+                <div class="stat-value" id="active-positions">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Win Rate</div>
+                <div class="stat-value" id="win-rate">0%</div>
+            </div>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="main-grid">
+            <!-- Left: Agent Conversations -->
+            <div class="panel">
+                <div class="panel-title">
+                    <span>🗨️ AGENT CONVERSATIONS</span>
+                    <span style="font-size: 0.7em; color: #888;">Real-time</span>
+                </div>
+                <div id="conversations">
+                    <div class="message">
+                        <div class="timestamp">Waiting for agent activity...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Emergency & Controls -->
+            <div>
+                <!-- Circuit Breaker -->
+                <div class="panel">
+                    <div class="panel-title">⚡ CIRCUIT BREAKER</div>
+                    <div id="circuit-breaker" class="circuit-breaker level-0">
+                        <div style="font-size: 1.5em; font-weight: bold;">LEVEL 0 - NORMAL</div>
+                        <div style="font-size: 0.9em; margin-top: 5px;">Full trading capacity</div>
+                        <div style="font-size: 0.85em; margin-top: 10px; color: #888;">
+                            Daily P&L: <span id="cb-daily-pnl">+0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Emergency Controls -->
+                <div class="panel" style="margin-top: 15px;">
+                    <div class="panel-title">🚨 EMERGENCY CONTROLS</div>
+                    <div class="emergency-controls">
+                        <button class="btn btn-emergency" onclick="emergencyStop()">
+                            🛑 EMERGENCY STOP
+                        </button>
+                        <button class="btn btn-pause" onclick="pauseTrading()">
+                            ⏸️ PAUSE (1H)
+                        </button>
+                        <button class="btn btn-resume" onclick="resumeTrading()">
+                            ▶️ RESUME
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Manual Approvals -->
+                <div class="panel" style="margin-top: 15px;">
+                    <div class="panel-title">
+                        <span>📋 PENDING APPROVALS</span>
+                        <span id="approval-count" class="status-badge" style="background: #ffaa00; color: #000;">0</span>
+                    </div>
+                    <div id="pending-approvals">
+                        <div style="text-align: center; color: #666; padding: 20px;">
+                            No pending approvals
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Agent Performance & Learning -->
+        <div class="main-grid">
+            <!-- Agent Performance -->
+            <div class="panel">
+                <div class="panel-title">🤖 AGENT PERFORMANCE (AI Learning)</div>
+                <div class="agent-grid" id="agent-performance">
+                    <!-- Will be populated by JS -->
+                </div>
+            </div>
+
+            <!-- Learning Stats -->
+            <div class="panel">
+                <div class="panel-title">🧠 LEARNING SYSTEM STATS</div>
+                <div class="learning-stats" id="learning-stats">
+                    <div class="learning-metric">
+                        <div style="color: #888; font-size: 0.9em;">Total Signals</div>
+                        <div style="font-size: 1.5em; color: #00ff88;" id="total-signals">0</div>
+                    </div>
+                    <div class="learning-metric">
+                        <div style="color: #888; font-size: 0.9em;">Learning Enabled</div>
+                        <div style="font-size: 1.5em; color: #00ff88;" id="learning-enabled">✅ YES</div>
+                    </div>
+                    <div class="learning-metric">
+                        <div style="color: #888; font-size: 0.9em;">Last Weight Update</div>
+                        <div style="font-size: 1em; color: #aaa;" id="last-weight-update">Never</div>
+                    </div>
+                    <div class="learning-metric">
+                        <div style="color: #888; font-size: 0.9em;">Avg Agent Accuracy</div>
+                        <div style="font-size: 1.5em; color: #00ff88;" id="avg-accuracy">0%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Positions & Trades -->
+        <div class="main-grid">
+            <div class="panel">
+                <div class="panel-title">📊 ACTIVE POSITIONS</div>
+                <div id="positions">
+                    <div style="text-align: center; color: #666; padding: 20px;">
+                        No positions yet
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-title">💰 RECENT TRADES</div>
+                <div id="trades" style="max-height: 400px; overflow-y: auto;">
+                    <div style="text-align: center; color: #666; padding: 20px;">
+                        No trades yet
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        console.log('🚀 Enhanced Dashboard initializing...');
+
+        // WebSocket connection
+        const ws = new WebSocket('ws://localhost:8001/ws/autonomous');
+
+        ws.onopen = () => {
+            console.log('✅ WebSocket connected');
+        };
+
+        ws.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            console.log('📨 Message:', data.type);
+
+            if (data.type === 'agent_discussion') {
+                handleDiscussion(data);
+            } else if (data.type === 'status_update') {
+                updateStats(data);
+            }
+        };
+
+        // Update dashboard stats every 5 seconds
+        setInterval(async () => {
+            await updateAllStats();
+        }, 5000);
+
+        // Update agent performance every 30 seconds
+        setInterval(async () => {
+            await updateAgentPerformance();
+        }, 30000);
+
+        // Update circuit breaker every 10 seconds
+        setInterval(async () => {
+            await updateCircuitBreaker();
+        }, 10000);
+
+        // Update pending approvals every 5 seconds
+        setInterval(async () => {
+            await updatePendingApprovals();
+        }, 5000);
+
+        async function updateAllStats() {
+            try {
+                // Get status
+                const statusResp = await fetch('/api/status');
+                const status = await statusResp.json();
+
+                // Get performance
+                const perfResp = await fetch('/api/performance/summary');
+                const perf = await perfResp.json();
+
+                // Update UI
+                if (perf.total_value) {
+                    document.getElementById('portfolio-value').textContent =
+                        perf.total_value.toLocaleString() + ' VND';
+
+                    const returnElem = document.getElementById('total-return');
+                    returnElem.textContent = (perf.total_return_pct >= 0 ? '+' : '') +
+                        perf.total_return_pct.toFixed(2) + '%';
+                    returnElem.className = 'stat-value ' +
+                        (perf.total_return_pct >= 0 ? '' : 'negative');
+                }
+
+                if (perf.win_rate !== undefined) {
+                    document.getElementById('win-rate').textContent =
+                        perf.win_rate.toFixed(1) + '%';
+                }
+
+                // Get learning stats
+                const learningResp = await fetch('/api/learning/stats');
+                const learning = await learningResp.json();
+
+                if (learning.total_signals !== undefined) {
+                    document.getElementById('total-signals').textContent = learning.total_signals;
+                }
+
+                if (learning.learning_enabled !== undefined) {
+                    document.getElementById('learning-enabled').textContent =
+                        learning.learning_enabled ? '✅ YES' : '❌ NO';
+                }
+
+            } catch (error) {
+                console.error('Error updating stats:', error);
+            }
+        }
+
+        async function updateAgentPerformance() {
+            try {
+                const resp = await fetch('/api/agent-performance');
+                const data = await resp.json();
+
+                if (!data.agents) return;
+
+                const grid = document.getElementById('agent-performance');
+                let html = '';
+
+                for (const [name, metrics] of Object.entries(data.agents)) {
+                    const performance = metrics.accuracy >= 0.6 ? 'excellent' :
+                                      metrics.accuracy >= 0.5 ? 'good' : 'poor';
+
+                    html += `
+                        <div class="agent-card ${performance}">
+                            <div class="agent-name">${name}</div>
+                            <div class="agent-metric">Accuracy: ${(metrics.accuracy * 100).toFixed(1)}%</div>
+                            <div class="agent-metric">Win Rate: ${(metrics.win_rate * 100).toFixed(1)}%</div>
+                            <div class="agent-metric">Sharpe: ${metrics.sharpe_ratio.toFixed(2)}</div>
+                            <div class="agent-metric">Weight: ${metrics.current_weight.toFixed(2)}x</div>
+                            <div class="agent-metric">Signals: ${metrics.total_signals}</div>
+                        </div>
+                    `;
+                }
+
+                grid.innerHTML = html;
+
+            } catch (error) {
+                console.error('Error updating agent performance:', error);
+            }
+        }
+
+        async function updateCircuitBreaker() {
+            try {
+                const resp = await fetch('/api/circuit-breaker/status');
+                const cb = await resp.json();
+
+                const elem = document.getElementById('circuit-breaker');
+                elem.className = `circuit-breaker level-${cb.level}`;
+
+                const levelNames = ['NORMAL', 'CAUTION', 'HALT', 'EMERGENCY'];
+                const levelDescs = [
+                    'Full trading capacity',
+                    'Position size reduced 50%',
+                    'All trading stopped',
+                    'EMERGENCY - Force liquidating'
+                ];
+
+                elem.innerHTML = `
+                    <div style="font-size: 1.5em; font-weight: bold;">LEVEL ${cb.level} - ${levelNames[cb.level]}</div>
+                    <div style="font-size: 0.9em; margin-top: 5px;">${levelDescs[cb.level]}</div>
+                    <div style="font-size: 0.85em; margin-top: 10px; color: #888;">
+                        Daily P&L: <span id="cb-daily-pnl">${(cb.daily_pnl_percent * 100).toFixed(2)}%</span>
+                    </div>
+                `;
+
+            } catch (error) {
+                console.error('Error updating circuit breaker:', error);
+            }
+        }
+
+        async function updatePendingApprovals() {
+            try {
+                const resp = await fetch('/api/manual-approval/pending');
+                const data = await resp.json();
+
+                document.getElementById('approval-count').textContent = data.count;
+
+                const container = document.getElementById('pending-approvals');
+
+                if (data.count === 0) {
+                    container.innerHTML = '<div style="text-align: center; color: #666; padding: 20px;">No pending approvals</div>';
+                    return;
+                }
+
+                let html = '';
+                for (const approval of data.pending) {
+                    const req = approval.request;
+                    html += `
+                        <div class="approval-card">
+                            <div style="font-weight: bold; margin-bottom: 8px;">
+                                ${req.action} ${req.quantity} ${req.symbol} @ ${req.price.toLocaleString()} VND
+                            </div>
+                            <div style="font-size: 0.9em; color: #aaa; margin-bottom: 8px;">
+                                Reason: ${req.reason}<br>
+                                Confidence: ${(req.agent_confidence * 100).toFixed(0)}%
+                            </div>
+                            <div class="approval-actions">
+                                <button class="btn btn-approve" onclick="approveTradePrompt('${approval.approval_id}')">
+                                    ✅ APPROVE
+                                </button>
+                                <button class="btn btn-reject" onclick="rejectTrade('${approval.approval_id}')">
+                                    ❌ REJECT
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                container.innerHTML = html;
+
+            } catch (error) {
+                console.error('Error updating pending approvals:', error);
+            }
+        }
+
+        function handleDiscussion(data) {
+            // Handle agent discussion (same as before)
+            const conversations = document.getElementById('conversations');
+            // ... existing code ...
+        }
+
+        function updateStats(data) {
+            if (data.portfolio_value) {
+                document.getElementById('portfolio-value').textContent =
+                    data.portfolio_value.toLocaleString() + ' VND';
+            }
+            if (data.active_positions !== undefined) {
+                document.getElementById('active-positions').textContent = data.active_positions;
+            }
+        }
+
+        // Emergency functions
+        async function emergencyStop() {
+            if (!confirm('⚠️ EMERGENCY STOP - Are you absolutely sure?\n\nThis will:\n- Stop all trading immediately\n- Cancel pending orders\n- Keep positions (won\'t liquidate)\n\nType CONFIRM to proceed.')) {
+                return;
+            }
+
+            const code = prompt('Enter confirmation code: EMERGENCY_STOP_CONFIRMED');
+            if (code !== 'EMERGENCY_STOP_CONFIRMED') {
+                alert('Invalid code - Emergency stop cancelled');
+                return;
+            }
+
+            try {
+                const resp = await fetch('/api/emergency/stop', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'STOP_TRADING',
+                        reason: 'Manual emergency stop',
+                        confirm_code: code
+                    })
+                });
+
+                const result = await resp.json();
+                alert('✅ Emergency stop executed');
+
+            } catch (error) {
+                alert('❌ Error: ' + error.message);
+            }
+        }
+
+        async function pauseTrading() {
+            try {
+                const resp = await fetch('/api/emergency/pause', {
+                    method: 'POST'
+                });
+                alert('✅ Trading paused for 1 hour');
+            } catch (error) {
+                alert('❌ Error: ' + error.message);
+            }
+        }
+
+        async function resumeTrading() {
+            try {
+                const resp = await fetch('/api/emergency/resume', {
+                    method: 'POST'
+                });
+                alert('✅ Trading resumed');
+            } catch (error) {
+                alert('❌ Error: ' + error.message);
+            }
+        }
+
+        async function approveTradePrompt(approval_id) {
+            const quantity = prompt('Approve trade?\n\nLeave blank to use suggested quantity, or enter new quantity:');
+            if (quantity === null) return; // Cancelled
+
+            await approveTrade(approval_id, quantity ? parseInt(quantity) : null);
+        }
+
+        async function approveTrade(approval_id, modified_quantity = null) {
+            try {
+                const resp = await fetch('/api/manual-approval/respond', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        approval_id: approval_id,
+                        approved: true,
+                        modified_quantity: modified_quantity
+                    })
+                });
+
+                const result = await resp.json();
+                alert('✅ Trade approved and executed');
+
+            } catch (error) {
+                alert('❌ Error: ' + error.message);
+            }
+        }
+
+        async function rejectTrade(approval_id) {
+            const reason = prompt('Reason for rejection:');
+            if (!reason) return;
+
+            try {
+                const resp = await fetch('/api/manual-approval/respond', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        approval_id: approval_id,
+                        approved: false,
+                        rejection_reason: reason
+                    })
+                });
+
+                alert('✅ Trade rejected');
+
+            } catch (error) {
+                alert('❌ Error: ' + error.message);
+            }
+        }
+
+        // Initial load
+        updateAllStats();
+        updateAgentPerformance();
+        updateCircuitBreaker();
+        updatePendingApprovals();
+
+        console.log('✅ Enhanced Dashboard ready!');
+    </script>
+</body>
+</html>

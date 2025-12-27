@@ -73,6 +73,14 @@ app.add_middleware(
 orchestrator: AutonomousOrchestrator = None
 active_websockets: List[WebSocket] = []
 
+# Import enhanced API setup
+try:
+    from quantum_stock.web.enhanced_api import setup_enhanced_api
+    HAS_ENHANCED_API = True
+except ImportError:
+    logger.warning("Enhanced API not available - using basic features only")
+    HAS_ENHANCED_API = False
+
 
 @app.on_event("startup")
 async def startup_event():
@@ -88,6 +96,32 @@ async def startup_event():
         paper_trading=True,
         initial_balance=100_000_000  # 100M VND
     )
+
+    # Initialize AI Learning System
+    try:
+        from quantum_stock.autonomous.ai_learning_system import AILearningSystem
+        orchestrator.learning_system = AILearningSystem()
+        logger.info("✅ AI Learning System initialized")
+    except Exception as e:
+        logger.warning(f"Could not initialize learning system: {e}")
+
+    # Initialize Circuit Breaker
+    try:
+        from quantum_stock.risk.circuit_breaker import CircuitBreakerSystem
+        orchestrator.circuit_breaker = CircuitBreakerSystem(
+            initial_portfolio_value=100_000_000
+        )
+        logger.info("✅ Circuit Breaker initialized")
+    except Exception as e:
+        logger.warning(f"Could not initialize circuit breaker: {e}")
+
+    # Setup enhanced API endpoints
+    if HAS_ENHANCED_API:
+        try:
+            setup_enhanced_api(app, orchestrator)
+            logger.info("✅ Enhanced API endpoints registered")
+        except Exception as e:
+            logger.warning(f"Could not setup enhanced API: {e}")
 
     # Start orchestrator in background
     asyncio.create_task(orchestrator.start())
@@ -154,6 +188,16 @@ async def homepage():
 @app.get("/autonomous", response_class=HTMLResponse)
 async def autonomous_dashboard():
     """Main autonomous trading dashboard"""
+    # Try to serve enhanced dashboard first
+    enhanced_dashboard_path = Path(__file__).parent / "quantum_stock" / "web" / "enhanced_dashboard.html"
+    if enhanced_dashboard_path.exists():
+        try:
+            with open(enhanced_dashboard_path, 'r', encoding='utf-8') as f:
+                return HTMLResponse(content=f.read())
+        except Exception as e:
+            logger.warning(f"Could not load enhanced dashboard: {e}, using basic")
+
+    # Fallback to basic dashboard
     return """
 <!DOCTYPE html>
 <html>
