@@ -1,7 +1,0 @@
-[
-  {
-    "symbol": "FPT",
-    "status": "failed",
-    "error": "VietnamSettlementDataPrep.__init__() got an unexpected keyword argument 'settlement_days'"
-  }
-]

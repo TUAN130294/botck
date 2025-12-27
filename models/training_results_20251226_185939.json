@@ -1,7 +1,0 @@
-[
-  {
-    "symbol": "FPT",
-    "status": "failed",
-    "error": "Cannot compare dtypes datetime64[ns] and int64"
-  }
-]

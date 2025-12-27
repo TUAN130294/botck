@@ -51,7 +51,10 @@
       "Bash(timeout:*)",
       "Bash(pip show:*)",
       "Bash(del /Q backtest_results_simple_20251226_202252.csv backtest_results_simple_20251226_232750.csv backtest_results_simple_20251227_082109.csv autonomous_server.log server.log nul cleanup_list.txt)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(find:*)"
     ]
   }
 }
