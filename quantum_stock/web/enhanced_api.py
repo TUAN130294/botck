@@ -244,13 +244,47 @@ def setup_enhanced_api(app: FastAPI, orchestrator):
                     f"✅ Trade approved: {request.action} {quantity} {request.symbol} @ {request.price}"
                 )
 
-                # TODO: Execute the approved trade via orchestrator
+                # Execute the approved trade via broker
+                try:
+                    from quantum_stock.core.broker_api import OrderSide, OrderType
 
-                return {
-                    "status": "approved",
-                    "executed": True,
-                    "quantity": quantity
-                }
+                    side = OrderSide.BUY if request.action == "BUY" else OrderSide.SELL
+
+                    order = await orchestrator.broker.place_order(
+                        symbol=request.symbol,
+                        side=side,
+                        order_type=OrderType.LIMIT,
+                        quantity=quantity,
+                        price=request.price
+                    )
+
+                    logger.info(f"✅ Trade executed: Order {order.order_id}")
+
+                    # Broadcast via WebSocket
+                    await orchestrator.agent_message_queue.put({
+                        'type': 'order_executed',
+                        'symbol': request.symbol,
+                        'action': request.action,
+                        'quantity': quantity,
+                        'price': request.price,
+                        'timestamp': datetime.now().isoformat(),
+                        'reason': 'Manual approval'
+                    })
+
+                    return {
+                        "status": "approved",
+                        "executed": True,
+                        "order_id": order.order_id,
+                        "quantity": quantity
+                    }
+
+                except Exception as e:
+                    logger.error(f"Error executing approved trade: {e}")
+                    return {
+                        "status": "approved_but_execution_failed",
+                        "error": str(e),
+                        "quantity": quantity
+                    }
             else:
                 logger.info(
                     f"❌ Trade rejected: {request.symbol} - {response.rejection_reason}"
@@ -295,7 +329,69 @@ def setup_enhanced_api(app: FastAPI, orchestrator):
             if action.action == "LIQUIDATE_ALL":
                 # Force liquidate all positions
                 logger.critical("🚨 LIQUIDATING ALL POSITIONS")
-                # TODO: Implement force liquidation
+
+                try:
+                    from quantum_stock.core.broker_api import OrderSide, OrderType
+
+                    liquidation_results = []
+
+                    # Get all current positions
+                    positions = list(orchestrator.broker.positions.values())
+
+                    for pos in positions:
+                        try:
+                            # Get current market price
+                            if hasattr(orchestrator, 'market_data'):
+                                current_price = await orchestrator.market_data.get_price(pos.symbol)
+                            else:
+                                current_price = pos.avg_price  # Fallback
+
+                            # Place market sell order for entire position
+                            order = await orchestrator.broker.place_order(
+                                symbol=pos.symbol,
+                                side=OrderSide.SELL,
+                                order_type=OrderType.MARKET,  # Market order for immediate execution
+                                quantity=pos.quantity,
+                                price=current_price
+                            )
+
+                            liquidation_results.append({
+                                "symbol": pos.symbol,
+                                "quantity": pos.quantity,
+                                "price": current_price,
+                                "order_id": order.order_id,
+                                "status": "liquidated"
+                            })
+
+                            logger.critical(f"🚨 LIQUIDATED: {pos.symbol} - {pos.quantity} @ {current_price}")
+
+                        except Exception as e:
+                            logger.error(f"Failed to liquidate {pos.symbol}: {e}")
+                            liquidation_results.append({
+                                "symbol": pos.symbol,
+                                "status": "failed",
+                                "error": str(e)
+                            })
+
+                    # Broadcast liquidation event
+                    await orchestrator.agent_message_queue.put({
+                        'type': 'emergency_liquidation',
+                        'positions_liquidated': len([r for r in liquidation_results if r['status'] == 'liquidated']),
+                        'positions_failed': len([r for r in liquidation_results if r['status'] == 'failed']),
+                        'timestamp': datetime.now().isoformat()
+                    })
+
+                except Exception as e:
+                    logger.error(f"Error during liquidation: {e}")
+                    liquidation_results = [{"error": str(e)}]
+
+                return {
+                    "status": "stopped",
+                    "action": action.action,
+                    "reason": action.reason,
+                    "liquidation_results": liquidation_results,
+                    "timestamp": datetime.now().isoformat()
+                }
 
             return {
                 "status": "stopped",
@@ -413,6 +509,7 @@ def setup_enhanced_api(app: FastAPI, orchestrator):
         - Max drawdown
         - Win rate
         - Total trades
+        - Cash + positions market value
         """
         try:
             broker = orchestrator.broker
@@ -420,26 +517,59 @@ def setup_enhanced_api(app: FastAPI, orchestrator):
             initial_balance = broker.initial_balance if hasattr(broker, 'initial_balance') else 100_000_000
             current_balance = broker.cash_balance
 
-            # Calculate total value (cash + positions)
+            # Calculate total value (cash + positions market value)
             total_value = current_balance
+            positions_value = 0
+
+            # Get real-time market data for accurate position valuation
+            market_data = orchestrator.market_data if hasattr(orchestrator, 'market_data') else None
+
             for pos in broker.positions.values():
-                total_value += pos.market_value
+                if market_data:
+                    try:
+                        # Get current market price
+                        current_price = await market_data.get_price(pos.symbol)
+                        position_value = pos.quantity * current_price
+                    except:
+                        # Fallback to stored market_value
+                        position_value = pos.market_value
+                else:
+                    position_value = pos.market_value
+
+                positions_value += position_value
+                total_value += position_value
 
             total_return = (total_value - initial_balance) / initial_balance
 
             # Trade statistics
             trades = broker.trade_history
             winning_trades = [t for t in trades if t.get('pnl', 0) > 0]
+            losing_trades = [t for t in trades if t.get('pnl', 0) < 0]
             win_rate = len(winning_trades) / len(trades) if trades else 0
+
+            # Calculate average win/loss
+            avg_win = sum(t.get('pnl', 0) for t in winning_trades) / len(winning_trades) if winning_trades else 0
+            avg_loss = sum(t.get('pnl', 0) for t in losing_trades) / len(losing_trades) if losing_trades else 0
+
+            # Profit factor
+            total_wins = sum(t.get('pnl', 0) for t in winning_trades)
+            total_losses = abs(sum(t.get('pnl', 0) for t in losing_trades))
+            profit_factor = total_wins / total_losses if total_losses > 0 else 0
 
             return {
                 "initial_balance": initial_balance,
                 "current_balance": current_balance,
+                "positions_value": positions_value,
                 "total_value": total_value,
                 "total_return_pct": total_return * 100,
                 "total_trades": len(trades),
                 "winning_trades": len(winning_trades),
+                "losing_trades": len(losing_trades),
                 "win_rate": win_rate * 100,
+                "avg_win": avg_win,
+                "avg_loss": avg_loss,
+                "profit_factor": profit_factor,
+                "active_positions": len(broker.positions),
                 "timestamp": datetime.now().isoformat()
             }
 
@@ -452,6 +582,17 @@ def setup_enhanced_api(app: FastAPI, orchestrator):
     # MODEL RETRAINING
     # ========================================
 
+    # Retraining state tracking
+    retraining_state = {
+        "is_retraining": False,
+        "progress_pct": 0,
+        "eta_minutes": 0,
+        "started_at": None,
+        "symbols": [],
+        "current_symbol": None,
+        "completed_symbols": []
+    }
+
     @app.post("/api/retrain/trigger")
     async def trigger_retrain(request: RetrainRequest):
         """
@@ -461,9 +602,17 @@ def setup_enhanced_api(app: FastAPI, orchestrator):
         Force flag bypasses need check
         """
         try:
+            # Check if already retraining
+            if retraining_state["is_retraining"]:
+                return {
+                    "status": "already_running",
+                    "progress_pct": retraining_state["progress_pct"],
+                    "current_symbol": retraining_state["current_symbol"]
+                }
+
             logger.info(f"🔄 Retraining triggered for symbols: {request.symbols or 'ALL'}")
 
-            # Check if retrain is needed
+            # Check if retrain is needed (unless forced)
             if not request.force:
                 if hasattr(orchestrator, 'learning_system'):
                     needs_retrain = await orchestrator.learning_system.check_retrain_needed()
@@ -473,29 +622,87 @@ def setup_enhanced_api(app: FastAPI, orchestrator):
                             "reason": "Retraining not needed - performance is good"
                         }
 
-            # TODO: Implement actual retraining logic
-            # This would call the training pipeline
+            # Determine symbols to retrain
+            symbols_to_retrain = request.symbols or ["ACB", "VCB", "HPG", "FPT", "MWG"]
+
+            # Update retraining state
+            retraining_state["is_retraining"] = True
+            retraining_state["progress_pct"] = 0
+            retraining_state["started_at"] = datetime.now().isoformat()
+            retraining_state["symbols"] = symbols_to_retrain
+            retraining_state["completed_symbols"] = []
+            retraining_state["eta_minutes"] = len(symbols_to_retrain) * 6  # ~6 min per symbol
+
+            # Start retraining in background
+            asyncio.create_task(run_retraining(symbols_to_retrain))
 
             return {
                 "status": "started",
-                "symbols": request.symbols or "all",
-                "estimated_time_minutes": 30,
-                "started_at": datetime.now().isoformat()
+                "symbols": symbols_to_retrain,
+                "estimated_time_minutes": retraining_state["eta_minutes"],
+                "started_at": retraining_state["started_at"]
             }
 
         except Exception as e:
             logger.error(f"Error triggering retrain: {e}")
             raise HTTPException(status_code=500, detail=str(e))
 
+    async def run_retraining(symbols: List[str]):
+        """Background task to run retraining"""
+        try:
+            import subprocess
+
+            total_symbols = len(symbols)
+
+            for i, symbol in enumerate(symbols):
+                retraining_state["current_symbol"] = symbol
+                retraining_state["progress_pct"] = int((i / total_symbols) * 100)
+
+                logger.info(f"🔄 Retraining {symbol} ({i+1}/{total_symbols})")
+
+                try:
+                    # Run training script
+                    # Example: python train_model.py --symbol ACB --mode retrain
+                    result = subprocess.run(
+                        ["python", "train_model.py", "--symbol", symbol, "--mode", "retrain"],
+                        capture_output=True,
+                        timeout=600,  # 10 min timeout per symbol
+                        text=True
+                    )
+
+                    if result.returncode == 0:
+                        logger.info(f"✅ {symbol} retrained successfully")
+                        retraining_state["completed_symbols"].append(symbol)
+                    else:
+                        logger.error(f"❌ {symbol} retraining failed: {result.stderr}")
+
+                except subprocess.TimeoutExpired:
+                    logger.error(f"⏱️ {symbol} retraining timeout")
+                except Exception as e:
+                    logger.error(f"❌ Error retraining {symbol}: {e}")
+
+            # Retraining complete
+            retraining_state["is_retraining"] = False
+            retraining_state["progress_pct"] = 100
+            retraining_state["current_symbol"] = None
+
+            logger.info(f"✅ Retraining complete: {len(retraining_state['completed_symbols'])}/{total_symbols} successful")
+
+        except Exception as e:
+            logger.error(f"Retraining background task error: {e}")
+            retraining_state["is_retraining"] = False
 
     @app.get("/api/retrain/status")
     async def get_retrain_status():
         """Get status of ongoing retraining"""
-        # TODO: Implement retraining status tracking
         return {
-            "is_retraining": False,
-            "progress_pct": 0,
-            "eta_minutes": 0
+            "is_retraining": retraining_state["is_retraining"],
+            "progress_pct": retraining_state["progress_pct"],
+            "eta_minutes": retraining_state["eta_minutes"],
+            "current_symbol": retraining_state["current_symbol"],
+            "total_symbols": len(retraining_state["symbols"]),
+            "completed_symbols": len(retraining_state["completed_symbols"]),
+            "started_at": retraining_state["started_at"]
         }
 
 
