@@ -1,0 +1,67 @@
+# Python
+*.pyc
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+nul
+
+# Data
+data/historical/*.parquet
+data/cache/
+*.db
+*.sqlite
+
+# Models
+models/*.pkl
+models/*.h5
+models/*.pt
+
+# Archives (organized old files)
+docs/archive/
+archive/
+
+# Temporary
+*.tmp
+*.bak
+temp/
+
+# Node modules (for vn-quant-web)
+node_modules/
+dist/
+build/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+Thumbs.db
+.DS_Store

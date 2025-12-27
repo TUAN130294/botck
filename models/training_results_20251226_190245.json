@@ -1,0 +1,9 @@
+[
+  {
+    "symbol": "FPT",
+    "val_loss": 0.0017354941357755,
+    "feature_dim": 40,
+    "model_path": "models\\FPT_stockformer_best.pt",
+    "status": "success"
+  }
+]

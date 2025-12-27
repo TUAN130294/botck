@@ -1,0 +1,8497 @@
+{
+  "generated_at": "2025-12-27T14:52:31.348920",
+  "data_directory": "E:\\botck\\data\\historical",
+  "statistics": {
+    "total_files": 1697,
+    "total_size_mb": 31.14,
+    "oldest_data": null,
+    "newest_data": null
+  },
+  "files": [
+    {
+      "name": "A32.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:26:21.686016"
+    },
+    {
+      "name": "AAA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:26:20.145515"
+    },
+    {
+      "name": "AAH.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:26:18.359359"
+    },
+    {
+      "name": "AAM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:26:16.534701"
+    },
+    {
+      "name": "AAS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:26:14.907976"
+    },
+    {
+      "name": "AAT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:26:12.805706"
+    },
+    {
+      "name": "AAV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:26:10.031006"
+    },
+    {
+      "name": "ABB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:26:08.465012"
+    },
+    {
+      "name": "ABC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:26:06.811229"
+    },
+    {
+      "name": "ABI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:26:05.092428"
+    },
+    {
+      "name": "ABR.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:26:02.604278"
+    },
+    {
+      "name": "ABS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:26:00.843064"
+    },
+    {
+      "name": "ABT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:25:59.104305"
+    },
+    {
+      "name": "ABW.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:25:57.032969"
+    },
+    {
+      "name": "ACB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:19:32.016727"
+    },
+    {
+      "name": "ACC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:25:54.650094"
+    },
+    {
+      "name": "ACE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:25:52.633262"
+    },
+    {
+      "name": "ACG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:25:50.711676"
+    },
+    {
+      "name": "ACL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:25:48.840597"
+    },
+    {
+      "name": "ACM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:25:47.013280"
+    },
+    {
+      "name": "ACS.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:25:45.229989"
+    },
+    {
+      "name": "ACV.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:25:43.386749"
+    },
+    {
+      "name": "ADC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:25:38.947802"
+    },
+    {
+      "name": "ADG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:25:37.052166"
+    },
+    {
+      "name": "ADP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:25:35.184564"
+    },
+    {
+      "name": "ADS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:25:33.231112"
+    },
+    {
+      "name": "AFX.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:25:31.528894"
+    },
+    {
+      "name": "AG1.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:25:29.634963"
+    },
+    {
+      "name": "AGE.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:25:27.541959"
+    },
+    {
+      "name": "AGF.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:25:25.939520"
+    },
+    {
+      "name": "AGG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:19:58.229326"
+    },
+    {
+      "name": "AGM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:25:24.090707"
+    },
+    {
+      "name": "AGP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:25:22.059622"
+    },
+    {
+      "name": "AGR.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:25:20.164895"
+    },
+    {
+      "name": "AGX.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:25:17.692538"
+    },
+    {
+      "name": "AIC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:25:15.552133"
+    },
+    {
+      "name": "AIG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:25:13.904871"
+    },
+    {
+      "name": "ALT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:25:12.281753"
+    },
+    {
+      "name": "ALV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:25:10.247379"
+    },
+    {
+      "name": "AMC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:25:08.200145"
+    },
+    {
+      "name": "AMD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:25:05.985843"
+    },
+    {
+      "name": "AME.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:25:04.088053"
+    },
+    {
+      "name": "AMP.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:25:02.246512"
+    },
+    {
+      "name": "AMS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:25:00.417269"
+    },
+    {
+      "name": "AMV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:24:58.867195"
+    },
+    {
+      "name": "ANT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:24:56.676114"
+    },
+    {
+      "name": "ANV.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:24:54.541323"
+    },
+    {
+      "name": "APC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:24:52.334555"
+    },
+    {
+      "name": "APF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:24:50.690808"
+    },
+    {
+      "name": "APG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:24:48.190850"
+    },
+    {
+      "name": "APH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:24:46.460608"
+    },
+    {
+      "name": "API.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:24:44.761652"
+    },
+    {
+      "name": "APL.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:24:42.794715"
+    },
+    {
+      "name": "APP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:24:40.754914"
+    },
+    {
+      "name": "APS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:24:39.084900"
+    },
+    {
+      "name": "APT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:24:37.097731"
+    },
+    {
+      "name": "ARM.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:24:35.259548"
+    },
+    {
+      "name": "ART.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:24:33.449329"
+    },
+    {
+      "name": "ASA.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:24:31.777893"
+    },
+    {
+      "name": "ASG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:24:30.148044"
+    },
+    {
+      "name": "ASM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:24:28.422096"
+    },
+    {
+      "name": "ASP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:24:26.394027"
+    },
+    {
+      "name": "AST.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:24:24.570593"
+    },
+    {
+      "name": "ATA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:24:22.781011"
+    },
+    {
+      "name": "ATB.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:24:20.779976"
+    },
+    {
+      "name": "ATG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:24:19.094890"
+    },
+    {
+      "name": "ATS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:24:17.301480"
+    },
+    {
+      "name": "AUM.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:24:15.522959"
+    },
+    {
+      "name": "AVC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:24:12.071914"
+    },
+    {
+      "name": "AVF.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:24:10.404333"
+    },
+    {
+      "name": "AVG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:24:08.529953"
+    },
+    {
+      "name": "B82.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:24:06.950874"
+    },
+    {
+      "name": "BAB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:24:04.797913"
+    },
+    {
+      "name": "BAF.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:24:02.842257"
+    },
+    {
+      "name": "BAL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:24:01.270384"
+    },
+    {
+      "name": "BAX.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:23:59.690957"
+    },
+    {
+      "name": "BBC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:23:58.126049"
+    },
+    {
+      "name": "BBH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:23:56.607998"
+    },
+    {
+      "name": "BBM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:23:55.271633"
+    },
+    {
+      "name": "BBS.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:23:53.982248"
+    },
+    {
+      "name": "BBT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:23:52.479702"
+    },
+    {
+      "name": "BCA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:23:51.146234"
+    },
+    {
+      "name": "BCB.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:23:49.315347"
+    },
+    {
+      "name": "BCC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:23:47.954133"
+    },
+    {
+      "name": "BCE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:23:46.363617"
+    },
+    {
+      "name": "BCF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:23:44.839558"
+    },
+    {
+      "name": "BCG.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:23:43.397214"
+    },
+    {
+      "name": "BCM.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:32.020294"
+    },
+    {
+      "name": "BCO.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:23:41.536358"
+    },
+    {
+      "name": "BCP.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:23:39.907113"
+    },
+    {
+      "name": "BCR.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:23:38.362425"
+    },
+    {
+      "name": "BCV.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:23:36.956310"
+    },
+    {
+      "name": "BDB.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:23:35.580776"
+    },
+    {
+      "name": "BDG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:23:33.743982"
+    },
+    {
+      "name": "BDT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:23:32.356453"
+    },
+    {
+      "name": "BDW.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:23:30.764905"
+    },
+    {
+      "name": "BED.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:23:29.159765"
+    },
+    {
+      "name": "BEL.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:23:27.817670"
+    },
+    {
+      "name": "BFC.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:23:26.479207"
+    },
+    {
+      "name": "BGE.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:23:24.699311"
+    },
+    {
+      "name": "BGW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:23:23.203100"
+    },
+    {
+      "name": "BHA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:23:21.731203"
+    },
+    {
+      "name": "BHC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:23:20.307806"
+    },
+    {
+      "name": "BHG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:23:18.961703"
+    },
+    {
+      "name": "BHH.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:23:17.697002"
+    },
+    {
+      "name": "BHI.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:23:16.330256"
+    },
+    {
+      "name": "BHK.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:23:14.719763"
+    },
+    {
+      "name": "BHN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:23:13.313266"
+    },
+    {
+      "name": "BHP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:23:11.944893"
+    },
+    {
+      "name": "BHT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:23:10.236616"
+    },
+    {
+      "name": "BIC.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:23:08.375133"
+    },
+    {
+      "name": "BID.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:32.023044"
+    },
+    {
+      "name": "BIG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:23:06.746520"
+    },
+    {
+      "name": "BII.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:23:05.311590"
+    },
+    {
+      "name": "BIO.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:23:03.843880"
+    },
+    {
+      "name": "BKC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:23:02.452341"
+    },
+    {
+      "name": "BKG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:23:00.875952"
+    },
+    {
+      "name": "BKH.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:22:59.429760"
+    },
+    {
+      "name": "BLF.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:22:57.855043"
+    },
+    {
+      "name": "BLI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:22:56.112643"
+    },
+    {
+      "name": "BLN.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:22:54.263331"
+    },
+    {
+      "name": "BLT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:22:53.011655"
+    },
+    {
+      "name": "BLW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:22:45.406142"
+    },
+    {
+      "name": "BMC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:22:44.051921"
+    },
+    {
+      "name": "BMD.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:22:42.101549"
+    },
+    {
+      "name": "BMF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:22:40.752884"
+    },
+    {
+      "name": "BMG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:22:39.468985"
+    },
+    {
+      "name": "BMI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:22:36.560854"
+    },
+    {
+      "name": "BMJ.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:22:35.068096"
+    },
+    {
+      "name": "BMK.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:22:33.708904"
+    },
+    {
+      "name": "BMN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:22:32.332110"
+    },
+    {
+      "name": "BMP.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:22:30.686879"
+    },
+    {
+      "name": "BMS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:22:29.023134"
+    },
+    {
+      "name": "BMV.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:22:27.684882"
+    },
+    {
+      "name": "BNA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:22:26.155486"
+    },
+    {
+      "name": "BNW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:22:24.652849"
+    },
+    {
+      "name": "BOT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:22:23.226999"
+    },
+    {
+      "name": "BPC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:22:21.564789"
+    },
+    {
+      "name": "BQB.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:22:18.437039"
+    },
+    {
+      "name": "BQP.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:22:17.171329"
+    },
+    {
+      "name": "BRC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:22:15.508013"
+    },
+    {
+      "name": "BRR.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:22:14.039885"
+    },
+    {
+      "name": "BRS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:22:12.516866"
+    },
+    {
+      "name": "BSA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:22:11.267349"
+    },
+    {
+      "name": "BSC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:22:09.702689"
+    },
+    {
+      "name": "BSD.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:22:08.176887"
+    },
+    {
+      "name": "BSG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:22:06.655962"
+    },
+    {
+      "name": "BSH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:22:05.078538"
+    },
+    {
+      "name": "BSI.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:55.859549"
+    },
+    {
+      "name": "BSL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:22:03.326984"
+    },
+    {
+      "name": "BSP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:22:01.383147"
+    },
+    {
+      "name": "BSQ.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:21:59.747723"
+    },
+    {
+      "name": "BSR.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:21:57.946557"
+    },
+    {
+      "name": "BST.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:21:56.011710"
+    },
+    {
+      "name": "BT1.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:21:54.338226"
+    },
+    {
+      "name": "BT6.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:21:52.563519"
+    },
+    {
+      "name": "BTB.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T17:33:07.240551"
+    },
+    {
+      "name": "BTD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:21:49.351434"
+    },
+    {
+      "name": "BTG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:21:47.540994"
+    },
+    {
+      "name": "BTH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:21:45.776107"
+    },
+    {
+      "name": "BTN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:21:44.015022"
+    },
+    {
+      "name": "BTP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:21:42.329988"
+    },
+    {
+      "name": "BTS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:21:40.336735"
+    },
+    {
+      "name": "BTT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:21:38.507332"
+    },
+    {
+      "name": "BTU.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:21:36.886117"
+    },
+    {
+      "name": "BTV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:21:35.083205"
+    },
+    {
+      "name": "BTW.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:21:33.073375"
+    },
+    {
+      "name": "BVB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:21:24.890693"
+    },
+    {
+      "name": "BVG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:21:22.704400"
+    },
+    {
+      "name": "BVH.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:32.026597"
+    },
+    {
+      "name": "BVL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:21:20.633862"
+    },
+    {
+      "name": "BVN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:21:18.807716"
+    },
+    {
+      "name": "BVS.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:21:17.209501"
+    },
+    {
+      "name": "BWA.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:21:15.319504"
+    },
+    {
+      "name": "BWE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:21:13.558701"
+    },
+    {
+      "name": "BWS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:21:11.674798"
+    },
+    {
+      "name": "BXH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:21:09.640943"
+    },
+    {
+      "name": "C12.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:21:05.693127"
+    },
+    {
+      "name": "C21.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:21:03.771965"
+    },
+    {
+      "name": "C22.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:21:02.055470"
+    },
+    {
+      "name": "C32.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:21:00.257421"
+    },
+    {
+      "name": "C47.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:20:58.291115"
+    },
+    {
+      "name": "C4G.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:20:56.473294"
+    },
+    {
+      "name": "C69.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:20:54.877883"
+    },
+    {
+      "name": "C92.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:20:52.973555"
+    },
+    {
+      "name": "CAB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:20:51.278777"
+    },
+    {
+      "name": "CAD.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:20:49.563514"
+    },
+    {
+      "name": "CAG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:20:47.163602"
+    },
+    {
+      "name": "CAN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:20:45.259545"
+    },
+    {
+      "name": "CAP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:20:43.035407"
+    },
+    {
+      "name": "CAR.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:20:41.317939"
+    },
+    {
+      "name": "CAT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:20:39.617331"
+    },
+    {
+      "name": "CAV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:20:37.669087"
+    },
+    {
+      "name": "CBI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:20:35.840570"
+    },
+    {
+      "name": "CBS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:20:33.986446"
+    },
+    {
+      "name": "CC1.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:20:32.044777"
+    },
+    {
+      "name": "CC4.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:20:30.049419"
+    },
+    {
+      "name": "CCA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:20:28.117961"
+    },
+    {
+      "name": "CCC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:20:26.455310"
+    },
+    {
+      "name": "CCI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:20:24.658125"
+    },
+    {
+      "name": "CCL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:20:22.915756"
+    },
+    {
+      "name": "CCM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:20:21.223821"
+    },
+    {
+      "name": "CCP.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:20:19.515037"
+    },
+    {
+      "name": "CCR.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:20:17.806904"
+    },
+    {
+      "name": "CCT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:20:16.018056"
+    },
+    {
+      "name": "CCV.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:20:14.180542"
+    },
+    {
+      "name": "CDC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:20:12.134526"
+    },
+    {
+      "name": "CDG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:20:10.236374"
+    },
+    {
+      "name": "CDH.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:20:08.504010"
+    },
+    {
+      "name": "CDN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:20:06.809616"
+    },
+    {
+      "name": "CDO.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:20:04.828122"
+    },
+    {
+      "name": "CDP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:20:02.928651"
+    },
+    {
+      "name": "CDR.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:20:01.377109"
+    },
+    {
+      "name": "CE1.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:20:00.159440"
+    },
+    {
+      "name": "CEE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:58.651750"
+    },
+    {
+      "name": "CEG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:19:57.307810"
+    },
+    {
+      "name": "CEN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:55.992916"
+    },
+    {
+      "name": "CEO.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:54.526181"
+    },
+    {
+      "name": "CET.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:52.276492"
+    },
+    {
+      "name": "CFM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:50.858433"
+    },
+    {
+      "name": "CFV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:49.134735"
+    },
+    {
+      "name": "CGL.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:19:47.806494"
+    },
+    {
+      "name": "CGV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:46.346153"
+    },
+    {
+      "name": "CH5.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:19:45.049149"
+    },
+    {
+      "name": "CHC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:19:43.651918"
+    },
+    {
+      "name": "CHP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:42.205766"
+    },
+    {
+      "name": "CHS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:40.837826"
+    },
+    {
+      "name": "CI5.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:39.457298"
+    },
+    {
+      "name": "CIA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:38.017910"
+    },
+    {
+      "name": "CID.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:36.486765"
+    },
+    {
+      "name": "CIG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:35.171111"
+    },
+    {
+      "name": "CII.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:19:33.663510"
+    },
+    {
+      "name": "CIP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:32.293245"
+    },
+    {
+      "name": "CJC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:19:30.857476"
+    },
+    {
+      "name": "CK8.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:19:29.288693"
+    },
+    {
+      "name": "CKA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:27.988294"
+    },
+    {
+      "name": "CKD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:26.493285"
+    },
+    {
+      "name": "CKG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:25.057126"
+    },
+    {
+      "name": "CKV.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:19:23.561296"
+    },
+    {
+      "name": "CLC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:22.143165"
+    },
+    {
+      "name": "CLG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:19:20.511737"
+    },
+    {
+      "name": "CLH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:19.180490"
+    },
+    {
+      "name": "CLL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:17.776947"
+    },
+    {
+      "name": "CLM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:16.426928"
+    },
+    {
+      "name": "CLW.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:15.107069"
+    },
+    {
+      "name": "CLX.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:13.763626"
+    },
+    {
+      "name": "CMC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:12.228744"
+    },
+    {
+      "name": "CMD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:10.768612"
+    },
+    {
+      "name": "CMF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:09.407936"
+    },
+    {
+      "name": "CMG.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:19:08.200447"
+    },
+    {
+      "name": "CMI.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:19:06.710714"
+    },
+    {
+      "name": "CMK.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:19:05.386937"
+    },
+    {
+      "name": "CMM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:04.030700"
+    },
+    {
+      "name": "CMN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:19:02.736337"
+    },
+    {
+      "name": "CMP.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:19:01.299480"
+    },
+    {
+      "name": "CMS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:59.962473"
+    },
+    {
+      "name": "CMT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:58.421224"
+    },
+    {
+      "name": "CMV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:57.004896"
+    },
+    {
+      "name": "CMW.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:55.658058"
+    },
+    {
+      "name": "CMX.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:54.344815"
+    },
+    {
+      "name": "CNA.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:18:52.761789"
+    },
+    {
+      "name": "CNC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:51.416723"
+    },
+    {
+      "name": "CNG.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:18:50.083719"
+    },
+    {
+      "name": "CNN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:48.574688"
+    },
+    {
+      "name": "CNT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:47.200657"
+    },
+    {
+      "name": "COM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:45.679918"
+    },
+    {
+      "name": "CPA.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:18:44.006833"
+    },
+    {
+      "name": "CPC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:42.653406"
+    },
+    {
+      "name": "CPH.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:18:41.319625"
+    },
+    {
+      "name": "CPI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:40.120525"
+    },
+    {
+      "name": "CQN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:38.409658"
+    },
+    {
+      "name": "CQT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:36.899271"
+    },
+    {
+      "name": "CRC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:35.664595"
+    },
+    {
+      "name": "CRE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T17:32:56.299893"
+    },
+    {
+      "name": "CRV.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:18:33.670464"
+    },
+    {
+      "name": "CSC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:32.405526"
+    },
+    {
+      "name": "CSI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:30.843920"
+    },
+    {
+      "name": "CSM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:29.526103"
+    },
+    {
+      "name": "CST.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:28.119643"
+    },
+    {
+      "name": "CSV.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:18:26.811942"
+    },
+    {
+      "name": "CT3.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:18:25.363618"
+    },
+    {
+      "name": "CT6.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:22.519503"
+    },
+    {
+      "name": "CTA.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:18:21.213539"
+    },
+    {
+      "name": "CTB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:19.688666"
+    },
+    {
+      "name": "CTC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:17.976307"
+    },
+    {
+      "name": "CTD.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:18:16.587821"
+    },
+    {
+      "name": "CTF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:15.207160"
+    },
+    {
+      "name": "CTG.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:32.029675"
+    },
+    {
+      "name": "CTI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:13.756267"
+    },
+    {
+      "name": "CTN.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:18:12.361824"
+    },
+    {
+      "name": "CTP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:10.924606"
+    },
+    {
+      "name": "CTR.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:18:09.730409"
+    },
+    {
+      "name": "CTS.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:18:08.407399"
+    },
+    {
+      "name": "CTT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:18:07.138216"
+    },
+    {
+      "name": "CTW.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:05.023368"
+    },
+    {
+      "name": "CTX.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:18:03.258687"
+    },
+    {
+      "name": "CVN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:18:01.114713"
+    },
+    {
+      "name": "CVP.parquet",
+      "size_mb": 0.0,
+      "modified": "2025-12-26T11:17:59.049253"
+    },
+    {
+      "name": "CVT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:17:57.152052"
+    },
+    {
+      "name": "CX8.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:17:55.278720"
+    },
+    {
+      "name": "CYC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:17:53.216701"
+    },
+    {
+      "name": "D11.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:17:50.958519"
+    },
+    {
+      "name": "D17.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:17:48.764680"
+    },
+    {
+      "name": "D2D.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:17:46.871897"
+    },
+    {
+      "name": "DAC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:17:44.825052"
+    },
+    {
+      "name": "DAD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:17:42.945526"
+    },
+    {
+      "name": "DAE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:17:40.988124"
+    },
+    {
+      "name": "DAG.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:17:38.877849"
+    },
+    {
+      "name": "DAH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:17:36.902640"
+    },
+    {
+      "name": "DAN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:17:34.123012"
+    },
+    {
+      "name": "DAR.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:17:32.263500"
+    },
+    {
+      "name": "DAS.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:17:30.281018"
+    },
+    {
+      "name": "DAT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:17:27.976340"
+    },
+    {
+      "name": "DBC.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:17:25.869694"
+    },
+    {
+      "name": "DBD.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:17:23.511672"
+    },
+    {
+      "name": "DBH.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:17:21.472069"
+    },
+    {
+      "name": "DBM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:17:19.588881"
+    },
+    {
+      "name": "DBT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:17:17.481557"
+    },
+    {
+      "name": "DBW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:17:15.568731"
+    },
+    {
+      "name": "DC1.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:17:13.642995"
+    },
+    {
+      "name": "DC2.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:17:11.713558"
+    },
+    {
+      "name": "DC4.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:17:09.774540"
+    },
+    {
+      "name": "DCF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:17:07.827753"
+    },
+    {
+      "name": "DCG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:17:05.974327"
+    },
+    {
+      "name": "DCH.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:17:03.796375"
+    },
+    {
+      "name": "DCL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:17:01.291393"
+    },
+    {
+      "name": "DCM.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:20:02.264879"
+    },
+    {
+      "name": "DCR.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:16:59.290382"
+    },
+    {
+      "name": "DCS.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:16:57.395712"
+    },
+    {
+      "name": "DCT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:16:55.254395"
+    },
+    {
+      "name": "DDB.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:16:53.321396"
+    },
+    {
+      "name": "DDG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:16:51.400987"
+    },
+    {
+      "name": "DDH.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:16:49.605644"
+    },
+    {
+      "name": "DDM.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:16:47.587789"
+    },
+    {
+      "name": "DDN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:16:45.695640"
+    },
+    {
+      "name": "DDV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:16:43.793953"
+    },
+    {
+      "name": "DFC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:16:41.621361"
+    },
+    {
+      "name": "DFF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:16:39.781962"
+    },
+    {
+      "name": "DGC.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:33.416883"
+    },
+    {
+      "name": "DGT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:16:37.710832"
+    },
+    {
+      "name": "DGW.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:16:35.599996"
+    },
+    {
+      "name": "DHA.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:16:33.301472"
+    },
+    {
+      "name": "DHB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:16:31.435296"
+    },
+    {
+      "name": "DHC.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:16:29.049316"
+    },
+    {
+      "name": "DHD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:16:24.775130"
+    },
+    {
+      "name": "DHG.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:16:22.809517"
+    },
+    {
+      "name": "DHM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:16:20.440594"
+    },
+    {
+      "name": "DHN.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:16:18.580812"
+    },
+    {
+      "name": "DHP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:16:16.443990"
+    },
+    {
+      "name": "DHT.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:16:14.523248"
+    },
+    {
+      "name": "DIC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:16:12.405491"
+    },
+    {
+      "name": "DID.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:16:09.213271"
+    },
+    {
+      "name": "DIG.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:16:07.209354"
+    },
+    {
+      "name": "DIH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:16:04.726037"
+    },
+    {
+      "name": "DKC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:16:02.632289"
+    },
+    {
+      "name": "DKG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:16:00.523223"
+    },
+    {
+      "name": "DKW.parquet",
+      "size_mb": 0.0,
+      "modified": "2025-12-26T11:15:56.727901"
+    },
+    {
+      "name": "DL1.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:15:54.724542"
+    },
+    {
+      "name": "DLD.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:15:52.750964"
+    },
+    {
+      "name": "DLG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:15:51.066727"
+    },
+    {
+      "name": "DLM.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:15:49.091599"
+    },
+    {
+      "name": "DLR.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:15:47.295457"
+    },
+    {
+      "name": "DLT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:15:45.234743"
+    },
+    {
+      "name": "DM7.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:15:43.250309"
+    },
+    {
+      "name": "DMC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:15:41.140590"
+    },
+    {
+      "name": "DMN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:15:38.916768"
+    },
+    {
+      "name": "DMS.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:15:37.170584"
+    },
+    {
+      "name": "DNA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:15:34.889515"
+    },
+    {
+      "name": "DNC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:15:25.950217"
+    },
+    {
+      "name": "DND.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:15:23.208179"
+    },
+    {
+      "name": "DNE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:15:21.218675"
+    },
+    {
+      "name": "DNH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:15:19.233274"
+    },
+    {
+      "name": "DNL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:15:17.029275"
+    },
+    {
+      "name": "DNM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:15:15.293184"
+    },
+    {
+      "name": "DNN.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:15:13.151473"
+    },
+    {
+      "name": "DNP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:15:11.241835"
+    },
+    {
+      "name": "DNT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:15:09.238885"
+    },
+    {
+      "name": "DNW.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:15:06.934621"
+    },
+    {
+      "name": "DOC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:15:04.584612"
+    },
+    {
+      "name": "DOP.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:15:02.406610"
+    },
+    {
+      "name": "DP1.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:15:00.471747"
+    },
+    {
+      "name": "DP2.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:14:58.603074"
+    },
+    {
+      "name": "DP3.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:14:56.619002"
+    },
+    {
+      "name": "DPC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:14:54.686684"
+    },
+    {
+      "name": "DPG.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:14:51.483888"
+    },
+    {
+      "name": "DPH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:14:49.465601"
+    },
+    {
+      "name": "DPM.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:20:00.053577"
+    },
+    {
+      "name": "DPP.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:14:47.545432"
+    },
+    {
+      "name": "DPR.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:14:45.504472"
+    },
+    {
+      "name": "DPS.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:14:43.357028"
+    },
+    {
+      "name": "DQC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:14:41.455900"
+    },
+    {
+      "name": "DRC.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:14:39.270576"
+    },
+    {
+      "name": "DRG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:14:37.240661"
+    },
+    {
+      "name": "DRH.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:14:35.383849"
+    },
+    {
+      "name": "DRI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:14:33.384529"
+    },
+    {
+      "name": "DRL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:14:31.494826"
+    },
+    {
+      "name": "DS3.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:14:29.567413"
+    },
+    {
+      "name": "DSC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:14:27.648545"
+    },
+    {
+      "name": "DSD.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:14:25.586479"
+    },
+    {
+      "name": "DSE.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:14:23.452139"
+    },
+    {
+      "name": "DSG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:14:21.105266"
+    },
+    {
+      "name": "DSH.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:14:19.220334"
+    },
+    {
+      "name": "DSN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:14:17.380090"
+    },
+    {
+      "name": "DSP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:14:15.257511"
+    },
+    {
+      "name": "DST.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:14:12.791861"
+    },
+    {
+      "name": "DSV.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:14:10.346145"
+    },
+    {
+      "name": "DT4.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:14:08.289645"
+    },
+    {
+      "name": "DTA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:14:06.477912"
+    },
+    {
+      "name": "DTB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:14:04.284556"
+    },
+    {
+      "name": "DTC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:14:02.422979"
+    },
+    {
+      "name": "DTD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:14:00.663394"
+    },
+    {
+      "name": "DTE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:13:59.238790"
+    },
+    {
+      "name": "DTG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:13:57.693628"
+    },
+    {
+      "name": "DTH.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:13:54.530823"
+    },
+    {
+      "name": "DTI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:13:53.272341"
+    },
+    {
+      "name": "DTK.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:13:51.812363"
+    },
+    {
+      "name": "DTL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:13:50.532494"
+    },
+    {
+      "name": "DTP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:13:49.082915"
+    },
+    {
+      "name": "DTT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:13:47.657537"
+    },
+    {
+      "name": "DTV.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:13:46.355353"
+    },
+    {
+      "name": "DUS.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:13:44.718036"
+    },
+    {
+      "name": "DVC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:13:43.482199"
+    },
+    {
+      "name": "DVG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:13:42.159711"
+    },
+    {
+      "name": "DVM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:13:40.917272"
+    },
+    {
+      "name": "DVN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:13:39.452686"
+    },
+    {
+      "name": "DVP.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:13:38.084472"
+    },
+    {
+      "name": "DVT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:13:36.814731"
+    },
+    {
+      "name": "DVW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:13:35.705320"
+    },
+    {
+      "name": "DWC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:13:34.519355"
+    },
+    {
+      "name": "DWS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:13:33.275021"
+    },
+    {
+      "name": "DXG.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:39.202466"
+    },
+    {
+      "name": "DXL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:13:25.953222"
+    },
+    {
+      "name": "DXP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:13:24.625054"
+    },
+    {
+      "name": "DXS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:13:23.164647"
+    },
+    {
+      "name": "DXV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:13:21.940998"
+    },
+    {
+      "name": "DZM.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:13:20.475119"
+    },
+    {
+      "name": "E12.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:13:19.083022"
+    },
+    {
+      "name": "E29.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:13:17.698716"
+    },
+    {
+      "name": "EAD.parquet",
+      "size_mb": 0.0,
+      "modified": "2025-12-26T11:13:16.489815"
+    },
+    {
+      "name": "EBS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:13:14.963566"
+    },
+    {
+      "name": "ECI.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:13:13.602154"
+    },
+    {
+      "name": "ECO.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:13:12.227986"
+    },
+    {
+      "name": "EFI.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:13:10.913449"
+    },
+    {
+      "name": "EIB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:13:03.633225"
+    },
+    {
+      "name": "EIC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:13:02.293519"
+    },
+    {
+      "name": "EID.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:13:00.959325"
+    },
+    {
+      "name": "EIN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:12:59.165569"
+    },
+    {
+      "name": "ELC.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:12:57.724323"
+    },
+    {
+      "name": "EMC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:12:56.439759"
+    },
+    {
+      "name": "EME.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:12:55.107544"
+    },
+    {
+      "name": "EMG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:12:53.403075"
+    },
+    {
+      "name": "EMS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:12:52.063567"
+    },
+    {
+      "name": "EPC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:12:50.652572"
+    },
+    {
+      "name": "EPH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:12:49.288765"
+    },
+    {
+      "name": "EVE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:12:47.998524"
+    },
+    {
+      "name": "EVF.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:12:46.630230"
+    },
+    {
+      "name": "EVG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:12:45.255770"
+    },
+    {
+      "name": "EVS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:12:43.966598"
+    },
+    {
+      "name": "F88.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:12:42.644003"
+    },
+    {
+      "name": "FBA.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:12:40.746987"
+    },
+    {
+      "name": "FBC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:12:39.416172"
+    },
+    {
+      "name": "FCC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:12:38.016965"
+    },
+    {
+      "name": "FCM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:12:36.696604"
+    },
+    {
+      "name": "FCN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:12:35.368153"
+    },
+    {
+      "name": "FCS.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:12:34.087892"
+    },
+    {
+      "name": "FDC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:12:32.801639"
+    },
+    {
+      "name": "FDG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:12:31.499431"
+    },
+    {
+      "name": "FGL.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:12:30.191106"
+    },
+    {
+      "name": "FHN.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:12:28.526019"
+    },
+    {
+      "name": "FHS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:12:27.226217"
+    },
+    {
+      "name": "FIC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:12:25.909502"
+    },
+    {
+      "name": "FID.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:12:24.654301"
+    },
+    {
+      "name": "FIR.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:12:23.304168"
+    },
+    {
+      "name": "FIT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:12:22.051514"
+    },
+    {
+      "name": "FLC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:12:20.731534"
+    },
+    {
+      "name": "FMC.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:12:19.325780"
+    },
+    {
+      "name": "FOC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:12:17.886767"
+    },
+    {
+      "name": "FOX.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:12:16.366606"
+    },
+    {
+      "name": "FPT.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:32.032335"
+    },
+    {
+      "name": "FRC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:12:14.804180"
+    },
+    {
+      "name": "FRM.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:12:13.692653"
+    },
+    {
+      "name": "FRT.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:12:12.126175"
+    },
+    {
+      "name": "FSO.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:12:10.704207"
+    },
+    {
+      "name": "FT1.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:12:09.405755"
+    },
+    {
+      "name": "FTI.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:12:08.022960"
+    },
+    {
+      "name": "FTM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:12:06.709393"
+    },
+    {
+      "name": "FTS.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:12:05.496449"
+    },
+    {
+      "name": "G20.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:12:03.734889"
+    },
+    {
+      "name": "G36.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:12:02.508426"
+    },
+    {
+      "name": "GAB.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:12:00.761745"
+    },
+    {
+      "name": "GAS.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:32.035405"
+    },
+    {
+      "name": "GCB.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:11:58.551025"
+    },
+    {
+      "name": "GCF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:11:56.031065"
+    },
+    {
+      "name": "GDA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:11:54.133884"
+    },
+    {
+      "name": "GDT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:11:51.855018"
+    },
+    {
+      "name": "GDW.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:11:49.734748"
+    },
+    {
+      "name": "GE2.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:11:47.803514"
+    },
+    {
+      "name": "GEE.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:11:45.750026"
+    },
+    {
+      "name": "GEG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:11:43.582754"
+    },
+    {
+      "name": "GER.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:11:41.470282"
+    },
+    {
+      "name": "GEX.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:11:39.504229"
+    },
+    {
+      "name": "GGG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:11:37.547610"
+    },
+    {
+      "name": "GH3.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:11:34.840553"
+    },
+    {
+      "name": "GHC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:11:32.849428"
+    },
+    {
+      "name": "GIC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:11:29.355511"
+    },
+    {
+      "name": "GIL.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:11:27.310773"
+    },
+    {
+      "name": "GKM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:11:25.332241"
+    },
+    {
+      "name": "GLC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:11:23.263531"
+    },
+    {
+      "name": "GLT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:11:21.294875"
+    },
+    {
+      "name": "GLW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:11:19.288754"
+    },
+    {
+      "name": "GMA.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T17:32:27.595168"
+    },
+    {
+      "name": "GMC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:11:13.459476"
+    },
+    {
+      "name": "GMD.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:20:10.409412"
+    },
+    {
+      "name": "GMH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:11:11.164914"
+    },
+    {
+      "name": "GMX.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:11:09.126178"
+    },
+    {
+      "name": "GND.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:11:07.031279"
+    },
+    {
+      "name": "GPC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:11:04.376200"
+    },
+    {
+      "name": "GSM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:10:55.384558"
+    },
+    {
+      "name": "GSP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:10:53.101858"
+    },
+    {
+      "name": "GTA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:10:50.971558"
+    },
+    {
+      "name": "GTD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:10:48.799201"
+    },
+    {
+      "name": "GTH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:10:46.594019"
+    },
+    {
+      "name": "GTS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:10:39.732998"
+    },
+    {
+      "name": "GTT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:10:37.587099"
+    },
+    {
+      "name": "GVR.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:32.038486"
+    },
+    {
+      "name": "GVT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:10:35.164535"
+    },
+    {
+      "name": "H11.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:10:33.004065"
+    },
+    {
+      "name": "HAC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:10:24.109675"
+    },
+    {
+      "name": "HAD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:10:22.053401"
+    },
+    {
+      "name": "HAF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:10:19.791726"
+    },
+    {
+      "name": "HAG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:20:12.476227"
+    },
+    {
+      "name": "HAH.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:10:17.840832"
+    },
+    {
+      "name": "HAI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:10:15.579795"
+    },
+    {
+      "name": "HAM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:10:13.451587"
+    },
+    {
+      "name": "HAN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:10:10.746409"
+    },
+    {
+      "name": "HAP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:10:08.434562"
+    },
+    {
+      "name": "HAR.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T17:32:09.928887"
+    },
+    {
+      "name": "HAS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:10:03.625272"
+    },
+    {
+      "name": "HAT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:10:01.185727"
+    },
+    {
+      "name": "HAV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:09:59.105427"
+    },
+    {
+      "name": "HAX.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:09:55.242301"
+    },
+    {
+      "name": "HBC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:09:52.597039"
+    },
+    {
+      "name": "HBD.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:09:50.670341"
+    },
+    {
+      "name": "HBH.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:09:48.687812"
+    },
+    {
+      "name": "HBS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:09:46.998863"
+    },
+    {
+      "name": "HC1.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:09:45.186885"
+    },
+    {
+      "name": "HC3.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:09:43.465619"
+    },
+    {
+      "name": "HCB.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:09:41.580714"
+    },
+    {
+      "name": "HCC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:09:39.964916"
+    },
+    {
+      "name": "HCD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:09:38.192132"
+    },
+    {
+      "name": "HCI.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:09:35.907426"
+    },
+    {
+      "name": "HCM.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:50.070586"
+    },
+    {
+      "name": "HCT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:09:34.204516"
+    },
+    {
+      "name": "HD2.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:09:32.411471"
+    },
+    {
+      "name": "HD6.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:09:30.811035"
+    },
+    {
+      "name": "HD8.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:09:28.941957"
+    },
+    {
+      "name": "HDA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:09:27.231906"
+    },
+    {
+      "name": "HDB.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:32.041364"
+    },
+    {
+      "name": "HDC.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:09:25.594045"
+    },
+    {
+      "name": "HDG.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:09:23.529655"
+    },
+    {
+      "name": "HDM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:09:21.612586"
+    },
+    {
+      "name": "HDO.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:09:19.838569"
+    },
+    {
+      "name": "HDP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:09:18.133281"
+    },
+    {
+      "name": "HDS.parquet",
+      "size_mb": 0.0,
+      "modified": "2025-12-26T11:09:16.246055"
+    },
+    {
+      "name": "HDW.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:09:14.693327"
+    },
+    {
+      "name": "HEC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:09:12.610693"
+    },
+    {
+      "name": "HEJ.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:09:10.911813"
+    },
+    {
+      "name": "HEM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:09:09.092982"
+    },
+    {
+      "name": "HEP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:09:07.400124"
+    },
+    {
+      "name": "HES.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:09:05.811551"
+    },
+    {
+      "name": "HEV.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:09:03.876280"
+    },
+    {
+      "name": "HFB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:09:02.181252"
+    },
+    {
+      "name": "HFC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:09:00.433711"
+    },
+    {
+      "name": "HFX.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:08:58.774561"
+    },
+    {
+      "name": "HGM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:08:53.195592"
+    },
+    {
+      "name": "HGT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:08:49.513255"
+    },
+    {
+      "name": "HGW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:08:47.773124"
+    },
+    {
+      "name": "HHB.parquet",
+      "size_mb": 0.0,
+      "modified": "2025-12-26T11:08:46.082068"
+    },
+    {
+      "name": "HHC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:08:44.481766"
+    },
+    {
+      "name": "HHG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:08:42.702853"
+    },
+    {
+      "name": "HHN.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:08:40.899222"
+    },
+    {
+      "name": "HHP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:08:39.083118"
+    },
+    {
+      "name": "HHR.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:08:37.316881"
+    },
+    {
+      "name": "HHS.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:08:35.600288"
+    },
+    {
+      "name": "HHV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:08:33.459420"
+    },
+    {
+      "name": "HID.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:08:31.411529"
+    },
+    {
+      "name": "HIG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:08:29.709717"
+    },
+    {
+      "name": "HII.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:08:27.780809"
+    },
+    {
+      "name": "HIO.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:08:25.884672"
+    },
+    {
+      "name": "HJC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:08:24.257512"
+    },
+    {
+      "name": "HJS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:08:22.219586"
+    },
+    {
+      "name": "HKB.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:08:20.278873"
+    },
+    {
+      "name": "HKP.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:08:18.674833"
+    },
+    {
+      "name": "HKT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:08:16.910760"
+    },
+    {
+      "name": "HLA.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:08:15.359658"
+    },
+    {
+      "name": "HLB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:08:13.622364"
+    },
+    {
+      "name": "HLC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:08:11.601434"
+    },
+    {
+      "name": "HLD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:08:09.624859"
+    },
+    {
+      "name": "HLG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:08:01.118761"
+    },
+    {
+      "name": "HLO.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:07:59.690997"
+    },
+    {
+      "name": "HLR.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:07:58.540090"
+    },
+    {
+      "name": "HLS.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:07:57.274462"
+    },
+    {
+      "name": "HLT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:07:55.768066"
+    },
+    {
+      "name": "HLY.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:07:54.463550"
+    },
+    {
+      "name": "HMC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:07:53.190636"
+    },
+    {
+      "name": "HMD.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:07:51.875275"
+    },
+    {
+      "name": "HMG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:07:50.611826"
+    },
+    {
+      "name": "HMH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:07:49.286835"
+    },
+    {
+      "name": "HMR.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:07:47.816821"
+    },
+    {
+      "name": "HMS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:07:46.120835"
+    },
+    {
+      "name": "HNA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:07:44.834540"
+    },
+    {
+      "name": "HNB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:07:42.364693"
+    },
+    {
+      "name": "HND.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:07:41.090120"
+    },
+    {
+      "name": "HNF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:07:33.800246"
+    },
+    {
+      "name": "HNG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:07:32.518042"
+    },
+    {
+      "name": "HNI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:07:31.099314"
+    },
+    {
+      "name": "HNM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:07:29.863181"
+    },
+    {
+      "name": "HNP.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:07:28.637058"
+    },
+    {
+      "name": "HNR.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:07:27.456491"
+    },
+    {
+      "name": "HNT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:07:26.096448"
+    },
+    {
+      "name": "HOM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:07:24.492346"
+    },
+    {
+      "name": "HOT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:07:22.628898"
+    },
+    {
+      "name": "HPB.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:07:21.249031"
+    },
+    {
+      "name": "HPD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:07:19.946781"
+    },
+    {
+      "name": "HPG.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:32.043387"
+    },
+    {
+      "name": "HPH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:07:18.661403"
+    },
+    {
+      "name": "HPI.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:07:17.346476"
+    },
+    {
+      "name": "HPM.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:07:15.934448"
+    },
+    {
+      "name": "HPO.parquet",
+      "size_mb": 0.0,
+      "modified": "2025-12-26T11:07:14.494124"
+    },
+    {
+      "name": "HPP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:07:12.718657"
+    },
+    {
+      "name": "HPT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:07:11.330151"
+    },
+    {
+      "name": "HPW.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:07:09.416265"
+    },
+    {
+      "name": "HPX.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:07:08.006522"
+    },
+    {
+      "name": "HQC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:07:06.608551"
+    },
+    {
+      "name": "HRB.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:07:04.789643"
+    },
+    {
+      "name": "HRC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:07:03.314753"
+    },
+    {
+      "name": "HRT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:07:01.907352"
+    },
+    {
+      "name": "HSA.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:07:00.660928"
+    },
+    {
+      "name": "HSG.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:06:59.317016"
+    },
+    {
+      "name": "HSI.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:06:57.801434"
+    },
+    {
+      "name": "HSL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:06:56.282093"
+    },
+    {
+      "name": "HSM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:06:54.809328"
+    },
+    {
+      "name": "HSP.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:06:53.028934"
+    },
+    {
+      "name": "HSV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:06:51.570221"
+    },
+    {
+      "name": "HT1.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:06:50.059522"
+    },
+    {
+      "name": "HTC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:06:48.766086"
+    },
+    {
+      "name": "HTE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:06:47.286546"
+    },
+    {
+      "name": "HTG.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:06:45.644662"
+    },
+    {
+      "name": "HTH.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:06:44.178032"
+    },
+    {
+      "name": "HTI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:06:42.491570"
+    },
+    {
+      "name": "HTL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:06:35.435069"
+    },
+    {
+      "name": "HTM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:06:34.214981"
+    },
+    {
+      "name": "HTN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:06:32.859574"
+    },
+    {
+      "name": "HTP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:06:30.588026"
+    },
+    {
+      "name": "HTR.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:06:29.106512"
+    },
+    {
+      "name": "HTT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:06:27.652006"
+    },
+    {
+      "name": "HTV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:06:26.148931"
+    },
+    {
+      "name": "HTW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:06:24.813653"
+    },
+    {
+      "name": "HU1.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:06:23.567256"
+    },
+    {
+      "name": "HU3.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:06:21.911629"
+    },
+    {
+      "name": "HU4.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:06:20.376801"
+    },
+    {
+      "name": "HU6.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:06:19.005642"
+    },
+    {
+      "name": "HUB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:06:17.678026"
+    },
+    {
+      "name": "HUG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:06:15.989565"
+    },
+    {
+      "name": "HUT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:06:14.676998"
+    },
+    {
+      "name": "HVA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:06:11.424874"
+    },
+    {
+      "name": "HVG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:06:10.100140"
+    },
+    {
+      "name": "HVH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:06:08.694736"
+    },
+    {
+      "name": "HVN.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:06:07.390798"
+    },
+    {
+      "name": "HVT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:06:05.458762"
+    },
+    {
+      "name": "HVX.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:06:03.983393"
+    },
+    {
+      "name": "HWS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:06:02.359390"
+    },
+    {
+      "name": "IBC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:06:00.641499"
+    },
+    {
+      "name": "IBD.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:05:59.441875"
+    },
+    {
+      "name": "IBN.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:05:58.105821"
+    },
+    {
+      "name": "ICC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:56.979589"
+    },
+    {
+      "name": "ICF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:55.875057"
+    },
+    {
+      "name": "ICG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:54.495776"
+    },
+    {
+      "name": "ICI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:53.376240"
+    },
+    {
+      "name": "ICN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:51.941270"
+    },
+    {
+      "name": "ICT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:50.712655"
+    },
+    {
+      "name": "IDC.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:05:49.508059"
+    },
+    {
+      "name": "IDI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:48.124775"
+    },
+    {
+      "name": "IDJ.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:46.953140"
+    },
+    {
+      "name": "IDP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:45.713262"
+    },
+    {
+      "name": "IDV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:44.557979"
+    },
+    {
+      "name": "IFS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:43.219872"
+    },
+    {
+      "name": "IHK.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:05:41.794990"
+    },
+    {
+      "name": "IJC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:40.478651"
+    },
+    {
+      "name": "ILA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:39.239675"
+    },
+    {
+      "name": "ILB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:38.004035"
+    },
+    {
+      "name": "ILC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:36.702048"
+    },
+    {
+      "name": "ILS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:34.731410"
+    },
+    {
+      "name": "IME.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:05:33.550147"
+    },
+    {
+      "name": "IMP.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:05:32.299296"
+    },
+    {
+      "name": "IN4.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:05:30.915759"
+    },
+    {
+      "name": "INC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:05:29.766931"
+    },
+    {
+      "name": "ING.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:05:28.212637"
+    },
+    {
+      "name": "INN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:26.274348"
+    },
+    {
+      "name": "IPA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:25.087567"
+    },
+    {
+      "name": "IRC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:05:22.592891"
+    },
+    {
+      "name": "ISG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:05:21.473098"
+    },
+    {
+      "name": "ISH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:19.215912"
+    },
+    {
+      "name": "IST.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:16.939598"
+    },
+    {
+      "name": "ITA.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:05:15.409508"
+    },
+    {
+      "name": "ITC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:13.572939"
+    },
+    {
+      "name": "ITD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:12.263195"
+    },
+    {
+      "name": "ITQ.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:11.088573"
+    },
+    {
+      "name": "ITS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:09.899996"
+    },
+    {
+      "name": "IVS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:08.669411"
+    },
+    {
+      "name": "JOS.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:05:07.433297"
+    },
+    {
+      "name": "JVC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:06.040960"
+    },
+    {
+      "name": "KAC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:05:04.669692"
+    },
+    {
+      "name": "KBC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:03.359682"
+    },
+    {
+      "name": "KCB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:01.570729"
+    },
+    {
+      "name": "KCE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:05:00.178926"
+    },
+    {
+      "name": "KDC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:59.013202"
+    },
+    {
+      "name": "KDH.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:42.011837"
+    },
+    {
+      "name": "KDM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:57.407707"
+    },
+    {
+      "name": "KGM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:56.105394"
+    },
+    {
+      "name": "KHA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:54.880272"
+    },
+    {
+      "name": "KHB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:53.508147"
+    },
+    {
+      "name": "KHD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:52.056978"
+    },
+    {
+      "name": "KHG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:50.709964"
+    },
+    {
+      "name": "KHL.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:04:49.038795"
+    },
+    {
+      "name": "KHP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:47.744666"
+    },
+    {
+      "name": "KHS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:46.498161"
+    },
+    {
+      "name": "KHW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:04:45.138222"
+    },
+    {
+      "name": "KIP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:43.820553"
+    },
+    {
+      "name": "KKC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:42.636772"
+    },
+    {
+      "name": "KLB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:41.430135"
+    },
+    {
+      "name": "KLF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:39.944633"
+    },
+    {
+      "name": "KLM.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:04:38.754063"
+    },
+    {
+      "name": "KMR.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:37.563222"
+    },
+    {
+      "name": "KMT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:04:36.352911"
+    },
+    {
+      "name": "KOS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:35.261505"
+    },
+    {
+      "name": "KPF.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:04:34.007368"
+    },
+    {
+      "name": "KSB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:32.729782"
+    },
+    {
+      "name": "KSD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:30.869671"
+    },
+    {
+      "name": "KSF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:29.709645"
+    },
+    {
+      "name": "KSH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:28.446998"
+    },
+    {
+      "name": "KSQ.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:27.289704"
+    },
+    {
+      "name": "KST.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:26.117806"
+    },
+    {
+      "name": "KSV.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:04:24.695917"
+    },
+    {
+      "name": "KTC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:04:23.508247"
+    },
+    {
+      "name": "KTL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:22.213633"
+    },
+    {
+      "name": "KTS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:21.006166"
+    },
+    {
+      "name": "KTT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:19.163377"
+    },
+    {
+      "name": "KTW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:04:18.062632"
+    },
+    {
+      "name": "KVC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:16.770230"
+    },
+    {
+      "name": "KWA.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:04:15.455142"
+    },
+    {
+      "name": "L10.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:13.542700"
+    },
+    {
+      "name": "L12.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:11.813231"
+    },
+    {
+      "name": "L14.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:10.700058"
+    },
+    {
+      "name": "L18.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:09.000411"
+    },
+    {
+      "name": "L35.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:04:07.731133"
+    },
+    {
+      "name": "L40.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:06.476274"
+    },
+    {
+      "name": "L43.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:04.764732"
+    },
+    {
+      "name": "L44.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:04:03.505969"
+    },
+    {
+      "name": "L45.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:02.217823"
+    },
+    {
+      "name": "L61.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:04:01.042856"
+    },
+    {
+      "name": "L62.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:03:59.298167"
+    },
+    {
+      "name": "L63.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:03:57.601866"
+    },
+    {
+      "name": "LAF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:03:55.825182"
+    },
+    {
+      "name": "LAI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:03:53.905217"
+    },
+    {
+      "name": "LAS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:03:51.956089"
+    },
+    {
+      "name": "LAW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:03:50.059571"
+    },
+    {
+      "name": "LBC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:03:48.313390"
+    },
+    {
+      "name": "LBE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:03:46.605403"
+    },
+    {
+      "name": "LBM.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:03:44.757763"
+    },
+    {
+      "name": "LCC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:03:43.017899"
+    },
+    {
+      "name": "LCD.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:03:41.282071"
+    },
+    {
+      "name": "LCG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:03:39.579689"
+    },
+    {
+      "name": "LCM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:03:37.663275"
+    },
+    {
+      "name": "LCS.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:03:35.899210"
+    },
+    {
+      "name": "LCW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:03:33.930375"
+    },
+    {
+      "name": "LDG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:03:32.293180"
+    },
+    {
+      "name": "LDP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:03:30.311012"
+    },
+    {
+      "name": "LDW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:03:28.363229"
+    },
+    {
+      "name": "LEC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:03:26.625081"
+    },
+    {
+      "name": "LG9.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:03:24.724547"
+    },
+    {
+      "name": "LGC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:03:23.039832"
+    },
+    {
+      "name": "LGL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:03:21.346845"
+    },
+    {
+      "name": "LGM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:03:19.740671"
+    },
+    {
+      "name": "LHC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:03:18.121663"
+    },
+    {
+      "name": "LHG.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:03:16.282614"
+    },
+    {
+      "name": "LIC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:03:14.407592"
+    },
+    {
+      "name": "LIG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:03:12.651314"
+    },
+    {
+      "name": "LIX.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:03:10.863636"
+    },
+    {
+      "name": "LKW.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:03:08.962672"
+    },
+    {
+      "name": "LLM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:03:07.347958"
+    },
+    {
+      "name": "LM3.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:03:05.497703"
+    },
+    {
+      "name": "LM7.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:03:03.319013"
+    },
+    {
+      "name": "LM8.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:03:01.302547"
+    },
+    {
+      "name": "LMC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:02:59.628647"
+    },
+    {
+      "name": "LMH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:02:58.030973"
+    },
+    {
+      "name": "LMI.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:02:56.036310"
+    },
+    {
+      "name": "LNC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:02:54.254287"
+    },
+    {
+      "name": "LO5.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:02:52.424820"
+    },
+    {
+      "name": "LPB.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:02:50.638234"
+    },
+    {
+      "name": "LPT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:02:48.657106"
+    },
+    {
+      "name": "LQN.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:02:46.827759"
+    },
+    {
+      "name": "LSG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:02:45.165144"
+    },
+    {
+      "name": "LSS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:02:43.373123"
+    },
+    {
+      "name": "LTC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:02:40.886763"
+    },
+    {
+      "name": "LTG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:02:39.023139"
+    },
+    {
+      "name": "LUT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:02:37.208358"
+    },
+    {
+      "name": "LWS.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:02:35.405416"
+    },
+    {
+      "name": "LYF.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:02:33.737939"
+    },
+    {
+      "name": "M10.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:02:31.894857"
+    },
+    {
+      "name": "MA1.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:02:30.170671"
+    },
+    {
+      "name": "MAC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:02:28.232078"
+    },
+    {
+      "name": "MAS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:02:26.367187"
+    },
+    {
+      "name": "MBB.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:32.047471"
+    },
+    {
+      "name": "MBG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:02:24.633666"
+    },
+    {
+      "name": "MBN.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:02:23.067664"
+    },
+    {
+      "name": "MBS.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:02:21.380792"
+    },
+    {
+      "name": "MBT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:02:19.523266"
+    },
+    {
+      "name": "MC3.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:02:17.816639"
+    },
+    {
+      "name": "MCC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:02:16.109645"
+    },
+    {
+      "name": "MCD.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:02:14.409420"
+    },
+    {
+      "name": "MCF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:02:12.713578"
+    },
+    {
+      "name": "MCG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:02:10.855126"
+    },
+    {
+      "name": "MCH.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:02:09.045725"
+    },
+    {
+      "name": "MCI.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:02:06.893998"
+    },
+    {
+      "name": "MCM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:02:05.050248"
+    },
+    {
+      "name": "MCO.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:02:03.327937"
+    },
+    {
+      "name": "MCP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:02:01.334759"
+    },
+    {
+      "name": "MDA.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:01:59.489794"
+    },
+    {
+      "name": "MDC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:01:57.738276"
+    },
+    {
+      "name": "MDF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:01:55.918041"
+    },
+    {
+      "name": "MDG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:01:54.109352"
+    },
+    {
+      "name": "MEC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:01:52.481956"
+    },
+    {
+      "name": "MED.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:01:50.802860"
+    },
+    {
+      "name": "MEF.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:01:48.961605"
+    },
+    {
+      "name": "MEL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:01:40.650184"
+    },
+    {
+      "name": "MES.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:01:39.015677"
+    },
+    {
+      "name": "MFS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:01:37.314723"
+    },
+    {
+      "name": "MGC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:01:35.509366"
+    },
+    {
+      "name": "MGG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:01:33.904417"
+    },
+    {
+      "name": "MGR.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:01:32.099204"
+    },
+    {
+      "name": "MH3.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:01:30.523114"
+    },
+    {
+      "name": "MHC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:01:28.708317"
+    },
+    {
+      "name": "MHL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:01:26.812548"
+    },
+    {
+      "name": "MIC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:01:25.066969"
+    },
+    {
+      "name": "MIE.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:01:23.324662"
+    },
+    {
+      "name": "MIG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:01:21.725094"
+    },
+    {
+      "name": "MIM.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:01:19.669012"
+    },
+    {
+      "name": "MKP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:01:17.867028"
+    },
+    {
+      "name": "MKV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:01:15.986163"
+    },
+    {
+      "name": "MLC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:01:14.109359"
+    },
+    {
+      "name": "MLS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:01:12.447758"
+    },
+    {
+      "name": "MML.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:01:10.605316"
+    },
+    {
+      "name": "MNB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:01:08.625775"
+    },
+    {
+      "name": "MND.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:01:06.856368"
+    },
+    {
+      "name": "MPC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:01:04.834748"
+    },
+    {
+      "name": "MPT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:01:02.273089"
+    },
+    {
+      "name": "MPY.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:01:00.370302"
+    },
+    {
+      "name": "MQB.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:00:58.574791"
+    },
+    {
+      "name": "MQN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:00:56.867855"
+    },
+    {
+      "name": "MRF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:00:55.188596"
+    },
+    {
+      "name": "MSB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:00:53.458116"
+    },
+    {
+      "name": "MSH.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T11:00:51.282328"
+    },
+    {
+      "name": "MSN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:19:32.050039"
+    },
+    {
+      "name": "MSR.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:00:49.389039"
+    },
+    {
+      "name": "MST.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:00:47.706790"
+    },
+    {
+      "name": "MTA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:00:45.883091"
+    },
+    {
+      "name": "MTB.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:00:44.076152"
+    },
+    {
+      "name": "MTC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:00:42.247513"
+    },
+    {
+      "name": "MTG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:00:40.628741"
+    },
+    {
+      "name": "MTH.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:00:38.796686"
+    },
+    {
+      "name": "MTL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:00:37.094851"
+    },
+    {
+      "name": "MTP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:00:35.550161"
+    },
+    {
+      "name": "MTS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:00:33.870567"
+    },
+    {
+      "name": "MTV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:00:32.177103"
+    },
+    {
+      "name": "MTX.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:00:30.487278"
+    },
+    {
+      "name": "MVB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:00:28.895548"
+    },
+    {
+      "name": "MVC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:00:27.075036"
+    },
+    {
+      "name": "MVN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:00:25.135861"
+    },
+    {
+      "name": "MWG.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:32.053088"
+    },
+    {
+      "name": "MZG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:00:19.023589"
+    },
+    {
+      "name": "NAB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:00:17.223106"
+    },
+    {
+      "name": "NAC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:00:15.320626"
+    },
+    {
+      "name": "NAF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:00:11.593450"
+    },
+    {
+      "name": "NAG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:00:09.808072"
+    },
+    {
+      "name": "NAP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:00:07.708070"
+    },
+    {
+      "name": "NAS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:00:06.063205"
+    },
+    {
+      "name": "NAU.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:00:04.094700"
+    },
+    {
+      "name": "NAV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T11:00:02.143777"
+    },
+    {
+      "name": "NAW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T11:00:00.096035"
+    },
+    {
+      "name": "NBB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:59:58.245806"
+    },
+    {
+      "name": "NBC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:59:56.380153"
+    },
+    {
+      "name": "NBE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:59:54.264974"
+    },
+    {
+      "name": "NBP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:59:52.470593"
+    },
+    {
+      "name": "NBT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:59:50.561076"
+    },
+    {
+      "name": "NBW.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:59:48.407557"
+    },
+    {
+      "name": "NCG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:59:46.297625"
+    },
+    {
+      "name": "NCS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:59:44.479444"
+    },
+    {
+      "name": "NCT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:59:42.535264"
+    },
+    {
+      "name": "ND2.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:59:39.834634"
+    },
+    {
+      "name": "NDC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:59:38.124717"
+    },
+    {
+      "name": "NDF.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:59:36.458775"
+    },
+    {
+      "name": "NDN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:59:34.528723"
+    },
+    {
+      "name": "NDP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:59:32.604870"
+    },
+    {
+      "name": "NDT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:59:30.973354"
+    },
+    {
+      "name": "NDW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:59:29.056683"
+    },
+    {
+      "name": "NDX.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:59:27.254427"
+    },
+    {
+      "name": "NED.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:59:25.502034"
+    },
+    {
+      "name": "NEM.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:59:23.854300"
+    },
+    {
+      "name": "NET.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:59:22.002367"
+    },
+    {
+      "name": "NFC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:59:20.188515"
+    },
+    {
+      "name": "NGC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:59:18.496618"
+    },
+    {
+      "name": "NHA.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:59:16.707359"
+    },
+    {
+      "name": "NHC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:59:14.858162"
+    },
+    {
+      "name": "NHH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:59:12.691078"
+    },
+    {
+      "name": "NHP.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:59:11.001458"
+    },
+    {
+      "name": "NHT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:59:08.796494"
+    },
+    {
+      "name": "NHV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:59:06.662496"
+    },
+    {
+      "name": "NJC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:59:04.769749"
+    },
+    {
+      "name": "NKG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:59:02.859303"
+    },
+    {
+      "name": "NLG.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:43.873282"
+    },
+    {
+      "name": "NLS.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:59:00.963159"
+    },
+    {
+      "name": "NNC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:58:59.224309"
+    },
+    {
+      "name": "NNG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:58:57.386769"
+    },
+    {
+      "name": "NNT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:58:48.834790"
+    },
+    {
+      "name": "NO1.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:58:46.780936"
+    },
+    {
+      "name": "NOS.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:58:43.789866"
+    },
+    {
+      "name": "NQB.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:58:41.817819"
+    },
+    {
+      "name": "NQN.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:58:40.136747"
+    },
+    {
+      "name": "NQT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:58:38.319316"
+    },
+    {
+      "name": "NRC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:58:36.389835"
+    },
+    {
+      "name": "NS2.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:58:34.277943"
+    },
+    {
+      "name": "NS3.parquet",
+      "size_mb": 0.0,
+      "modified": "2025-12-26T10:58:32.385894"
+    },
+    {
+      "name": "NSC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:58:30.526261"
+    },
+    {
+      "name": "NSG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:58:28.721371"
+    },
+    {
+      "name": "NSH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:58:25.481902"
+    },
+    {
+      "name": "NSL.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:58:23.713433"
+    },
+    {
+      "name": "NSS.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:58:21.989653"
+    },
+    {
+      "name": "NST.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:58:20.244744"
+    },
+    {
+      "name": "NT2.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:58:17.963357"
+    },
+    {
+      "name": "NTB.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:58:16.197721"
+    },
+    {
+      "name": "NTC.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:58:14.439579"
+    },
+    {
+      "name": "NTF.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:58:12.283720"
+    },
+    {
+      "name": "NTH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:58:10.612654"
+    },
+    {
+      "name": "NTL.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:58:08.841541"
+    },
+    {
+      "name": "NTP.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:58:06.652766"
+    },
+    {
+      "name": "NTT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:58:04.711744"
+    },
+    {
+      "name": "NTW.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:58:02.702588"
+    },
+    {
+      "name": "NUE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:58:00.980598"
+    },
+    {
+      "name": "NVB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:57:58.463995"
+    },
+    {
+      "name": "NVL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:57:55.361831"
+    },
+    {
+      "name": "NVP.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:57:52.454721"
+    },
+    {
+      "name": "NVT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:57:49.801595"
+    },
+    {
+      "name": "NWT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:57:47.347703"
+    },
+    {
+      "name": "NXT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:57:44.880953"
+    },
+    {
+      "name": "OCB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:57:42.309271"
+    },
+    {
+      "name": "OCH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:57:39.497361"
+    },
+    {
+      "name": "ODE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:57:36.831892"
+    },
+    {
+      "name": "OGC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:57:34.369320"
+    },
+    {
+      "name": "OIL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:57:31.754357"
+    },
+    {
+      "name": "ONE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:57:29.086032"
+    },
+    {
+      "name": "ONW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:57:26.475230"
+    },
+    {
+      "name": "OPC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:57:23.873562"
+    },
+    {
+      "name": "ORS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:57:20.881860"
+    },
+    {
+      "name": "PAC.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:57:18.073296"
+    },
+    {
+      "name": "PAI.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:57:15.420676"
+    },
+    {
+      "name": "PAN.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:57:13.092060"
+    },
+    {
+      "name": "PAP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:57:10.207448"
+    },
+    {
+      "name": "PAS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:57:07.182120"
+    },
+    {
+      "name": "PAT.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:57:04.558673"
+    },
+    {
+      "name": "PBC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:57:02.014871"
+    },
+    {
+      "name": "PBP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:56:59.308434"
+    },
+    {
+      "name": "PBT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:56:56.583829"
+    },
+    {
+      "name": "PC1.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:56:53.937057"
+    },
+    {
+      "name": "PCC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:56:50.677204"
+    },
+    {
+      "name": "PCE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:56:48.123383"
+    },
+    {
+      "name": "PCF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:56:45.574857"
+    },
+    {
+      "name": "PCG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:56:42.885179"
+    },
+    {
+      "name": "PCH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:56:37.068018"
+    },
+    {
+      "name": "PCM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:56:34.528818"
+    },
+    {
+      "name": "PCN.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:56:31.965041"
+    },
+    {
+      "name": "PCT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:56:29.271514"
+    },
+    {
+      "name": "PDB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:56:26.504191"
+    },
+    {
+      "name": "PDC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:56:23.868983"
+    },
+    {
+      "name": "PDN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:56:21.149082"
+    },
+    {
+      "name": "PDR.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:45.800437"
+    },
+    {
+      "name": "PDV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:56:10.769621"
+    },
+    {
+      "name": "PEC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:56:08.362417"
+    },
+    {
+      "name": "PEG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:56:05.767712"
+    },
+    {
+      "name": "PEN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:56:03.259286"
+    },
+    {
+      "name": "PEQ.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:56:00.338667"
+    },
+    {
+      "name": "PET.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:55:58.475096"
+    },
+    {
+      "name": "PFL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:55:56.621785"
+    },
+    {
+      "name": "PGB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:55:54.653997"
+    },
+    {
+      "name": "PGC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:55:52.771856"
+    },
+    {
+      "name": "PGD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:55:50.825907"
+    },
+    {
+      "name": "PGI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:55:49.027809"
+    },
+    {
+      "name": "PGN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:55:47.333188"
+    },
+    {
+      "name": "PGS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:55:45.673043"
+    },
+    {
+      "name": "PGT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:55:43.772129"
+    },
+    {
+      "name": "PGV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:55:42.092865"
+    },
+    {
+      "name": "PHC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:55:40.025019"
+    },
+    {
+      "name": "PHH.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:55:38.361795"
+    },
+    {
+      "name": "PHN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:55:36.455961"
+    },
+    {
+      "name": "PHP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:55:34.636299"
+    },
+    {
+      "name": "PHR.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:55:32.754299"
+    },
+    {
+      "name": "PHS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:55:30.954093"
+    },
+    {
+      "name": "PIA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:55:26.318072"
+    },
+    {
+      "name": "PIC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:55:24.330209"
+    },
+    {
+      "name": "PID.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:55:22.580916"
+    },
+    {
+      "name": "PIS.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:55:20.555265"
+    },
+    {
+      "name": "PIT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:55:18.667983"
+    },
+    {
+      "name": "PIV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:55:16.619080"
+    },
+    {
+      "name": "PJC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:55:14.733213"
+    },
+    {
+      "name": "PJS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:55:12.954333"
+    },
+    {
+      "name": "PJT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:55:11.190585"
+    },
+    {
+      "name": "PLA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:55:09.539460"
+    },
+    {
+      "name": "PLC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:55:07.881144"
+    },
+    {
+      "name": "PLE.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:55:06.119644"
+    },
+    {
+      "name": "PLO.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:55:04.139147"
+    },
+    {
+      "name": "PLP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:55:02.379441"
+    },
+    {
+      "name": "PLX.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:32.055127"
+    },
+    {
+      "name": "PMB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:55:00.659642"
+    },
+    {
+      "name": "PMC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:54:58.773114"
+    },
+    {
+      "name": "PMG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:54:56.954325"
+    },
+    {
+      "name": "PMJ.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:54:55.184499"
+    },
+    {
+      "name": "PMP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:54:53.472361"
+    },
+    {
+      "name": "PMS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:54:51.638160"
+    },
+    {
+      "name": "PMT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:54:49.606913"
+    },
+    {
+      "name": "PMW.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:54:47.914795"
+    },
+    {
+      "name": "PNC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:54:45.904272"
+    },
+    {
+      "name": "PND.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:54:44.128624"
+    },
+    {
+      "name": "PNG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:54:42.268048"
+    },
+    {
+      "name": "PNJ.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:35.358188"
+    },
+    {
+      "name": "PNP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:54:40.681621"
+    },
+    {
+      "name": "PNT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:54:39.032964"
+    },
+    {
+      "name": "POB.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:54:37.114608"
+    },
+    {
+      "name": "POM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:54:35.368851"
+    },
+    {
+      "name": "POPULAR_3Y.parquet",
+      "size_mb": 0.3,
+      "modified": "2025-12-26T10:20:12.986653"
+    },
+    {
+      "name": "POS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:54:33.274030"
+    },
+    {
+      "name": "POT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:54:31.343190"
+    },
+    {
+      "name": "POV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:54:29.550877"
+    },
+    {
+      "name": "POW.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:19:32.058748"
+    },
+    {
+      "name": "PPC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:54:27.619682"
+    },
+    {
+      "name": "PPE.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:54:21.480872"
+    },
+    {
+      "name": "PPH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:54:19.546273"
+    },
+    {
+      "name": "PPI.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:54:17.833364"
+    },
+    {
+      "name": "PPP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:54:15.995475"
+    },
+    {
+      "name": "PPS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:54:14.313420"
+    },
+    {
+      "name": "PPT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:54:12.323658"
+    },
+    {
+      "name": "PPY.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:54:10.560849"
+    },
+    {
+      "name": "PQN.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:54:08.801487"
+    },
+    {
+      "name": "PRC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:54:06.740266"
+    },
+    {
+      "name": "PRE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:54:04.930167"
+    },
+    {
+      "name": "PRO.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:54:03.217693"
+    },
+    {
+      "name": "PRT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:54:01.452700"
+    },
+    {
+      "name": "PSB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:53:59.392161"
+    },
+    {
+      "name": "PSC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:53:57.607642"
+    },
+    {
+      "name": "PSD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:53:55.386580"
+    },
+    {
+      "name": "PSE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:53:53.304380"
+    },
+    {
+      "name": "PSG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:53:51.661836"
+    },
+    {
+      "name": "PSH.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:53:49.851441"
+    },
+    {
+      "name": "PSI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:53:48.074716"
+    },
+    {
+      "name": "PSL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:53:46.144110"
+    },
+    {
+      "name": "PSN.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:53:44.185980"
+    },
+    {
+      "name": "PSP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:53:42.401687"
+    },
+    {
+      "name": "PSW.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:53:40.676023"
+    },
+    {
+      "name": "PTB.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:53:38.847538"
+    },
+    {
+      "name": "PTC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:53:36.715586"
+    },
+    {
+      "name": "PTD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:53:34.798384"
+    },
+    {
+      "name": "PTE.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:53:32.913271"
+    },
+    {
+      "name": "PTG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:53:31.214891"
+    },
+    {
+      "name": "PTH.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:53:29.240343"
+    },
+    {
+      "name": "PTI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:53:27.256538"
+    },
+    {
+      "name": "PTL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:53:25.157276"
+    },
+    {
+      "name": "PTM.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:53:23.342787"
+    },
+    {
+      "name": "PTN.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:53:21.518621"
+    },
+    {
+      "name": "PTO.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:53:19.805090"
+    },
+    {
+      "name": "PTP.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:53:17.702943"
+    },
+    {
+      "name": "PTS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:53:15.920348"
+    },
+    {
+      "name": "PTT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:53:13.626925"
+    },
+    {
+      "name": "PTV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:53:11.916991"
+    },
+    {
+      "name": "PTX.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:53:10.095632"
+    },
+    {
+      "name": "PV2.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:53:08.380004"
+    },
+    {
+      "name": "PVA.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:53:06.667450"
+    },
+    {
+      "name": "PVB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:53:04.522978"
+    },
+    {
+      "name": "PVC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:53:02.417259"
+    },
+    {
+      "name": "PVD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:20:04.167718"
+    },
+    {
+      "name": "PVE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:53:00.343970"
+    },
+    {
+      "name": "PVG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:52:58.136647"
+    },
+    {
+      "name": "PVH.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:52:56.275191"
+    },
+    {
+      "name": "PVI.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:52:54.257907"
+    },
+    {
+      "name": "PVL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:52:50.699996"
+    },
+    {
+      "name": "PVM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:52:47.034844"
+    },
+    {
+      "name": "PVO.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:52:45.113314"
+    },
+    {
+      "name": "PVP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:52:43.363373"
+    },
+    {
+      "name": "PVR.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:52:41.654452"
+    },
+    {
+      "name": "PVS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:20:06.411763"
+    },
+    {
+      "name": "PVT.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:20:08.143973"
+    },
+    {
+      "name": "PVV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:52:39.697664"
+    },
+    {
+      "name": "PVX.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:52:38.012432"
+    },
+    {
+      "name": "PVY.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:52:35.952793"
+    },
+    {
+      "name": "PWA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:52:34.096847"
+    },
+    {
+      "name": "PWS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:52:32.228009"
+    },
+    {
+      "name": "PX1.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:52:30.146780"
+    },
+    {
+      "name": "PXA.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:52:28.299041"
+    },
+    {
+      "name": "PXC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:52:26.405435"
+    },
+    {
+      "name": "PXI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:52:24.321821"
+    },
+    {
+      "name": "PXL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:52:22.451622"
+    },
+    {
+      "name": "PXM.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:52:20.682675"
+    },
+    {
+      "name": "PXS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:52:18.717523"
+    },
+    {
+      "name": "PXT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:52:16.752812"
+    },
+    {
+      "name": "QBS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:52:12.898108"
+    },
+    {
+      "name": "QCC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:52:11.076225"
+    },
+    {
+      "name": "QCG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:52:08.995713"
+    },
+    {
+      "name": "QHD.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:52:07.278065"
+    },
+    {
+      "name": "QHW.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:52:04.787950"
+    },
+    {
+      "name": "QLD.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:52:02.751352"
+    },
+    {
+      "name": "QLT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:52:00.917879"
+    },
+    {
+      "name": "QNC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:51:58.870856"
+    },
+    {
+      "name": "QNP.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:51:56.843141"
+    },
+    {
+      "name": "QNS.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:51:55.077742"
+    },
+    {
+      "name": "QNT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:51:51.842090"
+    },
+    {
+      "name": "QNU.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:51:50.000129"
+    },
+    {
+      "name": "QNW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:51:47.887986"
+    },
+    {
+      "name": "QPH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:51:45.962475"
+    },
+    {
+      "name": "QSP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:51:44.043927"
+    },
+    {
+      "name": "QST.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:51:41.996828"
+    },
+    {
+      "name": "QTC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:51:40.015826"
+    },
+    {
+      "name": "QTP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:51:37.947370"
+    },
+    {
+      "name": "RAL.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:51:34.863364"
+    },
+    {
+      "name": "RAT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:51:33.042418"
+    },
+    {
+      "name": "RBC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:51:31.271447"
+    },
+    {
+      "name": "RCC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:51:29.433456"
+    },
+    {
+      "name": "RCD.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:51:27.640757"
+    },
+    {
+      "name": "RCL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:51:25.928784"
+    },
+    {
+      "name": "RDP.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:51:24.051533"
+    },
+    {
+      "name": "REE.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:37.362037"
+    },
+    {
+      "name": "RGC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:51:21.804392"
+    },
+    {
+      "name": "RGG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:51:20.029806"
+    },
+    {
+      "name": "RIC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:51:18.350637"
+    },
+    {
+      "name": "ROS.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:51:16.486142"
+    },
+    {
+      "name": "RTB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:51:12.859519"
+    },
+    {
+      "name": "RYG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:51:11.154022"
+    },
+    {
+      "name": "S12.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:51:09.409522"
+    },
+    {
+      "name": "S27.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:51:07.440864"
+    },
+    {
+      "name": "S4A.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:51:05.387783"
+    },
+    {
+      "name": "S55.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:51:03.240810"
+    },
+    {
+      "name": "S72.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:51:01.244841"
+    },
+    {
+      "name": "S74.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:50:59.455146"
+    },
+    {
+      "name": "S96.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:50:57.690576"
+    },
+    {
+      "name": "S99.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:50:55.763181"
+    },
+    {
+      "name": "SAB.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:32.061579"
+    },
+    {
+      "name": "SAC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:50:53.751043"
+    },
+    {
+      "name": "SAF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:50:51.918586"
+    },
+    {
+      "name": "SAL.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:50:50.094653"
+    },
+    {
+      "name": "SAM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:50:47.867841"
+    },
+    {
+      "name": "SAP.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:50:46.165675"
+    },
+    {
+      "name": "SAS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:50:44.297193"
+    },
+    {
+      "name": "SAV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:50:42.584521"
+    },
+    {
+      "name": "SB1.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:50:40.588129"
+    },
+    {
+      "name": "SBA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:50:38.774904"
+    },
+    {
+      "name": "SBB.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:50:36.929222"
+    },
+    {
+      "name": "SBD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:50:35.178097"
+    },
+    {
+      "name": "SBG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:50:33.095604"
+    },
+    {
+      "name": "SBH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:50:31.442699"
+    },
+    {
+      "name": "SBL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:50:29.599296"
+    },
+    {
+      "name": "SBM.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:50:27.211730"
+    },
+    {
+      "name": "SBR.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:50:25.436607"
+    },
+    {
+      "name": "SBS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:50:23.523292"
+    },
+    {
+      "name": "SBT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:50:21.689773"
+    },
+    {
+      "name": "SBV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:50:19.495107"
+    },
+    {
+      "name": "SC5.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:50:17.366564"
+    },
+    {
+      "name": "SCA.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:50:15.250317"
+    },
+    {
+      "name": "SCC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:50:13.490638"
+    },
+    {
+      "name": "SCD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:50:11.546726"
+    },
+    {
+      "name": "SCG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:50:09.764935"
+    },
+    {
+      "name": "SCI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:50:08.009652"
+    },
+    {
+      "name": "SCJ.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:50:06.104072"
+    },
+    {
+      "name": "SCL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:50:03.946833"
+    },
+    {
+      "name": "SCO.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:50:01.675427"
+    },
+    {
+      "name": "SCR.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:49:59.732987"
+    },
+    {
+      "name": "SCS.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:49:57.754320"
+    },
+    {
+      "name": "SCV.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:49:56.000211"
+    },
+    {
+      "name": "SCY.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:49:54.022126"
+    },
+    {
+      "name": "SD1.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:49:52.223495"
+    },
+    {
+      "name": "SD2.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:49:50.295719"
+    },
+    {
+      "name": "SD3.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:49:48.357979"
+    },
+    {
+      "name": "SD4.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:49:46.459672"
+    },
+    {
+      "name": "SD5.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:49:44.617827"
+    },
+    {
+      "name": "SD6.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:49:42.542722"
+    },
+    {
+      "name": "SD7.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:49:40.686726"
+    },
+    {
+      "name": "SD8.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:49:38.584592"
+    },
+    {
+      "name": "SD9.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:49:36.782970"
+    },
+    {
+      "name": "SDA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:49:34.941862"
+    },
+    {
+      "name": "SDB.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:49:33.063781"
+    },
+    {
+      "name": "SDC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:49:31.339583"
+    },
+    {
+      "name": "SDD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:49:29.420544"
+    },
+    {
+      "name": "SDG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:49:27.595120"
+    },
+    {
+      "name": "SDH.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:49:25.754482"
+    },
+    {
+      "name": "SDJ.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:49:23.793530"
+    },
+    {
+      "name": "SDK.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:49:21.779294"
+    },
+    {
+      "name": "SDN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:49:19.771600"
+    },
+    {
+      "name": "SDP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:49:17.865932"
+    },
+    {
+      "name": "SDT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:49:15.613441"
+    },
+    {
+      "name": "SDU.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:49:13.760770"
+    },
+    {
+      "name": "SDV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:49:12.176180"
+    },
+    {
+      "name": "SDX.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:49:10.564794"
+    },
+    {
+      "name": "SDY.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:49:08.632258"
+    },
+    {
+      "name": "SEA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:49:06.701935"
+    },
+    {
+      "name": "SEB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:49:04.671661"
+    },
+    {
+      "name": "SED.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:49:02.716045"
+    },
+    {
+      "name": "SEP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:49:00.946567"
+    },
+    {
+      "name": "SFC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:48:58.957620"
+    },
+    {
+      "name": "SFG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:48:55.978043"
+    },
+    {
+      "name": "SFI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:48:53.990005"
+    },
+    {
+      "name": "SFN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:48:51.991607"
+    },
+    {
+      "name": "SGB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:48:50.113616"
+    },
+    {
+      "name": "SGC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:48:48.192917"
+    },
+    {
+      "name": "SGD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:48:45.894676"
+    },
+    {
+      "name": "SGH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:48:43.924764"
+    },
+    {
+      "name": "SGI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:48:42.126180"
+    },
+    {
+      "name": "SGN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:48:40.095682"
+    },
+    {
+      "name": "SGO.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:48:38.398678"
+    },
+    {
+      "name": "SGP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:48:36.637058"
+    },
+    {
+      "name": "SGR.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:48:34.529490"
+    },
+    {
+      "name": "SGS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:48:32.630122"
+    },
+    {
+      "name": "SGT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:48:30.995691"
+    },
+    {
+      "name": "SHA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:48:29.205254"
+    },
+    {
+      "name": "SHB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:48:27.077691"
+    },
+    {
+      "name": "SHC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:48:25.106309"
+    },
+    {
+      "name": "SHE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:48:23.231311"
+    },
+    {
+      "name": "SHG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:48:21.358622"
+    },
+    {
+      "name": "SHI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:48:19.343792"
+    },
+    {
+      "name": "SHN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:48:17.290835"
+    },
+    {
+      "name": "SHP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:48:15.244941"
+    },
+    {
+      "name": "SHS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:19:53.909687"
+    },
+    {
+      "name": "SHX.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:48:13.136020"
+    },
+    {
+      "name": "SIC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:48:11.434611"
+    },
+    {
+      "name": "SID.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:48:09.500409"
+    },
+    {
+      "name": "SIG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:48:07.682189"
+    },
+    {
+      "name": "SII.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:48:05.698721"
+    },
+    {
+      "name": "SIP.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:48:03.915867"
+    },
+    {
+      "name": "SIV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:47:59.567008"
+    },
+    {
+      "name": "SJ1.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:47:57.730085"
+    },
+    {
+      "name": "SJC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:47:55.802272"
+    },
+    {
+      "name": "SJD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:47:53.853986"
+    },
+    {
+      "name": "SJE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:47:51.730883"
+    },
+    {
+      "name": "SJF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:47:49.739641"
+    },
+    {
+      "name": "SJG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:47:47.845860"
+    },
+    {
+      "name": "SJM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:47:45.952354"
+    },
+    {
+      "name": "SJS.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:47:44.123284"
+    },
+    {
+      "name": "SKG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:47:42.357119"
+    },
+    {
+      "name": "SKH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:47:40.182152"
+    },
+    {
+      "name": "SKN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:47:38.216864"
+    },
+    {
+      "name": "SKV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:47:36.382987"
+    },
+    {
+      "name": "SLD.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:47:33.607524"
+    },
+    {
+      "name": "SLS.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:47:31.597350"
+    },
+    {
+      "name": "SMA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:47:29.755551"
+    },
+    {
+      "name": "SMB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:47:27.944937"
+    },
+    {
+      "name": "SMC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:47:25.876006"
+    },
+    {
+      "name": "SMN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:47:23.503728"
+    },
+    {
+      "name": "SMT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:47:21.742659"
+    },
+    {
+      "name": "SNC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:47:19.849675"
+    },
+    {
+      "name": "SNZ.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:47:17.986914"
+    },
+    {
+      "name": "SP2.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:47:09.217454"
+    },
+    {
+      "name": "SPA.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:47:07.406872"
+    },
+    {
+      "name": "SPB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:47:05.347890"
+    },
+    {
+      "name": "SPC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:47:03.284556"
+    },
+    {
+      "name": "SPD.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:47:01.401923"
+    },
+    {
+      "name": "SPH.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:46:59.490256"
+    },
+    {
+      "name": "SPI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:46:57.532951"
+    },
+    {
+      "name": "SPM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:46:55.689256"
+    },
+    {
+      "name": "SPP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:46:53.753119"
+    },
+    {
+      "name": "SPV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:46:51.783848"
+    },
+    {
+      "name": "SQC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:46:49.783619"
+    },
+    {
+      "name": "SRA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:46:47.875299"
+    },
+    {
+      "name": "SRB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:46:46.105285"
+    },
+    {
+      "name": "SRC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:46:44.123101"
+    },
+    {
+      "name": "SRF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:46:42.344661"
+    },
+    {
+      "name": "SRT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:46:40.303264"
+    },
+    {
+      "name": "SSB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:19:32.064634"
+    },
+    {
+      "name": "SSC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:46:38.024807"
+    },
+    {
+      "name": "SSF.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:46:36.084711"
+    },
+    {
+      "name": "SSG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:46:34.328684"
+    },
+    {
+      "name": "SSH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:46:32.659275"
+    },
+    {
+      "name": "SSI.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:32.067735"
+    },
+    {
+      "name": "SSM.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:46:30.925780"
+    },
+    {
+      "name": "SSN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:46:28.928078"
+    },
+    {
+      "name": "SSU.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:46:27.004962"
+    },
+    {
+      "name": "ST8.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:46:25.177676"
+    },
+    {
+      "name": "STB.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:32.070777"
+    },
+    {
+      "name": "STC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:46:23.506215"
+    },
+    {
+      "name": "STG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:46:21.741254"
+    },
+    {
+      "name": "STH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:46:19.777144"
+    },
+    {
+      "name": "STK.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:46:17.769382"
+    },
+    {
+      "name": "STL.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:46:15.972935"
+    },
+    {
+      "name": "STP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:46:14.017272"
+    },
+    {
+      "name": "STS.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:46:12.273211"
+    },
+    {
+      "name": "STT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:46:10.277889"
+    },
+    {
+      "name": "STW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:46:08.496530"
+    },
+    {
+      "name": "SVC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:46:06.584499"
+    },
+    {
+      "name": "SVD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:46:04.782045"
+    },
+    {
+      "name": "SVG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:46:03.008407"
+    },
+    {
+      "name": "SVH.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:46:01.115523"
+    },
+    {
+      "name": "SVI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:45:59.393391"
+    },
+    {
+      "name": "SVN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:45:50.471468"
+    },
+    {
+      "name": "SVT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:45:48.595390"
+    },
+    {
+      "name": "SWC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:45:46.538632"
+    },
+    {
+      "name": "SZB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:45:44.088765"
+    },
+    {
+      "name": "SZC.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:45:42.246673"
+    },
+    {
+      "name": "SZE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:45:39.926029"
+    },
+    {
+      "name": "SZG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:45:38.077893"
+    },
+    {
+      "name": "SZL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:45:36.349308"
+    },
+    {
+      "name": "TA3.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:45:32.875917"
+    },
+    {
+      "name": "TA6.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:45:30.809668"
+    },
+    {
+      "name": "TA9.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:45:28.994689"
+    },
+    {
+      "name": "TAB.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:45:26.711763"
+    },
+    {
+      "name": "TAG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:45:23.073238"
+    },
+    {
+      "name": "TAL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:45:21.317180"
+    },
+    {
+      "name": "TAN.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:45:19.332033"
+    },
+    {
+      "name": "TAP.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:45:17.356268"
+    },
+    {
+      "name": "TAR.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:45:15.403525"
+    },
+    {
+      "name": "TAW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:45:13.198983"
+    },
+    {
+      "name": "TB8.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:45:11.123379"
+    },
+    {
+      "name": "TBC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:45:09.224459"
+    },
+    {
+      "name": "TBD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:45:07.193040"
+    },
+    {
+      "name": "TBH.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:45:05.233433"
+    },
+    {
+      "name": "TBR.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:45:01.457158"
+    },
+    {
+      "name": "TBT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:44:59.391858"
+    },
+    {
+      "name": "TBW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:44:57.352927"
+    },
+    {
+      "name": "TBX.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:44:55.801069"
+    },
+    {
+      "name": "TC6.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:44:54.124531"
+    },
+    {
+      "name": "TCB.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:32.073041"
+    },
+    {
+      "name": "TCD.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:44:52.250106"
+    },
+    {
+      "name": "TCH.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:44:49.920510"
+    },
+    {
+      "name": "TCI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:44:47.842235"
+    },
+    {
+      "name": "TCJ.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:44:46.047461"
+    },
+    {
+      "name": "TCK.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:44:44.474646"
+    },
+    {
+      "name": "TCL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:44:42.529283"
+    },
+    {
+      "name": "TCM.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:44:40.438479"
+    },
+    {
+      "name": "TCO.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:44:38.423009"
+    },
+    {
+      "name": "TCR.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:44:36.318683"
+    },
+    {
+      "name": "TCT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:44:34.648782"
+    },
+    {
+      "name": "TCW.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:44:33.029806"
+    },
+    {
+      "name": "TCX.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:44:31.174840"
+    },
+    {
+      "name": "TD6.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:44:29.395692"
+    },
+    {
+      "name": "TDB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:44:27.823062"
+    },
+    {
+      "name": "TDC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:44:26.102800"
+    },
+    {
+      "name": "TDF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:44:24.545360"
+    },
+    {
+      "name": "TDG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:44:22.952170"
+    },
+    {
+      "name": "TDH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:44:21.152058"
+    },
+    {
+      "name": "TDI.parquet",
+      "size_mb": 0.0,
+      "modified": "2025-12-26T10:44:19.538898"
+    },
+    {
+      "name": "TDM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:44:17.893304"
+    },
+    {
+      "name": "TDN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:44:15.473224"
+    },
+    {
+      "name": "TDP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:44:13.530114"
+    },
+    {
+      "name": "TDS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:44:11.587244"
+    },
+    {
+      "name": "TDT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:44:09.742322"
+    },
+    {
+      "name": "TDW.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:44:08.026251"
+    },
+    {
+      "name": "TEC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:44:05.849418"
+    },
+    {
+      "name": "TED.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:44:04.019598"
+    },
+    {
+      "name": "TEG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:44:02.286677"
+    },
+    {
+      "name": "TEL.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:44:00.151611"
+    },
+    {
+      "name": "TET.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:43:58.321825"
+    },
+    {
+      "name": "TFC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:43:56.507174"
+    },
+    {
+      "name": "TGG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:43:55.313336"
+    },
+    {
+      "name": "TGP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:43:53.917765"
+    },
+    {
+      "name": "TH1.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:43:52.337798"
+    },
+    {
+      "name": "THB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:43:50.824877"
+    },
+    {
+      "name": "THD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:43:49.121711"
+    },
+    {
+      "name": "THG.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:43:47.794110"
+    },
+    {
+      "name": "THI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:43:46.255548"
+    },
+    {
+      "name": "THM.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:43:44.663342"
+    },
+    {
+      "name": "THN.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:43:43.102744"
+    },
+    {
+      "name": "THP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:43:37.813192"
+    },
+    {
+      "name": "THS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:43:36.319599"
+    },
+    {
+      "name": "THT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:43:34.868628"
+    },
+    {
+      "name": "THU.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:43:33.309609"
+    },
+    {
+      "name": "THW.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:43:31.773168"
+    },
+    {
+      "name": "TID.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:43:30.142997"
+    },
+    {
+      "name": "TIE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:43:28.638040"
+    },
+    {
+      "name": "TIG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:43:27.133623"
+    },
+    {
+      "name": "TIN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:43:25.839741"
+    },
+    {
+      "name": "TIP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:43:24.317950"
+    },
+    {
+      "name": "TIS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:43:22.717632"
+    },
+    {
+      "name": "TIX.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:43:21.277070"
+    },
+    {
+      "name": "TJC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:43:19.634777"
+    },
+    {
+      "name": "TKA.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:43:18.008473"
+    },
+    {
+      "name": "TKC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:43:16.784703"
+    },
+    {
+      "name": "TKG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:43:11.397154"
+    },
+    {
+      "name": "TKU.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:43:09.895785"
+    },
+    {
+      "name": "TL4.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:43:08.251991"
+    },
+    {
+      "name": "TLD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:43:06.625181"
+    },
+    {
+      "name": "TLG.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:43:05.071742"
+    },
+    {
+      "name": "TLH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:43:03.313358"
+    },
+    {
+      "name": "TLI.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:43:02.023126"
+    },
+    {
+      "name": "TLP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:43:00.545718"
+    },
+    {
+      "name": "TLT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:42:59.150777"
+    },
+    {
+      "name": "TMB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:42:57.586773"
+    },
+    {
+      "name": "TMC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:42:56.106041"
+    },
+    {
+      "name": "TMG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:42:54.496426"
+    },
+    {
+      "name": "TMP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:42:53.011661"
+    },
+    {
+      "name": "TMS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:42:51.240859"
+    },
+    {
+      "name": "TMT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:42:48.688186"
+    },
+    {
+      "name": "TMW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:42:46.791713"
+    },
+    {
+      "name": "TMX.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:42:45.173050"
+    },
+    {
+      "name": "TN1.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:42:43.626359"
+    },
+    {
+      "name": "TNA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:42:42.089665"
+    },
+    {
+      "name": "TNB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:42:40.559745"
+    },
+    {
+      "name": "TNC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:42:39.119743"
+    },
+    {
+      "name": "TNG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:42:37.720841"
+    },
+    {
+      "name": "TNH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:42:36.252994"
+    },
+    {
+      "name": "TNI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:42:34.697644"
+    },
+    {
+      "name": "TNM.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:42:33.332914"
+    },
+    {
+      "name": "TNP.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:42:31.830973"
+    },
+    {
+      "name": "TNS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:42:30.506840"
+    },
+    {
+      "name": "TNT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:42:29.144461"
+    },
+    {
+      "name": "TNV.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:42:27.538249"
+    },
+    {
+      "name": "TNW.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:42:25.936805"
+    },
+    {
+      "name": "TOP.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:42:24.377739"
+    },
+    {
+      "name": "TOS.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:42:22.663304"
+    },
+    {
+      "name": "TOT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:42:21.269607"
+    },
+    {
+      "name": "TOW.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:42:19.836740"
+    },
+    {
+      "name": "TPB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:19:32.076065"
+    },
+    {
+      "name": "TPC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:42:18.239521"
+    },
+    {
+      "name": "TPH.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:42:16.831032"
+    },
+    {
+      "name": "TPP.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:42:15.291303"
+    },
+    {
+      "name": "TPS.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T17:30:42.585094"
+    },
+    {
+      "name": "TQN.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:42:12.643231"
+    },
+    {
+      "name": "TQW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:42:10.981215"
+    },
+    {
+      "name": "TR1.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:42:09.666112"
+    },
+    {
+      "name": "TRA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:42:07.668028"
+    },
+    {
+      "name": "TRC.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:42:06.271595"
+    },
+    {
+      "name": "TRS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:42:04.851696"
+    },
+    {
+      "name": "TRT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:42:03.360910"
+    },
+    {
+      "name": "TRV.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:42:01.810780"
+    },
+    {
+      "name": "TS3.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:42:00.367809"
+    },
+    {
+      "name": "TS4.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:41:58.960620"
+    },
+    {
+      "name": "TSA.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:41:55.451615"
+    },
+    {
+      "name": "TSB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:41:51.632531"
+    },
+    {
+      "name": "TSC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:41:49.266799"
+    },
+    {
+      "name": "TSD.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:41:47.377301"
+    },
+    {
+      "name": "TSG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:41:45.334475"
+    },
+    {
+      "name": "TSJ.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:41:43.331923"
+    },
+    {
+      "name": "TST.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:41:41.386625"
+    },
+    {
+      "name": "TT6.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:41:39.436826"
+    },
+    {
+      "name": "TTA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:41:37.264566"
+    },
+    {
+      "name": "TTB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:41:35.458086"
+    },
+    {
+      "name": "TTC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:41:33.405356"
+    },
+    {
+      "name": "TTD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:41:30.599626"
+    },
+    {
+      "name": "TTE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:41:28.276349"
+    },
+    {
+      "name": "TTF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:41:26.286874"
+    },
+    {
+      "name": "TTG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:41:21.981813"
+    },
+    {
+      "name": "TTH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:41:20.269247"
+    },
+    {
+      "name": "TTL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:41:18.120744"
+    },
+    {
+      "name": "TTN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:41:16.139842"
+    },
+    {
+      "name": "TTP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:41:14.421806"
+    },
+    {
+      "name": "TTS.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:41:12.541124"
+    },
+    {
+      "name": "TTT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:41:10.505266"
+    },
+    {
+      "name": "TTZ.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:41:08.909514"
+    },
+    {
+      "name": "TUG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:41:07.045954"
+    },
+    {
+      "name": "TV1.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:41:05.171738"
+    },
+    {
+      "name": "TV2.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:41:03.147115"
+    },
+    {
+      "name": "TV3.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:41:01.281039"
+    },
+    {
+      "name": "TV4.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:40:59.393600"
+    },
+    {
+      "name": "TV6.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:40:57.429243"
+    },
+    {
+      "name": "TVA.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:40:55.582989"
+    },
+    {
+      "name": "TVB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:40:53.578118"
+    },
+    {
+      "name": "TVC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:40:51.841582"
+    },
+    {
+      "name": "TVD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:40:50.075374"
+    },
+    {
+      "name": "TVG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:40:48.351111"
+    },
+    {
+      "name": "TVH.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:40:46.423257"
+    },
+    {
+      "name": "TVM.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:40:44.616909"
+    },
+    {
+      "name": "TVN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:40:42.700663"
+    },
+    {
+      "name": "TVP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:40:40.868761"
+    },
+    {
+      "name": "TVS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:40:38.859712"
+    },
+    {
+      "name": "TVT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:40:36.716774"
+    },
+    {
+      "name": "TVW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:40:34.745111"
+    },
+    {
+      "name": "TW3.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:40:32.840842"
+    },
+    {
+      "name": "TXM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:40:29.821762"
+    },
+    {
+      "name": "TYA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:40:27.996369"
+    },
+    {
+      "name": "UCT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:40:26.207669"
+    },
+    {
+      "name": "UDC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:40:24.406566"
+    },
+    {
+      "name": "UDJ.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:40:22.452261"
+    },
+    {
+      "name": "UDL.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:40:20.732587"
+    },
+    {
+      "name": "UEM.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:40:18.626008"
+    },
+    {
+      "name": "UIC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:40:16.613191"
+    },
+    {
+      "name": "UMC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:40:14.773643"
+    },
+    {
+      "name": "UNI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:40:12.520288"
+    },
+    {
+      "name": "UPC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:40:10.400729"
+    },
+    {
+      "name": "UPH.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:40:08.571141"
+    },
+    {
+      "name": "USC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:40:06.462640"
+    },
+    {
+      "name": "USD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:40:03.932056"
+    },
+    {
+      "name": "UXC.parquet",
+      "size_mb": 0.0,
+      "modified": "2025-12-26T10:39:55.802296"
+    },
+    {
+      "name": "V11.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:39:54.623285"
+    },
+    {
+      "name": "V12.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:39:53.152417"
+    },
+    {
+      "name": "V15.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:39:51.644233"
+    },
+    {
+      "name": "V21.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:39:50.140756"
+    },
+    {
+      "name": "VAB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:39:48.809641"
+    },
+    {
+      "name": "VAF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:39:47.524506"
+    },
+    {
+      "name": "VAT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:39:46.194643"
+    },
+    {
+      "name": "VAV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:39:44.600720"
+    },
+    {
+      "name": "VBB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:39:43.208140"
+    },
+    {
+      "name": "VBC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:39:41.299226"
+    },
+    {
+      "name": "VBG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:39:39.882648"
+    },
+    {
+      "name": "VBH.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:39:37.823392"
+    },
+    {
+      "name": "VC1.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:39:36.376147"
+    },
+    {
+      "name": "VC2.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:39:34.684458"
+    },
+    {
+      "name": "VC3.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:39:33.146745"
+    },
+    {
+      "name": "VC5.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:39:31.047052"
+    },
+    {
+      "name": "VC6.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:39:29.620107"
+    },
+    {
+      "name": "VC7.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:39:28.043388"
+    },
+    {
+      "name": "VC9.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:39:26.446984"
+    },
+    {
+      "name": "VCA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:39:24.947443"
+    },
+    {
+      "name": "VCB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:19:32.078790"
+    },
+    {
+      "name": "VCC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:39:23.538998"
+    },
+    {
+      "name": "VCE.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:39:21.992521"
+    },
+    {
+      "name": "VCF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:39:20.519094"
+    },
+    {
+      "name": "VCG.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:39:19.175155"
+    },
+    {
+      "name": "VCI.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:48.007847"
+    },
+    {
+      "name": "VCK.parquet",
+      "size_mb": 0.0,
+      "modified": "2025-12-26T10:39:17.595745"
+    },
+    {
+      "name": "VCM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:39:16.186935"
+    },
+    {
+      "name": "VCP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:39:14.442915"
+    },
+    {
+      "name": "VCR.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T17:30:31.828398"
+    },
+    {
+      "name": "VCS.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:39:09.608630"
+    },
+    {
+      "name": "VCT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:39:08.124837"
+    },
+    {
+      "name": "VCW.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:39:06.563422"
+    },
+    {
+      "name": "VCX.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:39:04.884545"
+    },
+    {
+      "name": "VDB.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:39:03.232807"
+    },
+    {
+      "name": "VDG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:39:01.804167"
+    },
+    {
+      "name": "VDL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:39:00.226199"
+    },
+    {
+      "name": "VDN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:38:52.774310"
+    },
+    {
+      "name": "VDP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:38:51.107761"
+    },
+    {
+      "name": "VDS.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:38:49.445451"
+    },
+    {
+      "name": "VDT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:38:48.057424"
+    },
+    {
+      "name": "VE1.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:38:46.739509"
+    },
+    {
+      "name": "VE2.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:38:44.866841"
+    },
+    {
+      "name": "VE3.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:38:43.230570"
+    },
+    {
+      "name": "VE4.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:38:41.764906"
+    },
+    {
+      "name": "VE8.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:38:40.299134"
+    },
+    {
+      "name": "VE9.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:38:38.886748"
+    },
+    {
+      "name": "VEA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:38:36.771795"
+    },
+    {
+      "name": "VEC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:38:34.450668"
+    },
+    {
+      "name": "VEF.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:38:33.017871"
+    },
+    {
+      "name": "VES.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:38:31.676239"
+    },
+    {
+      "name": "VET.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:38:30.140218"
+    },
+    {
+      "name": "VFC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:38:28.755095"
+    },
+    {
+      "name": "VFG.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:38:27.248750"
+    },
+    {
+      "name": "VFR.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:38:25.420362"
+    },
+    {
+      "name": "VFS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:38:23.976020"
+    },
+    {
+      "name": "VGC.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:38:22.182993"
+    },
+    {
+      "name": "VGG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:38:20.896956"
+    },
+    {
+      "name": "VGI.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:38:19.502273"
+    },
+    {
+      "name": "VGL.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:38:17.890940"
+    },
+    {
+      "name": "VGP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:38:16.573240"
+    },
+    {
+      "name": "VGR.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:38:14.846769"
+    },
+    {
+      "name": "VGS.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:38:13.157352"
+    },
+    {
+      "name": "VGT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:38:11.665287"
+    },
+    {
+      "name": "VGV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:38:10.216762"
+    },
+    {
+      "name": "VHC.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:38:08.482917"
+    },
+    {
+      "name": "VHD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:38:06.937980"
+    },
+    {
+      "name": "VHE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:38:05.304287"
+    },
+    {
+      "name": "VHF.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:38:03.451435"
+    },
+    {
+      "name": "VHG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:38:01.974907"
+    },
+    {
+      "name": "VHH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:37:59.950355"
+    },
+    {
+      "name": "VHL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:37:51.782351"
+    },
+    {
+      "name": "VHM.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:32.082214"
+    },
+    {
+      "name": "VIB.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:32.084503"
+    },
+    {
+      "name": "VIC.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:32.086723"
+    },
+    {
+      "name": "VID.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:37:49.905506"
+    },
+    {
+      "name": "VIE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:37:47.955086"
+    },
+    {
+      "name": "VIF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:37:46.162228"
+    },
+    {
+      "name": "VIG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:37:44.406956"
+    },
+    {
+      "name": "VIH.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:37:42.117051"
+    },
+    {
+      "name": "VIM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:37:40.337838"
+    },
+    {
+      "name": "VIN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:37:38.584501"
+    },
+    {
+      "name": "VIP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:37:36.836238"
+    },
+    {
+      "name": "VIR.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:37:34.824911"
+    },
+    {
+      "name": "VIT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:37:26.343403"
+    },
+    {
+      "name": "VIW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:37:24.280124"
+    },
+    {
+      "name": "VIX.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:37:22.274762"
+    },
+    {
+      "name": "VJC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:19:32.090874"
+    },
+    {
+      "name": "VKC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:37:19.893631"
+    },
+    {
+      "name": "VKD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:37:18.093725"
+    },
+    {
+      "name": "VKP.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:37:16.266938"
+    },
+    {
+      "name": "VLA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:37:13.913206"
+    },
+    {
+      "name": "VLB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:37:12.063177"
+    },
+    {
+      "name": "VLC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:37:10.442147"
+    },
+    {
+      "name": "VLF.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:37:08.450724"
+    },
+    {
+      "name": "VLG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:37:06.482928"
+    },
+    {
+      "name": "VLP.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:37:04.642965"
+    },
+    {
+      "name": "VLS.parquet",
+      "size_mb": 0.0,
+      "modified": "2025-12-26T10:37:02.696584"
+    },
+    {
+      "name": "VLW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:37:00.697873"
+    },
+    {
+      "name": "VMA.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:36:58.925259"
+    },
+    {
+      "name": "VMC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:36:56.947037"
+    },
+    {
+      "name": "VMD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:36:54.911760"
+    },
+    {
+      "name": "VMG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:36:53.061037"
+    },
+    {
+      "name": "VMI.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:36:51.180085"
+    },
+    {
+      "name": "VMK.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:36:48.815879"
+    },
+    {
+      "name": "VMS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:36:47.073175"
+    },
+    {
+      "name": "VMT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:36:44.961216"
+    },
+    {
+      "name": "VN30_3Y.parquet",
+      "size_mb": 0.41,
+      "modified": "2025-12-26T10:19:32.011009"
+    },
+    {
+      "name": "VNA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:36:42.932225"
+    },
+    {
+      "name": "VNB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:36:41.328938"
+    },
+    {
+      "name": "VNC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:36:39.497753"
+    },
+    {
+      "name": "VND.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:51.955449"
+    },
+    {
+      "name": "VNE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:36:37.685091"
+    },
+    {
+      "name": "VNF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:36:35.569352"
+    },
+    {
+      "name": "VNG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:36:33.769686"
+    },
+    {
+      "name": "VNH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:36:31.896795"
+    },
+    {
+      "name": "VNI.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:36:30.012537"
+    },
+    {
+      "name": "VNINDEX.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:18:27.577875"
+    },
+    {
+      "name": "VNL.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:36:28.292363"
+    },
+    {
+      "name": "VNM.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:19:32.093688"
+    },
+    {
+      "name": "VNP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:36:26.225869"
+    },
+    {
+      "name": "VNR.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:36:23.229079"
+    },
+    {
+      "name": "VNS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:36:21.011959"
+    },
+    {
+      "name": "VNT.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:36:18.728779"
+    },
+    {
+      "name": "VNX.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:36:16.651725"
+    },
+    {
+      "name": "VNY.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:36:14.877807"
+    },
+    {
+      "name": "VNZ.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:36:12.925942"
+    },
+    {
+      "name": "VOC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:36:10.944630"
+    },
+    {
+      "name": "VOS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:36:09.068641"
+    },
+    {
+      "name": "VPA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:36:05.963344"
+    },
+    {
+      "name": "VPB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:19:32.096711"
+    },
+    {
+      "name": "VPC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:36:04.116533"
+    },
+    {
+      "name": "VPD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:36:02.249206"
+    },
+    {
+      "name": "VPG.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:36:00.530263"
+    },
+    {
+      "name": "VPH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:35:58.777908"
+    },
+    {
+      "name": "VPI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:35:56.890268"
+    },
+    {
+      "name": "VPL.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:35:54.293446"
+    },
+    {
+      "name": "VPR.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:35:52.158113"
+    },
+    {
+      "name": "VPS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:35:49.921371"
+    },
+    {
+      "name": "VPW.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:35:47.691984"
+    },
+    {
+      "name": "VPX.parquet",
+      "size_mb": 0.0,
+      "modified": "2025-12-26T10:35:45.271002"
+    },
+    {
+      "name": "VQC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:35:43.083831"
+    },
+    {
+      "name": "VRC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:35:40.409273"
+    },
+    {
+      "name": "VRE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:19:32.099247"
+    },
+    {
+      "name": "VRG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:35:38.050411"
+    },
+    {
+      "name": "VSA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:35:35.963423"
+    },
+    {
+      "name": "VSC.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:35:33.931660"
+    },
+    {
+      "name": "VSE.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:35:31.276979"
+    },
+    {
+      "name": "VSF.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:35:28.962597"
+    },
+    {
+      "name": "VSG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:35:26.648803"
+    },
+    {
+      "name": "VSH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:35:23.241928"
+    },
+    {
+      "name": "VSI.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:35:21.084774"
+    },
+    {
+      "name": "VSM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:35:18.611766"
+    },
+    {
+      "name": "VSN.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:35:16.184535"
+    },
+    {
+      "name": "VSP.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:35:13.709592"
+    },
+    {
+      "name": "VST.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:35:11.346641"
+    },
+    {
+      "name": "VTA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:35:09.243321"
+    },
+    {
+      "name": "VTB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:35:06.911757"
+    },
+    {
+      "name": "VTC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:35:04.617917"
+    },
+    {
+      "name": "VTD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:35:02.273185"
+    },
+    {
+      "name": "VTE.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:34:58.593193"
+    },
+    {
+      "name": "VTG.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:34:55.700201"
+    },
+    {
+      "name": "VTH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:34:53.076094"
+    },
+    {
+      "name": "VTI.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:34:50.375127"
+    },
+    {
+      "name": "VTJ.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:34:47.513474"
+    },
+    {
+      "name": "VTK.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T10:34:45.378697"
+    },
+    {
+      "name": "VTL.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:34:43.143050"
+    },
+    {
+      "name": "VTM.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:34:41.031245"
+    },
+    {
+      "name": "VTO.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:34:38.511685"
+    },
+    {
+      "name": "VTP.parquet",
+      "size_mb": 0.03,
+      "modified": "2025-12-26T17:30:08.191750"
+    },
+    {
+      "name": "VTQ.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:34:34.317334"
+    },
+    {
+      "name": "VTR.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:34:32.132975"
+    },
+    {
+      "name": "VTS.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:34:29.791192"
+    },
+    {
+      "name": "VTV.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:34:27.627999"
+    },
+    {
+      "name": "VTX.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:34:25.313344"
+    },
+    {
+      "name": "VTZ.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:34:22.997191"
+    },
+    {
+      "name": "VUA.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:34:20.399201"
+    },
+    {
+      "name": "VVN.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:34:17.769415"
+    },
+    {
+      "name": "VVS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:34:15.741580"
+    },
+    {
+      "name": "VW3.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:34:13.625211"
+    },
+    {
+      "name": "VWS.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:34:11.386879"
+    },
+    {
+      "name": "VXB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:34:08.627145"
+    },
+    {
+      "name": "VXP.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:34:06.054022"
+    },
+    {
+      "name": "VXT.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:34:03.832795"
+    },
+    {
+      "name": "WCS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:34:01.816453"
+    },
+    {
+      "name": "WSB.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:33:59.606198"
+    },
+    {
+      "name": "WSS.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:33:57.224825"
+    },
+    {
+      "name": "WTC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:33:54.990037"
+    },
+    {
+      "name": "X20.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:33:53.184947"
+    },
+    {
+      "name": "X26.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:33:51.333692"
+    },
+    {
+      "name": "X77.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:33:49.463231"
+    },
+    {
+      "name": "XDC.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:33:47.665036"
+    },
+    {
+      "name": "XDH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:33:45.756849"
+    },
+    {
+      "name": "XHC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:33:43.579047"
+    },
+    {
+      "name": "XLV.parquet",
+      "size_mb": 0.01,
+      "modified": "2025-12-26T10:33:41.539534"
+    },
+    {
+      "name": "XMC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:33:39.725483"
+    },
+    {
+      "name": "XMD.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:33:37.845907"
+    },
+    {
+      "name": "XMP.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:33:35.600971"
+    },
+    {
+      "name": "XPH.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:33:33.862441"
+    },
+    {
+      "name": "YBC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:33:31.784636"
+    },
+    {
+      "name": "YBM.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:33:29.820633"
+    },
+    {
+      "name": "YEG.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:33:27.957945"
+    },
+    {
+      "name": "YTC.parquet",
+      "size_mb": 0.02,
+      "modified": "2025-12-26T10:33:26.091816"
+    }
+  ]
+}

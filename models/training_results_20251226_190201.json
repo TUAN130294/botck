@@ -1,0 +1,7 @@
+[
+  {
+    "symbol": "FPT",
+    "status": "failed",
+    "error": "could not convert string to float: 'FPT'"
+  }
+]

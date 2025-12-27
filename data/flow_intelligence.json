@@ -1,0 +1,20 @@
+{
+  "learning_data": {
+    "HPG": {
+      "total_signals": 2,
+      "signal_types": {
+        "VWAP_DEVIATION": 1,
+        "DISTRIBUTION": 1
+      },
+      "avg_confidence": 0.7
+    },
+    "MWG": {
+      "total_signals": 2,
+      "signal_types": {
+        "VWAP_DEVIATION": 2
+      },
+      "avg_confidence": 0.7
+    }
+  },
+  "last_updated": "2025-12-26T11:55:22.729304"
+}

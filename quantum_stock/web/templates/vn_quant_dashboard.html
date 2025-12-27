@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VN-QUANT PRO | AI Command Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+    <style>
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #111827;
+            --bg-card: #1a1f2e;
+            --bg-card-hover: #242937;
+            --border-color: #2a3142;
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent-cyan: #00d4ff;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --accent-pink: #ec4899;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-orange: #f97316;
+            --accent-yellow: #eab308;
+            --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 100%);
+            --gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --gradient-danger: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            --shadow-glow-cyan: 0 0 30px rgba(0, 212, 255, 0.3);
+            --shadow-glow-purple: 0 0 30px rgba(139, 92, 246, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Background effects */
+        .bg-gradient-mesh {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(ellipse at 20% 20%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Top Navigation */
+        .top-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 24px;
+            background: rgba(17, 24, 39, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 14px;
+        }
+
+        .logo-text {
+            font-size: 18px;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-version {
+            font-size: 10px;
+            color: var(--accent-cyan);
+            background: rgba(0, 212, 255, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-link {
+            padding: 8px 16px;
+            border-radius: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+
+        .nav-link.active {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+            color: var(--accent-cyan);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .market-status {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: var(--bg-card);
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 12px;
+        }
+
+        .market-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .market-label {
+            color: var(--text-muted);
+        }
+
+        .market-value {
+            font-weight: 600;
+        }
+
+        .market-value.up {
+            color: var(--accent-green);
+        }
+
+        .market-value.down {
+            color: var(--accent-red);
+        }
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 24px;
+            padding: 24px;
+            position: relative;
+            z-index: 1;
+            max-width: 1920px;
+            margin: 0 auto;
+        }
+
+        /* Left Panel */
+        .left-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* Page Header */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .page-title {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .page-title h1 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .page-subtitle {
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .strategy-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .strategy-badge.adaptive {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+            color: var(--accent-blue);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .filter-dropdown {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 8px 14px;
+            color: var(--text-primary);
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            box-shadow: var(--shadow-glow-cyan);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        .metric-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .metric-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+        }
+
+        .metric-card.sharpe::before {
+            background: var(--gradient-primary);
+        }
+
+        .metric-card.sortino::before {
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+        }
+
+        .metric-card.drawdown::before {
+            background: linear-gradient(90deg, var(--accent-red), var(--accent-pink));
+        }
+
+        .metric-card.alpha::before {
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-cyan));
+        }
+
+        .metric-card.beta::before {
+            background: linear-gradient(90deg, var(--accent-purple), var(--accent-pink));
+        }
+
+        .metric-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .metric-value {
+            font-size: 28px;
+            font-weight: 700;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .metric-value .unit {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .metric-change {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+
+        .metric-change.positive {
+            color: var(--accent-green);
+        }
+
+        .metric-change.negative {
+            color: var(--accent-red);
+        }
+
+        /* Main Charts Row */
+        .charts-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .card-title i {
+            color: var(--accent-cyan);
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .card-btn {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 6px 10px;
+            font-size: 11px;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .card-btn:hover,
+        .card-btn.active {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            border-color: var(--accent-cyan);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        /* Equity Chart */
+        .chart-container {
+            position: relative;
+            height: 280px;
+        }
+
+        /* Live Trade Signals */
+        .signals-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: 320px;
+            overflow-y: auto;
+        }
+
+        .signal-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .signal-item:hover {
+            border-color: var(--border-color);
+            background: var(--bg-card-hover);
+        }
+
+        .signal-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .signal-symbol {
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .signal-type {
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .signal-type.buy {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent-green);
+        }
+
+        .signal-type.sell {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--accent-red);
+        }
+
+        .signal-type.hold {
+            background: rgba(234, 179, 8, 0.15);
+            color: var(--accent-yellow);
+        }
+
+        .signal-price {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .signal-time {
+            color: var(--text-muted);
+            font-size: 11px;
+        }
+
+        /* Footer Widgets Row */
+        .widgets-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 24px;
+        }
+
+        /* Correlation Matrix */
+        .correlation-matrix {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 4px;
+            font-size: 11px;
+        }
+
+        .corr-cell {
+            padding: 8px 4px;
+            text-align: center;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .corr-cell.header {
+            background: var(--bg-secondary);
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .corr-cell.positive-high {
+            background: rgba(16, 185, 129, 0.4);
+            color: white;
+        }
+
+        .corr-cell.positive-med {
+            background: rgba(16, 185, 129, 0.25);
+        }
+
+        .corr-cell.positive-low {
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .corr-cell.negative-high {
+            background: rgba(239, 68, 68, 0.4);
+            color: white;
+        }
+
+        .corr-cell.negative-med {
+            background: rgba(239, 68, 68, 0.25);
+        }
+
+        .corr-cell.negative-low {
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .corr-cell.neutral {
+            background: var(--bg-secondary);
+        }
+
+        /* Factor Exposure */
+        .factor-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .factor-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .factor-label {
+            width: 100px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .factor-bar-container {
+            flex: 1;
+            height: 8px;
+            background: var(--bg-secondary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .factor-bar {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .factor-bar.positive {
+            background: var(--gradient-success);
+        }
+
+        .factor-bar.negative {
+            background: var(--gradient-danger);
+        }
+
+        .factor-value {
+            width: 50px;
+            text-align: right;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Smart Money Flow (Sankey placeholder) */
+        .sankey-placeholder {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+            border-radius: 8px;
+            color: var(--text-muted);
+        }
+
+        /* Right Panel - AI Command Center */
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .ai-command-center {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .ai-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+        }
+
+        .ai-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .ai-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ai-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pulse {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .ai-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .ai-tab {
+            flex: 1;
+            padding: 12px;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .ai-tab:hover {
+            color: var(--text-secondary);
+        }
+
+        .ai-tab.active {
+            color: var(--accent-cyan);
+        }
+
+        .ai-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent-cyan);
+        }
+
+        .ai-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+        }
+
+        /* AI Chat */
+        .ai-chat {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .chat-input-wrapper {
+            display: flex;
+            gap: 8px;
+            padding: 12px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+
+        .chat-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--text-primary);
+            font-size: 13px;
+            padding: 8px 0;
+        }
+
+        .chat-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .chat-send {
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: 8px;
+            padding: 8px 16px;
+            color: white;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .ai-response {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 16px;
+            border-left: 3px solid var(--accent-cyan);
+        }
+
+        .ai-response-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .ai-response-label {
+            font-size: 11px;
+            color: var(--accent-cyan);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .ai-response-text {
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .ai-response-text strong {
+            color: var(--text-primary);
+        }
+
+        .ai-response-text .highlight {
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        .ai-response-text .warning {
+            color: var(--accent-orange);
+        }
+
+        .ai-confidence {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-color);
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .confidence-bar {
+            width: 80px;
+            height: 4px;
+            background: var(--bg-card);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .confidence-fill {
+            height: 100%;
+            background: var(--accent-green);
+            border-radius: 2px;
+        }
+
+        /* AI Insights */
+        .insight-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .insight-card {
+            padding: 16px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            border-left: 3px solid;
+        }
+
+        .insight-card.bullish {
+            border-color: var(--accent-green);
+        }
+
+        .insight-card.bearish {
+            border-color: var(--accent-red);
+        }
+
+        .insight-card.neutral {
+            border-color: var(--accent-yellow);
+        }
+
+        .insight-title {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .insight-text {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Predictions Area */
+        .predictions-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .prediction-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+        }
+
+        .prediction-stock {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .stock-logo {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--bg-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 10px;
+            color: var(--accent-cyan);
+        }
+
+        .stock-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stock-symbol {
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .stock-name {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .prediction-value {
+            text-align: right;
+        }
+
+        .pred-change {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .pred-change.positive {
+            color: var(--accent-green);
+        }
+
+        .pred-change.negative {
+            color: var(--accent-red);
+        }
+
+        .pred-target {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card,
+        .metric-card {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        /* Responsive */
+        @media (max-width: 1400px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .right-panel {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .ai-command-center {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .metrics-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .charts-row {
+                grid-template-columns: 1fr;
+            }
+
+            .widgets-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .widgets-row {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-gradient-mesh"></div>
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="logo">
+            <div class="logo-icon">VQ</div>
+            <span class="logo-text">VN-QUANT</span>
+            <span class="logo-version">PRO</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="#" class="nav-link active">
+                <i class="fas fa-chart-line"></i> Dashboard
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fas fa-brain"></i> AI Insights
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fas fa-flask"></i> Backtest
+            </a>
+            <a href="#" class="nav-link">
+                <i class="fas fa-briefcase"></i> Portfolio
+            </a>
+        </div>
+
+        <div class="nav-actions">
+            <div class="market-status">
+                <div class="market-item">
+                    <span class="market-label">VN30</span>
+                    <span class="market-value up">1,249.15 <i class="fas fa-caret-up"></i> +0.82%</span>
+                </div>
+                <div class="market-item">
+                    <span class="market-label">VNI</span>
+                    <span class="market-value up">1,247.85 <i class="fas fa-caret-up"></i> +0.45%</span>
+                </div>
+            </div>
+            <button class="btn btn-outline">
+                <i class="fas fa-cog"></i>
+            </button>
+            <button class="btn btn-primary">
+                <i class="fas fa-robot"></i> AI
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Left Panel -->
+        <div class="left-panel">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="page-title">
+                    <h1>Market Intelligence: Vietnam Equities</h1>
+                    <span class="page-subtitle">
+                        <span class="strategy-badge adaptive">
+                            <i class="fas fa-magic"></i> Active Strategy: Adaptive Quant-AI Fusion
+                        </span>
+                        | Risk Profile: <strong>Moderate</strong>
+                    </span>
+                </div>
+                <div class="header-actions">
+                    <div class="filter-dropdown">
+                        <i class="fas fa-calendar"></i>
+                        Last 6 Months
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="filter-dropdown">
+                        <i class="fas fa-industry"></i>
+                        Sector: Banking
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-sync"></i> Sync
+                    </button>
+                </div>
+            </div>
+
+            <!-- Metrics Grid -->
+            <div class="metrics-grid">
+                <div class="metric-card sharpe">
+                    <div class="metric-label">Sharpe Ratio</div>
+                    <div class="metric-value">2.45 <span class="unit">+0.20%</span></div>
+                    <div class="metric-change positive">
+                        <i class="fas fa-arrow-up"></i> vs benchmark
+                    </div>
+                </div>
+                <div class="metric-card sortino">
+                    <div class="metric-label">Sortino Ratio</div>
+                    <div class="metric-value">3.12 <span class="unit">+0.08%</span></div>
+                    <div class="metric-change positive">
+                        <i class="fas fa-arrow-up"></i> improving
+                    </div>
+                </div>
+                <div class="metric-card drawdown">
+                    <div class="metric-label">Max Drawdown</div>
+                    <div class="metric-value">-12.4% <span class="unit">+0.25%</span></div>
+                    <div class="metric-change positive">
+                        <i class="fas fa-check"></i> recovering
+                    </div>
+                </div>
+                <div class="metric-card alpha">
+                    <div class="metric-label">Alpha (VS VN30)</div>
+                    <div class="metric-value">5.8% <span class="unit">annl.</span></div>
+                    <div class="metric-change positive">
+                        <i class="fas fa-star"></i> outperforming
+                    </div>
+                </div>
+                <div class="metric-card beta">
+                    <div class="metric-label">Beta</div>
+                    <div class="metric-value">0.85 <span class="unit">low vol</span></div>
+                    <div class="metric-change neutral">
+                        <i class="fas fa-shield-alt"></i> defensive
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Row -->
+            <div class="charts-row">
+                <!-- Equity Curve -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <i class="fas fa-chart-area"></i>
+                            Equity Curve vs Benchmark (VN30)
+                        </div>
+                        <div class="card-actions">
+                            <button class="card-btn active">1M</button>
+                            <button class="card-btn">3M</button>
+                            <button class="card-btn">6M</button>
+                            <button class="card-btn">1Y</button>
+                            <button class="card-btn">ALL</button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="equityChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Trade Signals -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <i class="fas fa-bolt"></i>
+                            Live Trade Signals
+                        </div>
+                        <span style="color: var(--accent-green); font-size: 11px;">ACTIVE</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="signals-list">
+                            <div class="signal-item">
+                                <div class="signal-info">
+                                    <span class="signal-symbol">MBB</span>
+                                    <span class="signal-type buy">BUY</span>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div class="signal-price">45.20</div>
+                                    <div class="signal-time">2m ago</div>
+                                </div>
+                            </div>
+                            <div class="signal-item">
+                                <div class="signal-info">
+                                    <span class="signal-symbol">NVL</span>
+                                    <span class="signal-type sell">SELL</span>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div class="signal-price">14.15</div>
+                                    <div class="signal-time">5m ago</div>
+                                </div>
+                            </div>
+                            <div class="signal-item">
+                                <div class="signal-info">
+                                    <span class="signal-symbol">SSI</span>
+                                    <span class="signal-type hold">HOLD</span>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div class="signal-price">32.88</div>
+                                    <div class="signal-time">8m ago</div>
+                                </div>
+                            </div>
+                            <div class="signal-item">
+                                <div class="signal-info">
+                                    <span class="signal-symbol">VPB</span>
+                                    <span class="signal-type hold">HOLD</span>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div class="signal-price">68.50</div>
+                                    <div class="signal-time">12m ago</div>
+                                </div>
+                            </div>
+                            <div class="signal-item">
+                                <div class="signal-info">
+                                    <span class="signal-symbol">STB</span>
+                                    <span class="signal-type buy">BUY</span>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div class="signal-price">29.10</div>
+                                    <div class="signal-time">15m ago</div>
+                                </div>
+                            </div>
+                            <div class="signal-item">
+                                <div class="signal-info">
+                                    <span class="signal-symbol">DIG</span>
+                                    <span class="signal-type sell">SELL</span>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div class="signal-price">22.40</div>
+                                    <div class="signal-time">20m ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Widgets Row -->
+            <div class="widgets-row">
+                <!-- Correlation Matrix -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <i class="fas fa-th"></i>
+                            Correlation Matrix (VN30)
+                        </div>
+                        <span style="color: var(--text-muted); font-size: 11px;">Last 30 days</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="correlation-matrix">
+                            <div class="corr-cell header"></div>
+                            <div class="corr-cell header">VIC</div>
+                            <div class="corr-cell header">HPG</div>
+                            <div class="corr-cell header">VCB</div>
+                            <div class="corr-cell header">FPT</div>
+                            <div class="corr-cell header">VNM</div>
+
+                            <div class="corr-cell header">VIC</div>
+                            <div class="corr-cell neutral">1.0</div>
+                            <div class="corr-cell positive-med">0.6</div>
+                            <div class="corr-cell positive-high">0.8</div>
+                            <div class="corr-cell positive-low">0.3</div>
+                            <div class="corr-cell positive-med">0.5</div>
+
+                            <div class="corr-cell header">HPG</div>
+                            <div class="corr-cell positive-med">0.6</div>
+                            <div class="corr-cell neutral">1.0</div>
+                            <div class="corr-cell positive-med">0.5</div>
+                            <div class="corr-cell positive-low">0.2</div>
+                            <div class="corr-cell positive-low">0.4</div>
+
+                            <div class="corr-cell header">VCB</div>
+                            <div class="corr-cell positive-high">0.8</div>
+                            <div class="corr-cell positive-med">0.5</div>
+                            <div class="corr-cell neutral">1.0</div>
+                            <div class="corr-cell positive-med">0.6</div>
+                            <div class="corr-cell positive-med">0.7</div>
+
+                            <div class="corr-cell header">FPT</div>
+                            <div class="corr-cell positive-low">0.3</div>
+                            <div class="corr-cell positive-low">0.2</div>
+                            <div class="corr-cell positive-med">0.6</div>
+                            <div class="corr-cell neutral">1.0</div>
+                            <div class="corr-cell positive-low">0.4</div>
+
+                            <div class="corr-cell header">VNM</div>
+                            <div class="corr-cell positive-med">0.5</div>
+                            <div class="corr-cell positive-low">0.4</div>
+                            <div class="corr-cell positive-med">0.7</div>
+                            <div class="corr-cell positive-low">0.4</div>
+                            <div class="corr-cell neutral">1.0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Factor Exposure -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <i class="fas fa-balance-scale"></i>
+                            Factor Exposure
+                        </div>
+                        <span style="color: var(--text-muted); font-size: 11px;">Last rebalance: 3d ago</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="factor-list">
+                            <div class="factor-item">
+                                <span class="factor-label">Momentum</span>
+                                <div class="factor-bar-container">
+                                    <div class="factor-bar positive" style="width: 72%;"></div>
+                                </div>
+                                <span class="factor-value" style="color: var(--accent-green);">+1.2 σ</span>
+                            </div>
+                            <div class="factor-item">
+                                <span class="factor-label">Value</span>
+                                <div class="factor-bar-container">
+                                    <div class="factor-bar positive" style="width: 58%;"></div>
+                                </div>
+                                <span class="factor-value" style="color: var(--accent-green);">+0.4 σ</span>
+                            </div>
+                            <div class="factor-item">
+                                <span class="factor-label">Size (Small Cap)</span>
+                                <div class="factor-bar-container">
+                                    <div class="factor-bar negative" style="width: 32%;"></div>
+                                </div>
+                                <span class="factor-value" style="color: var(--accent-red);">-0.3 σ</span>
+                            </div>
+                            <div class="factor-item">
+                                <span class="factor-label">Volatility</span>
+                                <div class="factor-bar-container">
+                                    <div class="factor-bar negative" style="width: 48%;"></div>
+                                </div>
+                                <span class="factor-value" style="color: var(--accent-red);">-0.8 σ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Smart Money Flow -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <i class="fas fa-water"></i>
+                            Smart Money Flow (Sankey)
+                        </div>
+                        <div class="card-actions">
+                            <button class="card-btn active">Inflow</button>
+                            <button class="card-btn">Outflow</button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="sankey-placeholder">
+                            <div style="text-align: center;">
+                                <i class="fas fa-chart-sankey" style="font-size: 32px; margin-bottom: 8px;"></i>
+                                <div style="font-size: 13px;">Sankey Flow Diagram</div>
+                                <div style="font-size: 11px; margin-top: 4px;">Foreign → Proprietary → Retail</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel - AI Command Center -->
+        <div class="right-panel">
+            <div class="ai-command-center">
+                <div class="ai-header">
+                    <div class="ai-title">
+                        <div class="ai-icon">
+                            <i class="fas fa-brain" style="color: white;"></i>
+                        </div>
+                        <div>
+                            <div style="font-weight: 600; font-size: 14px;">AI Quant Command</div>
+                            <div style="font-size: 11px; color: var(--text-muted);">Conversational AI Quant Analyst
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ai-status">
+                        <div class="pulse"></div>
+                        <span style="font-size: 11px; color: var(--accent-green);">AI Online</span>
+                    </div>
+                </div>
+
+                <div class="ai-tabs">
+                    <button class="ai-tab active">
+                        <i class="fas fa-robot"></i> Beta Hub
+                    </button>
+                    <button class="ai-tab">
+                        <i class="fas fa-comments"></i> AI Command
+                    </button>
+                    <button class="ai-tab">
+                        <i class="fas fa-clock"></i> Strategy Backtest
+                    </button>
+                    <button class="ai-tab">
+                        <i class="fas fa-wallet"></i> Portfolio Manager
+                    </button>
+                </div>
+
+                <div class="ai-content">
+                    <div class="ai-chat">
+                        <!-- Query Input -->
+                        <div class="chat-input-wrapper">
+                            <i class="fas fa-search" style="color: var(--text-muted);"></i>
+                            <input type="text" class="chat-input"
+                                placeholder="Query: Analyze momentum strategy performance..." id="aiQuery">
+                            <button class="chat-send" onclick="processQuery()">
+                                <i class="fas fa-paper-plane"></i> PROCESS QUERY
+                            </button>
+                        </div>
+
+                        <!-- Sample Query Display -->
+                        <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 8px;">
+                            <i class="fas fa-lightbulb" style="color: var(--accent-yellow);"></i>
+                            e.g.: View stocks in VN30 (top PE)
+                        </div>
+
+                        <!-- AI Responses -->
+                        <div class="insight-cards">
+                            <div class="insight-card bullish">
+                                <div class="insight-title">
+                                    <i class="fas fa-chart-line" style="color: var(--accent-green);"></i>
+                                    Momentum Scan: HPG
+                                </div>
+                                <div class="insight-text">
+                                    <strong>HPG (Hoa Phat Group)</strong> exhibits a <span class="highlight">bullish
+                                        divergence</span>. RSI(14) is stabilizing at 42 with MACD histogram crossing
+                                    into positive territory.
+                                </div>
+                            </div>
+
+                            <div class="insight-card bearish">
+                                <div class="insight-title">
+                                    <i class="fas fa-exclamation-triangle" style="color: var(--accent-red);"></i>
+                                    Risk Alert: VNM
+                                </div>
+                                <div class="insight-text">
+                                    <strong class="warning">VNM</strong> shows persistent institutional distribution
+                                    with negative net flow for 3 consecutive sessions. Monitor for potential downside
+                                    pressure.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AI Generated Insights -->
+                        <div style="margin-top: 20px;">
+                            <div
+                                style="font-size: 12px; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                <i class="fas fa-sparkles" style="color: var(--accent-purple);"></i>
+                                AI Generated Insights: VCB, HPG, VNM
+                            </div>
+
+                            <div class="ai-response">
+                                <div class="ai-response-header">
+                                    <i class="fas fa-brain" style="color: var(--accent-cyan);"></i>
+                                    <span class="ai-response-label">Strategy Analysis</span>
+                                </div>
+                                <div class="ai-response-text">
+                                    Based on multi-factor analysis, <strong>VCB</strong> shows the strongest momentum
+                                    with <span class="highlight">+12.4%</span> relative strength vs VN30. Consider
+                                    taking partial profits if RSI exceeds 70.
+                                    <br><br>
+                                    <strong>Key levels:</strong>
+                                    <br>• Support: 89.5 | Resistance: 94.2
+                                    <br>• Stop-loss recommended: 87.0 (-3.5%)
+                                </div>
+                                <div class="ai-confidence">
+                                    <span>Confidence:</span>
+                                    <div class="confidence-bar">
+                                        <div class="confidence-fill" style="width: 82%;"></div>
+                                    </div>
+                                    <span>82%</span>
+                                    <span style="margin-left: auto;">Processed: 2.1s ago</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AI Predicted Top Positions -->
+                        <div style="margin-top: 20px;">
+                            <div
+                                style="font-size: 12px; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                <i class="fas fa-trophy" style="color: var(--accent-yellow);"></i>
+                                AI Predicted Top Positions
+                            </div>
+
+                            <div class="predictions-list">
+                                <div class="prediction-item">
+                                    <div class="prediction-stock">
+                                        <div class="stock-logo">FPT</div>
+                                        <div class="stock-info">
+                                            <span class="stock-symbol">FPT Corp</span>
+                                            <span class="stock-name">Technology</span>
+                                        </div>
+                                    </div>
+                                    <div class="prediction-value">
+                                        <div class="pred-change positive">+12.4%</div>
+                                        <div class="pred-target">Target: 142.5</div>
+                                    </div>
+                                </div>
+                                <div class="prediction-item">
+                                    <div class="prediction-stock">
+                                        <div class="stock-logo">MWG</div>
+                                        <div class="stock-info">
+                                            <span class="stock-symbol">Mobile World</span>
+                                            <span class="stock-name">Retail</span>
+                                        </div>
+                                    </div>
+                                    <div class="prediction-value">
+                                        <div class="pred-change positive">+8.2%</div>
+                                        <div class="pred-target">Target: 68.0</div>
+                                    </div>
+                                </div>
+                                <div class="prediction-item">
+                                    <div class="prediction-stock">
+                                        <div class="stock-logo">VNM</div>
+                                        <div class="stock-info">
+                                            <span class="stock-symbol">Vinamilk</span>
+                                            <span class="stock-name">Consumer Staples</span>
+                                        </div>
+                                    </div>
+                                    <div class="prediction-value">
+                                        <div class="pred-change negative">-1.2%</div>
+                                        <div class="pred-target">Watch</div>
+                                    </div>
+                                </div>
+                            </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <script>
+        // API Configuration
+        const API_BASE = 'http://localhost:8003/api';
+
+        // --- 1. Initialize & Load Chart Data ---
+        async function loadChartData() {
+            try {
+                // Fetch VNINDEX history
+                const response = await fetch(`${API_BASE}/stock/VNINDEX?days=180`);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                
+                const data = await response.json();
+                
+                // Update Market Widgets
+                updateMarketStatus(data.current_price, data.change, data.change_pct);
+
+                const ctx = document.getElementById('equityChart').getContext('2d');
+                const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+                gradient.addColorStop(0, 'rgba(0, 212, 255, 0.2)');
+                gradient.addColorStop(1, 'rgba(0, 212, 255, 0)');
+
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: data.labels,
+                        datasets: [{
+                            label: 'VN-INDEX',
+                            data: data.prices,
+                            borderColor: '#00d4ff',
+                            backgroundColor: gradient,
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.3,
+                            pointRadius: 0,
+                            pointHoverRadius: 5
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        interaction: { intersect: false, mode: 'index' },
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                backgroundColor: '#1a1f2e',
+                                titleColor: '#fff',
+                                bodyColor: '#94a3b8',
+                                borderColor: '#2a3142',
+                                borderWidth: 1,
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.parsed.y.toLocaleString() + ' VND';
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                grid: { display: false },
+                                ticks: { color: '#64748b', maxTicksLimit: 8 }
+                            },
+                            y: {
+                                grid: { color: 'rgba(42, 49, 66, 0.5)' },
+                                ticks: { color: '#64748b' }
+                            }
+                        }
+                    }
+                });
+
+            } catch (error) {
+                console.error('Error loading chart:', error);
+            }
+        }
+
+        function updateMarketStatus(price, change, pct) {
+            const items = document.querySelectorAll('.market-item');
+            if (items.length >= 2) {
+                const vniItem = items[1];
+                const valueSpan = vniItem.querySelector('.market-value');
+                if (valueSpan) {
+                    valueSpan.innerHTML = `${price.toLocaleString()} <span style="font-size:10px">${change > 0 ? '+' : ''}${change.toLocaleString()} (${pct.toFixed(2)}%)</span>`;
+                    valueSpan.className = `market-value ${change >= 0 ? 'up' : 'down'}`;
+                }
+            }
+        }
+
+        // --- 2. Live Market Signals ---
+        async function loadSignals() {
+            try {
+                const response = await fetch(`${API_BASE}/news/alerts`);
+                const data = await response.json();
+                
+                const signalsList = document.querySelector('.signals-list');
+                if (!signalsList) return;
+                
+                signalsList.innerHTML = ''; 
+
+                (data.alerts || []).forEach(alert => {
+                    const sentiment = alert.sentiment || 'neutral';
+                    const typeClass = sentiment === 'bullish' ? 'buy' : (sentiment === 'bearish' ? 'sell' : 'hold');
+                    
+                    let rsiVal = 'N/A';
+                    if (alert.technical_summary && alert.technical_summary.includes('RSI:')) {
+                         rsiVal = alert.technical_summary.split('RSI:')[1].split(',')[0].trim();
+                    }
+
+                    const html = `
+                        <div class="signal-item">
+                            <div class="signal-info">
+                                <span class="signal-symbol">${alert.symbol}</span>
+                                <span class="signal-type ${typeClass}">${alert.recommendation || 'HOLD'}</span>
+                            </div>
+                            <div class="signal-price">
+                                RSI: ${rsiVal}
+                            </div>
+                            <div class="signal-time">
+                                ${new Date(alert.timestamp).toLocaleTimeString()}
+                            </div>
+                        </div>
+                    `;
+                    signalsList.innerHTML += html;
+                });
+            } catch (e) {
+                console.error("Signal load error:", e);
+            }
+        }
+
+        // --- 3. AI Agent Analysis ---
+        async function runAIAnalysis(symbol) {
+            const content = document.querySelector('.ai-content');
+            const chat = content.querySelector('.ai-chat');
+            
+            const loadingId = 'loading-' + Date.now();
+            const loadingHtml = `
+                <div id="${loadingId}" class="ai-response">
+                    <div class="ai-response-header">
+                        <i class="fas fa-circle-notch fa-spin" style="color: var(--accent-cyan);"></i>
+                        <span class="ai-response-label">Agents Thinking...</span>
+                    </div>
+                    <div class="ai-response-text">Analyzing ${symbol} market data...</div>
+                </div>
+            `;
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = loadingHtml;
+            chat.insertBefore(tempDiv, chat.firstChild);
+
+            try {
+                const response = await fetch(`${API_BASE}/agents/analyze`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ symbol: symbol })
+                });
+                const data = await response.json();
+                
+                tempDiv.remove();
+
+                let conversationHtml = '';
+                if (data.messages) {
+                    data.messages.forEach(msg => {
+                        conversationHtml += `
+                            <div class="ai-response" style="border-left-color: ${getAgentColor(msg.sender)}; margin-bottom: 15px;">
+                                <div class="ai-response-header">
+                                    <span style="font-size: 16px;">${msg.emoji}</span>
+                                    <span class="ai-response-label" style="color: ${getAgentColor(msg.sender)}">${msg.sender}</span>
+                                    <span style="margin-left: auto; font-size: 10px; color: #64748b;">${msg.time}</span>
+                                </div>
+                                <div class="ai-response-text" style="white-space: pre-line;">${formatContent(msg.content)}</div>
+                                ${msg.confidence > 0 ? `
+                                <div class="ai-confidence">
+                                    <span>Confidence:</span>
+                                    <div class="confidence-bar">
+                                        <div class="confidence-fill" style="width: ${msg.confidence}%; background: ${getAgentColor(msg.sender)}"></div>
+                                    </div>
+                                    <span>${msg.confidence.toFixed(0)}%</span>
+                                </div>` : ''}
+                            </div>
+                        `;
+                    });
+                }
+
+                const container = document.createElement('div');
+                container.innerHTML = conversationHtml;
+                chat.insertBefore(container, chat.firstChild);
+
+            } catch (e) {
+                const errorDiv = document.getElementById(loadingId);
+                if(errorDiv) errorDiv.innerHTML = `<div style="color: red;">Analysis Failed: ${e.message}</div>`;
+            }
+        }
+
+        function getAgentColor(name) {
+            if(name === 'Chief') return '#ec4899';
+            if(name === 'Bull') return '#10b981';
+            if(name === 'Bear') return '#ef4444';
+            if(name === 'Scout') return '#3b82f6';
+            if(name === 'Alex') return '#8b5cf6';
+            return '#00d4ff';
+        }
+
+        function formatContent(text) {
+            if (!text) return '';
+            return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                       .replace(/•/g, '<br>•');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadChartData();
+            loadSignals();
+            
+            const chatInput = document.getElementById('aiQuery');
+            const sendBtn = document.querySelector('.chat-send');
+            
+            if (chatInput && sendBtn) {
+                const handleSend = () => {
+                    const query = chatInput.value.trim().toUpperCase();
+                    if(!query) return;
+                    
+                    const content = document.querySelector('.ai-content');
+                    const chat = content.querySelector('.ai-chat');
+                    const userMsg = document.createElement('div');
+                    userMsg.className = 'ai-response';
+                    userMsg.style.borderColor = '#8b5cf6';
+                    userMsg.innerHTML = `
+                         <div class="ai-response-header">
+                            <i class="fas fa-user" style="color: #8b5cf6;"></i>
+                            <span class="ai-response-label" style="color: #8b5cf6;">Query</span>
+                        </div>
+                        <div class="ai-response-text">${query}</div>
+                    `;
+                    chat.insertBefore(userMsg, chat.firstChild);
+
+                    if(query.length >= 3 && query.length <= 6) {
+                        runAIAnalysis(query);
+                    }
+                    chatInput.value = '';
+                };
+
+                sendBtn.addEventListener('click', handleSend);
+                chatInput.addEventListener('keydown', (e) => {
+                    if(e.key === 'Enter') handleSend();
+                });
+            }
+            
+            setInterval(loadSignals, 60000);
+        });
+
+        document.querySelectorAll('.ai-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.ai-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

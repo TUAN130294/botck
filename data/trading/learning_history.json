@@ -1,0 +1,38 @@
+[
+  {
+    "timestamp": "2025-12-26T12:05:15.898215",
+    "signals_count": 1324,
+    "sells_count": 0,
+    "buys_count": 5,
+    "equity": 100000000,
+    "return_pct": 0.0,
+    "win_rate": 0
+  },
+  {
+    "timestamp": "2025-12-26T12:06:37.813133",
+    "signals_count": 1324,
+    "sells_count": 0,
+    "buys_count": 5,
+    "equity": 99997630.0,
+    "return_pct": -0.0023699999999959864,
+    "win_rate": 0
+  },
+  {
+    "timestamp": "2025-12-26T12:06:56.028101",
+    "signals_count": 1324,
+    "sells_count": 0,
+    "buys_count": 5,
+    "equity": 100000000,
+    "return_pct": 0.0,
+    "win_rate": 0
+  },
+  {
+    "timestamp": "2025-12-26T12:07:19.483529",
+    "signals_count": 1324,
+    "sells_count": 0,
+    "buys_count": 5,
+    "equity": 100000000,
+    "return_pct": 0.0,
+    "win_rate": 0
+  }
+]
