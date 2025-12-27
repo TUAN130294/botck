@@ -15,7 +15,7 @@ from fastapi import FastAPI, HTTPException, WebSocket
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from typing import Optional, Dict, Any, List
-from datetime import datetime
+from datetime import datetime, timedelta
 import logging
 
 logger = logging.getLogger(__name__)
@@ -501,7 +501,3 @@ def setup_enhanced_api(app: FastAPI, orchestrator):
 
     logger.info("✅ Enhanced API endpoints registered")
     return app
-
-
-# For convenience
-from datetime import timedelta

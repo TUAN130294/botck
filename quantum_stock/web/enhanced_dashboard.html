@@ -278,6 +278,15 @@
             background: #ff5555;
             color: #fff;
         }
+
+        /* Verdict Classes */
+        .verdict-buy { color: #00ff88; }
+        .verdict-sell { color: #ff5555; }
+        .verdict-hold { color: #ffaa00; }
+
+        /* P&L Classes */
+        .pnl-positive { color: #00ff88; }
+        .pnl-negative { color: #ff5555; }
     </style>
 </head>
 <body>
@@ -624,9 +633,58 @@
         }
 
         function handleDiscussion(data) {
-            // Handle agent discussion (same as before)
             const conversations = document.getElementById('conversations');
-            // ... existing code ...
+            let html = `<div class="message discussion" style="border-left-color: #00aaff;">`;
+            html += `<div class="timestamp">${new Date(data.timestamp).toLocaleTimeString()}</div>`;
+            html += `<div style="margin: 10px 0; font-size: 1.2em;"><strong>📊 ${data.symbol}</strong> - ${data.source} PATHWAY</div>`;
+
+            // Show agent messages with colored cards
+            if (data.messages) {
+                for (const msg of data.messages) {
+                    const agentName = msg.agent_name || msg.agent || 'Unknown';
+                    const agentEmoji = msg.agent_emoji || '🤖';
+
+                    // Color coding for each agent
+                    let bgColor = 'rgba(0,255,136,0.08)';
+                    let borderColor = '#00ff88';
+                    if (agentName === 'Bull') {
+                        bgColor = 'rgba(0,200,255,0.08)';
+                        borderColor = '#00c8ff';
+                    } else if (agentName === 'Bear') {
+                        bgColor = 'rgba(255,100,100,0.08)';
+                        borderColor = '#ff6464';
+                    } else if (agentName === 'Chief') {
+                        bgColor = 'rgba(255,200,0,0.08)';
+                        borderColor = '#ffc800';
+                    } else if (agentName === 'RiskDoctor') {
+                        bgColor = 'rgba(150,100,255,0.08)';
+                        borderColor = '#9664ff';
+                    }
+
+                    html += `<div style="margin: 12px 0; padding: 12px; background: ${bgColor}; border-left: 4px solid ${borderColor}; border-radius: 6px;">`;
+                    html += `<div style="font-weight: bold; color: ${borderColor}; margin-bottom: 8px; font-size: 1.05em;">${agentEmoji} ${agentName}</div>`;
+
+                    const rawContent = msg.content || msg.message || '';
+                    const content = rawContent.split('\\n').join('<br>');
+                    html += `<div style="color: #ddd; line-height: 1.6; white-space: pre-wrap;">${content}</div>`;
+                    html += `</div>`;
+                }
+            }
+
+            // Show verdict
+            if (data.verdict) {
+                const verdictClass = data.verdict.action === 'BUY' ? 'verdict-buy' :
+                                   data.verdict.action === 'SELL' ? 'verdict-sell' : 'verdict-hold';
+                html += `<div style="margin-top: 15px; padding: 15px; background: rgba(0,255,136,0.15); border: 2px solid #00ff88; border-radius: 8px; text-align: center;">`;
+                html += `<div style="font-size: 1.3em;"><strong class="${verdictClass}">⚖️ VERDICT: ${data.verdict.action}</strong></div>`;
+                if (data.verdict.confidence) {
+                    html += `<div style="margin-top: 5px; color: #aaa;">Confidence: ${(data.verdict.confidence * 100).toFixed(0)}%</div>`;
+                }
+                html += `</div>`;
+            }
+
+            html += `</div>`;
+            conversations.innerHTML = html + conversations.innerHTML;
         }
 
         function updateStats(data) {
@@ -741,11 +799,113 @@
             }
         }
 
+        async function updatePositionsDisplay() {
+            try {
+                const resp = await fetch('/api/positions');
+                const data = await resp.json();
+
+                const container = document.getElementById('positions');
+
+                if (!data.positions || data.positions.length === 0) {
+                    container.innerHTML = '<div style="text-align: center; color: #666; padding: 20px;">No positions yet</div>';
+                    return;
+                }
+
+                let html = '';
+                for (const pos of data.positions) {
+                    const pnl = pos.unrealized_pnl || 0;
+                    const pnlClass = pnl >= 0 ? 'pnl-positive' : 'pnl-negative';
+                    const pnlSign = pnl >= 0 ? '+' : '';
+
+                    html += `
+                        <div class="position" style="background: rgba(255,255,255,0.05); padding: 15px; margin-bottom: 10px; border-radius: 5px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <div style="font-size: 1.3em; font-weight: bold; color: #00ff88;">${pos.symbol}</div>
+                                <div class="${pnlClass}" style="font-size: 1.2em; font-weight: bold;">
+                                    ${pnlSign}${pnl.toLocaleString()} VND
+                                </div>
+                            </div>
+                            <div style="font-size: 0.9em; color: #aaa;">
+                                Qty: ${pos.quantity.toLocaleString()} @ ${pos.avg_price.toLocaleString()} VND<br>
+                                Current: ${pos.current_price ? pos.current_price.toLocaleString() : 'N/A'} VND<br>
+                                Market Value: ${pos.market_value ? pos.market_value.toLocaleString() : 'N/A'} VND
+                            </div>
+                        </div>
+                    `;
+                }
+
+                container.innerHTML = html;
+
+            } catch (error) {
+                console.error('Error updating positions:', error);
+            }
+        }
+
+        async function updateTradesDisplay() {
+            try {
+                const resp = await fetch('/api/trades');
+                const data = await resp.json();
+
+                const container = document.getElementById('trades');
+
+                if (!data.trades || data.trades.length === 0) {
+                    container.innerHTML = '<div style="text-align: center; color: #666; padding: 20px;">No trades yet</div>';
+                    return;
+                }
+
+                let html = '<table style="width: 100%; font-size: 0.85em;">';
+                html += '<tr style="background: rgba(0,255,136,0.1); font-weight: bold;">';
+                html += '<th style="padding: 8px; text-align: left;">Time</th>';
+                html += '<th style="text-align: left;">Symbol</th>';
+                html += '<th style="text-align: left;">Action</th>';
+                html += '<th style="text-align: right;">Qty</th>';
+                html += '<th style="text-align: right;">Price</th>';
+                html += '<th style="text-align: right;">P&L</th>';
+                html += '</tr>';
+
+                for (const trade of data.trades.slice(0, 20)) { // Show last 20 trades
+                    const time = new Date(trade.timestamp || trade.date).toLocaleString('vi-VN', {
+                        month: '2-digit',
+                        day: '2-digit',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    });
+                    const actionColor = trade.action === 'BUY' ? '#00ff88' : '#ff5555';
+                    const pnl = trade.pnl || 0;
+                    const pnlColor = pnl >= 0 ? '#00ff88' : '#ff5555';
+                    const pnlSign = pnl >= 0 ? '+' : '';
+
+                    html += '<tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">';
+                    html += `<td style="padding: 8px;">${time}</td>`;
+                    html += `<td><strong>${trade.symbol}</strong></td>`;
+                    html += `<td style="color: ${actionColor}; font-weight: bold;">${trade.action || trade.side}</td>`;
+                    html += `<td style="text-align: right;">${trade.quantity.toLocaleString()}</td>`;
+                    html += `<td style="text-align: right;">${trade.price.toLocaleString()}</td>`;
+                    html += `<td style="text-align: right; color: ${pnlColor};">${pnlSign}${pnl.toLocaleString()}</td>`;
+                    html += '</tr>';
+                }
+
+                html += '</table>';
+                container.innerHTML = html;
+
+            } catch (error) {
+                console.error('Error updating trades:', error);
+            }
+        }
+
         // Initial load
         updateAllStats();
         updateAgentPerformance();
         updateCircuitBreaker();
         updatePendingApprovals();
+        updatePositionsDisplay();
+        updateTradesDisplay();
+
+        // Update positions and trades every 10 seconds
+        setInterval(async () => {
+            await updatePositionsDisplay();
+            await updateTradesDisplay();
+        }, 10000);
 
         console.log('✅ Enhanced Dashboard ready!');
     </script>
