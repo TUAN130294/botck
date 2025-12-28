@@ -337,23 +337,29 @@ class AutonomousOrchestrator:
             # 3. Agent discussion
             logger.info(f"🤖 Starting agent discussion for {symbol}...")
 
-            # TEMPORARY: Use mock discussion to bypass blocking agents
-            discussion = await self._mock_agent_discussion(symbol, stock_data, agent_context)
-            self.stats['agent_discussions'] += 1
+            # Try real agents first, fallback to mock if fails
+            use_real_agents = os.getenv('USE_REAL_AGENTS', 'false').lower() == 'true'
 
-            # TODO: Fix agent blocking issue and use real agents:
-            # try:
-            #     discussion = await asyncio.wait_for(
-            #         self.agent_coordinator.analyze_stock(stock_data, agent_context),
-            #         timeout=30.0
-            #     )
-            #     self.stats['agent_discussions'] += 1
-            # except asyncio.TimeoutError:
-            #     logger.error(f"Agent discussion timed out for {symbol}")
-            #     return
-            # except Exception as e:
-            #     logger.error(f"Agent discussion failed for {symbol}: {e}", exc_info=True)
-            #     return
+            if use_real_agents:
+                try:
+                    discussion = await asyncio.wait_for(
+                        self.agent_coordinator.analyze_stock(stock_data, agent_context),
+                        timeout=30.0
+                    )
+                    self.stats['agent_discussions'] += 1
+                    logger.info(f"✅ Real agent discussion completed for {symbol}")
+                except asyncio.TimeoutError:
+                    logger.warning(f"Agent discussion timed out for {symbol}, using mock")
+                    discussion = await self._mock_agent_discussion(symbol, stock_data, agent_context)
+                    self.stats['agent_discussions'] += 1
+                except Exception as e:
+                    logger.warning(f"Agent discussion failed for {symbol}: {e}, using mock")
+                    discussion = await self._mock_agent_discussion(symbol, stock_data, agent_context)
+                    self.stats['agent_discussions'] += 1
+            else:
+                # Use enhanced mock discussion (Vietnamese, detailed)
+                discussion = await self._mock_agent_discussion(symbol, stock_data, agent_context)
+                self.stats['agent_discussions'] += 1
 
             # 4. Log conversation
             await self._log_discussion(discussion)

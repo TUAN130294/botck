@@ -118,18 +118,35 @@ class NewsAlertScanner:
         self.on_alert_callbacks.append(callback)
 
     async def start(self):
-        """Start 24/7 news monitoring"""
+        """
+        Start 24/7 news monitoring
+
+        Logic: Scan xong → nghỉ min_interval → scan tiếp
+        (Không overlap)
+        """
         self.is_running = True
+        self.min_rest_interval = 30  # Nghỉ tối thiểu 30s giữa các đợt (news cần nhanh hơn)
+
         logger.info(
             f"News alert scanner started (24/7 mode)\n"
-            f"  - Scan interval: {self.scan_interval}s\n"
-            f"  - Min alert level: {self.min_alert_level}"
+            f"  - Mode: Sequential (scan xong mới scan tiếp)\n"
+            f"  - Min rest between scans: {self.min_rest_interval}s\n"
+            f"  - Min alert level: {self.min_alert_level}\n"
+            f"  - Sources: VietStock RSS (4 feeds)"
         )
 
         while self.is_running:
             try:
+                scan_start = datetime.now()
+
+                # Scan news (blocking until complete)
                 await self.scan_all_news()
-                await asyncio.sleep(self.scan_interval)
+
+                scan_duration = (datetime.now() - scan_start).total_seconds()
+                logger.debug(f"News scan completed in {scan_duration:.1f}s")
+
+                # Rest before next scan
+                await asyncio.sleep(self.min_rest_interval)
 
             except Exception as e:
                 logger.error(f"News scanner error: {e}")
@@ -174,31 +191,93 @@ class NewsAlertScanner:
 
     async def _fetch_news_from_sources(self) -> List[NewsAlert]:
         """
-        Fetch news from multiple sources
+        Fetch news from real RSS sources (CafeF, VietStock, VnExpress)
 
-        TODO: Implement real news fetching:
-        - RSS feeds
-        - News APIs
-        - Web scraping
-
-        For MVP: Mock data
+        Uses VNStockNewsFetcher to get live news with stock filtering
         """
-        # Mock implementation - replace with real news fetching
-        # This is just a placeholder
+        alerts = []
 
-        # Check if there are any mock news files
-        mock_news_dir = Path("data/mock_news")
-        if not mock_news_dir.exists():
-            return []
+        try:
+            # Import the real RSS fetcher
+            from quantum_stock.news.rss_news_fetcher import get_news_fetcher
 
-        # In production, this would:
-        # 1. Fetch from RSS feeds
-        # 2. Call news APIs
-        # 3. Parse HTML from financial news sites
-        # 4. Analyze sentiment
-        # 5. Create NewsAlert objects
+            fetcher = get_news_fetcher()
 
-        return []
+            # Fetch latest news (limit to 20 for performance)
+            news_items = fetcher.fetch_all_feeds(max_items=20)
+
+            logger.info(f"📰 Fetched {len(news_items)} news items from RSS feeds")
+
+            for item in news_items:
+                try:
+                    # Convert to NewsAlert format
+                    symbol = item.get('symbol', 'VNINDEX')
+
+                    # Get sentiment score (RSS fetcher returns 0-1, we need -1 to 1)
+                    news_sentiment = item.get('news_sentiment', 0.5)
+                    sentiment = (news_sentiment - 0.5) * 2  # Convert to -1 to 1 scale
+
+                    sentiment_confidence = item.get('confidence', 0.5)
+
+                    # Check for critical keywords
+                    headline = item.get('headline', '')
+                    has_critical = any(kw in headline.lower() for kw in self.critical_keywords)
+
+                    # Determine alert level
+                    alert_level = self._determine_alert_level(
+                        sentiment, sentiment_confidence, has_critical
+                    )
+
+                    # Determine action
+                    if sentiment > 0.3:
+                        suggested_action = "BUY"
+                    elif sentiment < -0.3:
+                        suggested_action = "SELL"
+                    else:
+                        suggested_action = "HOLD"
+
+                    # Create rationale
+                    rationale = []
+                    if sentiment > 0:
+                        rationale.append(f"Tin tích cực: {item.get('recommendation', '')}")
+                    else:
+                        rationale.append(f"Tin tiêu cực: {item.get('recommendation', '')}")
+                    rationale.append(f"Nguồn: {item.get('source', 'Unknown')}")
+                    rationale.append(f"Độ tin cậy: {sentiment_confidence*100:.0f}%")
+
+                    # Parse timestamp
+                    try:
+                        timestamp = datetime.fromisoformat(item.get('timestamp', ''))
+                    except:
+                        timestamp = datetime.now()
+
+                    alert = NewsAlert(
+                        symbol=symbol,
+                        timestamp=timestamp,
+                        headline=headline,
+                        summary=item.get('summary', headline),
+                        source=item.get('source', 'RSS'),
+                        url=item.get('url'),
+                        sentiment=sentiment,
+                        sentiment_confidence=sentiment_confidence,
+                        alert_level=alert_level,
+                        urgency_score=0.9 if alert_level == 'CRITICAL' else 0.7 if alert_level == 'HIGH' else 0.5,
+                        suggested_action=suggested_action,
+                        rationale=rationale
+                    )
+
+                    alerts.append(alert)
+
+                except Exception as e:
+                    logger.warning(f"Error parsing news item: {e}")
+                    continue
+
+        except ImportError as e:
+            logger.warning(f"RSS fetcher not available: {e}")
+        except Exception as e:
+            logger.error(f"Error fetching news: {e}")
+
+        return alerts
 
     def _analyze_sentiment(self, text: str) -> tuple[float, float]:
         """

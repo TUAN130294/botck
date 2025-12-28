@@ -131,28 +131,44 @@ class ModelPredictionScanner:
         self.on_opportunity_callbacks.append(callback)
 
     async def start(self):
-        """Start continuous scanning"""
+        """
+        Start continuous scanning
+
+        Logic: Scan xong đợt này → nghỉ min_interval → scan tiếp
+        (Không overlap, không dùng fixed interval)
+        """
         self.is_running = True
+        self.min_rest_interval = 60  # Nghỉ tối thiểu 60s giữa các đợt
+
         logger.info(
             f"Model prediction scanner started\n"
-            f"  - Scan interval: {self.scan_interval}s\n"
+            f"  - Mode: Sequential (scan xong mới scan tiếp)\n"
+            f"  - Min rest between scans: {self.min_rest_interval}s\n"
             f"  - Min return: {self.min_return*100}%\n"
             f"  - Min confidence: {self.min_confidence}\n"
-            f"  - Priority stocks: {len(self.passed_stocks)}"
+            f"  - Total models: ~131 stocks"
         )
 
         while self.is_running:
             try:
                 # Check market hours (9:00-15:00)
                 if self._is_market_open():
-                    await self.scan_all_stocks()
-                else:
-                    logger.info("Market closed, waiting...")
-                    await asyncio.sleep(300)  # Check every 5 min
-                    continue
+                    scan_start = datetime.now()
 
-                # Wait before next scan
-                await asyncio.sleep(self.scan_interval)
+                    # Scan all stocks (blocking until complete)
+                    await self.scan_all_stocks()
+
+                    scan_duration = (datetime.now() - scan_start).total_seconds()
+                    logger.info(f"⏱️ Scan completed in {scan_duration:.1f}s")
+
+                    # Rest before next scan (minimum rest period)
+                    rest_time = max(self.min_rest_interval, 60)
+                    logger.info(f"💤 Resting {rest_time}s before next scan...")
+                    await asyncio.sleep(rest_time)
+
+                else:
+                    logger.info("Market closed, waiting 5 minutes...")
+                    await asyncio.sleep(300)
 
             except Exception as e:
                 logger.error(f"Scanner error: {e}")
@@ -164,7 +180,18 @@ class ModelPredictionScanner:
         logger.info("Model prediction scanner stopped")
 
     def _is_market_open(self) -> bool:
-        """Check if VN market is open (9:00-15:00 weekdays)"""
+        """
+        Check if VN market is open (9:00-15:00 weekdays)
+
+        Set BYPASS_MARKET_HOURS=true to run 24/7 for testing
+        """
+        import os
+
+        # Bypass for testing/paper trading
+        if os.getenv('BYPASS_MARKET_HOURS', 'false').lower() == 'true':
+            logger.debug("Market hours bypassed for testing")
+            return True
+
         now = datetime.now()
 
         # Weekend
